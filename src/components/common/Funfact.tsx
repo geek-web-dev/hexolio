@@ -2,8 +2,8 @@ import { cn } from "@/lib/utils";
 import { bgMap, colorMap, ColorType } from "@/shared";
 import { LucideIcon } from "lucide-react";
 
-import styles from "../../app/styles.module.css";
 import { SmallHexagon } from "./HexagonBG";
+import styles from "../../app/styles.module.css";
 const { hexagon } = styles;
 
 const Funfact = ({

@@ -18,7 +18,7 @@ export const services = [
   {
     service: "Responsive Design",
     description:
-      "I create responsive web designs that ensure your website looks and functions beautifully across all devices and screen sizes. Using modern techniques and frameworks, I tailor designs to provide an optimal user experience on desktops, tablets, and mobile phones.",
+      "I create responsive web designs that ensure your website looks and functions beautifully across all devices and screen sizes. Using modern techniques and frameworks, I tailor designs to provide an optimal user experience on secreens",
     Icon: WandSparkles,
     color: "teal",
     price: 10,
@@ -27,7 +27,7 @@ export const services = [
   {
     service: "API Integaration",
     description:
-      "I seamlessly integrate third-party APIs into your web applications to enhance functionality and streamline processes. Whether you need payment gateways, social media integration, or data from external services, I ensure smooth and secure connections that meet your requirements.",
+      "I seamlessly integrate third-party APIs into your web applications to enhance functionality and streamline processes. Whether you need payment gateways, social media integration, or data from external services.",
     Icon: Workflow,
     color: "orange",
     price: 25,
@@ -45,7 +45,7 @@ export const services = [
   {
     service: "Fix Bugs",
     description:
-      "I troubleshoot and resolve issues in your web applications to ensure they run smoothly and reliably. Whether it's a minor glitch or a major functionality problem, I diagnose and fix bugs promptly to enhance performance and user satisfaction.",
+      "I troubleshoot and resolve issues in your web applications to ensure they run smoothly and reliably. Whether it's a minor glitch or a major functionality problem, I diagnose and fix bugs promptly to enhance performance.",
     Icon: Bug,
     color: "red",
     price: 75,
@@ -54,7 +54,7 @@ export const services = [
   {
     service: "Performance Optimization",
     description:
-      "I analyze and optimize your website or application to improve load times, responsiveness, and overall performance. By employing best practices and leveraging tools and techniques, I ensure your site delivers a fast and seamless user experience.",
+      "I analyze and optimize your website or application to improve load times, responsiveness, and overall performance. By employing best practices and leveraging tools & techniques, I ensure your site delivers a fast and user experience.",
     Icon: Rocket,
     color: "yellow",
     price: 55,
@@ -81,7 +81,7 @@ export const services = [
   {
     service: "Business Intelligence",
     description:
-      "I develop and implement business intelligence solutions to help you make data-driven decisions. Using advanced analytics and reporting tools, I transform your data into valuable insights, enabling you to understand trends, track performance, and drive strategic initiatives.",
+      "I develop and implement business intelligence solutions to help you make data-driven decisions. Using advanced analytics and reporting tools, I transform your data into valuable insights, enabling you to understand trends.",
     Icon: BrainCircuit,
     color: "green",
     price: 32,

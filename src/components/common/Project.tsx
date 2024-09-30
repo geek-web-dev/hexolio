@@ -59,10 +59,10 @@ const Project = ({
 
         <div className="absolute left-4 top-4 w-0 group-hover:w-[calc(100%-2rem)] h-[calc(50%-1rem)] bg-white/90 dark:bg-black/90 backdrop-blur-sm duration-1000 overflow-hidden rounded-t-sm shadow-md ease-in-out z-[5]">
           <div className="m-4 text-nowrap">
-            <h3 className="font-semibold text-2xl text-[--pure-text]">
+            <h3 className="font-semibold sm:text-2xl text-[--pure-text]">
               {title}
             </h3>
-            <h4 className="text-xl text-[--main]">{genre}</h4>
+            <h4 className="sm:text-xl text-[--main]">{genre}</h4>
           </div>
         </div>
 

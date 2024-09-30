@@ -10,7 +10,7 @@ const SectionTitle = ({
   description: string;
 }) => {
   return (
-    <div className="text-3xl mb-8 flex items-center flex-wrap gap-4">
+    <div className="text-4xl mb-8 flex items-center flex-wrap gap-4">
       <h1 className="text-[--pure-text] uppercase tracking-wider font-[900] first-letter:text-4xl opacity-75 first-letter:text-[--main]">
         {title}
       </h1>

@@ -12,7 +12,7 @@ const { hexagon } = styles;
 const SocialLinks = () => {
   const { cursorFocus, cursorDefault } = useCursorContext();
   return (
-    <div className="flex gap-1 py-2 rounded-l-sm ml-2">
+    <div className="flex flex-wrap gap-2 rounded-l-sm ml-2 mt-2">
       {social_links.map((item, i) => (
         <Link
           key={i}

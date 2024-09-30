@@ -43,7 +43,7 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
         )}
       >
         <div className="grid">
-          <div className="space-y-2">
+          <div className="space-y-4">
             <div className="relative w-full h-auto aspect-video overflow-hidden rounded-sm border border-[--line-color]">
               <Image
                 src={image}

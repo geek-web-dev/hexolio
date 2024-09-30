@@ -9,7 +9,7 @@ const Clients = () => {
   return (
     <div
       className={cn("space-y-4", slider)}
-      style={{ animationDuration: `${clients.length * 4}s` }}
+      style={{ animationDuration: `${clients.length * 6}s` }}
     >
       {clients.map((item, i) => (
         <div

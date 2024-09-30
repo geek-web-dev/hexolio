@@ -40,7 +40,7 @@ export const Hexagon = ({ className }: { className?: string }) => {
             <SmallHexagon className="w-[30px] h-[30px]">
               <SmallHexagon className="w-[15px] h-[15px]">
                 <SmallHexagon className="w-[7.5px] h-[7.5px]">
-                  <SmallHexagon className="w-[3.25px] h-[3.25px]"></SmallHexagon>
+                  <SmallHexagon className="w-[3.25px] h-[3.25px]" />
                 </SmallHexagon>
               </SmallHexagon>
             </SmallHexagon>
@@ -55,33 +55,40 @@ const HexagonBG = ({ className }: { className?: string }) => {
   return (
     <div className={cn(className, "fixed left-0 top-0 w-full h-full z-0")}>
       {/* level 1 */}
-      <Hexagon className="right-[361px] top-[-182px] !opacity-65" />
+      <Hexagon className="right-[361px] top-[-182px]" />
       <Hexagon className="right-[120px] top-[-182px]" />
       <Hexagon className="right-[-120px] top-[-182px] !opacity-65" />
 
       {/* level 2 */}
-      <Hexagon className="right-[482px] top-[-1px] " />
+      <Hexagon className="right-[482px] top-[-1px] !opacity-65" />
       <Hexagon className="right-[241px] top-[-1px]" />
       <Hexagon className="right-0 top-[-1px]" />
 
       {/* level 3 */}
-      <Hexagon className="right-[602px] top-[181px] !opacity-65" />
-      <Hexagon className="right-[361px] top-[181px]" />
+      <Hexagon className="right-[602px] top-[180px] !opacity-85" />
+      <Hexagon className="right-[361px] top-[180px]" />
       <Hexagon className="right-[120px] top-[180px] !opacity-65" />
       <Hexagon className="right-[-121px] top-[180px]" />
 
       {/* level 4 */}
-      <Hexagon className="right-[722px] top-[362px] " />
-      <Hexagon className="right-[481px] top-[362px]" />
-      <Hexagon className="right-[240px] top-[362px]" />
+      <Hexagon className="right-[722px] top-[361px] !opacity-65" />
+      <Hexagon className="right-[481px] top-[361px]" />
+      <Hexagon className="right-[240px] top-[361px]" />
       <Hexagon className="right-[-1px] top-[361px]" />
 
       {/* level 5 */}
-      <Hexagon className="right-[842px] bottom-[-54px] !opacity-65" />
-      <Hexagon className="right-[601px] bottom-[-54px]" />
-      <Hexagon className="right-[360px] bottom-[-54px] !opacity-65" />
-      <Hexagon className="right-[119px] bottom-[-53px]" />
-      <Hexagon className="right-[-122px] bottom-[-53px] !opacity-75" />
+      <Hexagon className="right-[842px] top-[542px]" />
+      <Hexagon className="right-[601px] top-[542px]" />
+      <Hexagon className="right-[360px] top-[542px] !opacity-65" />
+      <Hexagon className="right-[119px] top-[542px]" />
+      <Hexagon className="right-[-122px] top-[542px] !opacity-75" />
+
+      {/* level 6 */}
+      <Hexagon className="right-[962px] top-[723px]" />
+      <Hexagon className="right-[722px] top-[723px]" />
+      <Hexagon className="right-[481px] top-[723px]" />
+      <Hexagon className="right-[240px] top-[723px]" />
+      <Hexagon className="right-[-1px] top-[723px]" />
 
       {/* Sparkles */}
       <Sparkle className="absolute text-[--main] bottom-8 left-8" size={12} />

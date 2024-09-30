@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --main: #14b8a6;
+    --main: #84cc16;
 
-    --background: #f6f6f6;
+    --background: #f7f7f7;
     --pure-background: #fff;
     --pure-text: #000;
     --line-color: #eee;
@@ -17,10 +17,10 @@
   }
 
   .dark {
-    --background: #0b0b0b;
+    --background: #0a0a0a;
     --pure-background: #000;
     --pure-text: #fff;
-    --line-color: #161616;
+    --line-color: #0f0f0f;
     --paragraph: #999;
   }
 }
@@ -40,6 +40,11 @@
 .customCursor {
   clip-path: polygon(0 100%, 0 0, 77% 64%, 29% 62%);
   transition: width 0.3s, height 0.3s, transform 0.05s;
+}
+@media (max-width: 450px) {
+  .customCursor {
+    display: none;
+  }
 }
 
 .spinner {

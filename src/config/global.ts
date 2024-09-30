@@ -13,7 +13,7 @@ import {
 // "blue" | "green" | "red" | "yellow" | "orange" | "pink" | "purple" | "cyan" | "teal" | "lime" | "fuchsia" | "black"
 
 // ==================[ Default main color ]================== //
-export const main_color = "teal";
+export const main_color = "lime";
 //
 
 // Available Social media icons
@@ -32,5 +32,7 @@ export const social_links = [
   { Icon: instagram, link: "#", color: "fuchsia" },
 
   { Icon: upwork, link: "#", color: "green" },
+
+  { Icon: youtube, link: "#", color: "red" },
 ];
 //

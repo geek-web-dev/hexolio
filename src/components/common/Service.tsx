@@ -26,11 +26,11 @@ const ServiceIcon = ({
   return (
     <div
       className={cn(
-        "rounded-sm w-14 h-14 flex items-center justify-center relative",
+        "rounded-sm w-16 h-16 flex items-center justify-center relative",
         isFrontFace ? bg75Map[color] : pureBgMap[color]
       )}
     >
-      <Icon size={28} strokeWidth={1.25} className="text-white" />
+      <Icon size={32} strokeWidth={1.25} className="text-white" />
     </div>
   );
 };
@@ -49,24 +49,24 @@ const Service = ({
         iconWrapParent
       )}
     >
-      <div className="flex gap-2 items-end">
-        <div className={cn("w-14 h-14", iconWrap)}>
+      <div className="flex gap-4 items-end">
+        <div className={cn("w-16 h-16", iconWrap)}>
           <div className={cn("relative", icon)}>
             <div className={cn(front, hexagon, face)}>
               <ServiceIcon Icon={Icon} color={color} isFrontFace={true} />
               <SmallHexagon className="w-12 h-12">
-                <SmallHexagon className="w-10 h-10"></SmallHexagon>
+                <SmallHexagon className="w-8 h-8"></SmallHexagon>
               </SmallHexagon>
             </div>
             <div className={cn(back, hexagon, face)}>
               <ServiceIcon Icon={Icon} color={color} isFrontFace={false} />
               <SmallHexagon className="w-12 h-12">
-                <SmallHexagon className="w-10 h-10"></SmallHexagon>
+                <SmallHexagon className="w-8 h-8"></SmallHexagon>
               </SmallHexagon>
             </div>
           </div>
         </div>
-        <div className="font-[500]">
+        <div className="font-[500] space-y-1">
           <span className={cn("tracking-widest", colorMap[color])}>
             ${price}/hour
           </span>
@@ -75,7 +75,7 @@ const Service = ({
           </h2>
         </div>
       </div>
-      <p className="mt-2 text">{description}</p>
+      <p className="mt-4 text">{description}</p>
     </div>
   );
 };

@@ -10,8 +10,6 @@ import { app_info } from "@/config/app";
 import { Analytics } from "@vercel/analytics/react";
 import ProjectCardView from "@/components/common/ProjectCardView";
 import { ProjectContextProvider } from "@/context/ProjectContext";
-import { Suspense } from "react";
-import PageLoader from "@/components/common/PageLoader";
 
 const font = Raleway({
   subsets: ["latin"],
@@ -42,23 +40,21 @@ export default function RootLayout({
           "overflow-x-hidden bg-[--background] relative"
         )}
       >
-        <Suspense fallback={<PageLoader />}>
-          <ProjectContextProvider>
-            <CursorContextProvider>
-              <ThemeButton />
+        <ProjectContextProvider>
+          <CursorContextProvider>
+            <ThemeButton />
 
-              <ColorsPalette />
+            <ColorsPalette />
 
-              <ProjectCardView />
+            <ProjectCardView />
 
-              <NavLinks />
+            <NavLinks />
 
-              {children}
-            </CursorContextProvider>
+            {children}
+          </CursorContextProvider>
 
-            <Analytics />
-          </ProjectContextProvider>
-        </Suspense>
+          <Analytics />
+        </ProjectContextProvider>
       </body>
     </html>
   );

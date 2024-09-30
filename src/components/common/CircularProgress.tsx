@@ -14,7 +14,7 @@ const CircularProgress = ({
   value,
   color,
   size = 122,
-  pathWidth = 6,
+  pathWidth = 8,
 }: CircularProgressProps) => {
   if (size > 140) size = 140;
   else if (size < 100) size = 100;

@@ -8,10 +8,10 @@ const Projects = () => {
     <section id="projects">
       <MaxWidthWrapper>
         <SectionTitle
-          title="working"
+          title="projects"
           description="My working gallery & projects portfolio"
         />
-        <div className="grid xl:grid-cols-2 mt-4 gap-4 rounded-sm">
+        <div className="grid lg:grid-cols-2 mt-4 gap-4 rounded-sm">
           {projects.map((item, i) => (
             <Project
               key={i}

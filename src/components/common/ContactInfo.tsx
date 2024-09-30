@@ -1,5 +1,9 @@
-import { colorMap, ColorType } from "@/shared";
+import { bgMap, colorMap, ColorType } from "@/shared";
 import { LucideIcon } from "lucide-react";
+
+import styles from "../../app/styles.module.css";
+import { cn } from "@/lib/utils";
+const { hexagon } = styles;
 
 type ContactInfoProp = {
   title: string;
@@ -11,7 +15,21 @@ type ContactInfoProp = {
 const ContactInfo = ({ title, Icon, info, color }: ContactInfoProp) => {
   return (
     <div className="p-6 flex flex-col items-center justify-center space-y-4 bg-[--pure-background] rounded-sm border border-[--line-color]">
-      <Icon size={38} strokeWidth={0.75} className={colorMap[color]} />
+      <div
+        className={cn(
+          hexagon,
+          bgMap[color],
+          "w-16 h-16 flex justify-center items-center relative"
+        )}
+      >
+        <Icon size={32} strokeWidth={0.75} className={colorMap[color]} />
+        <div
+          className={cn(
+            "absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] w-10 h-10 rounded-full blur-md",
+            bgMap[color]
+          )}
+        />
+      </div>
       <h3 className="tracking-wider dark:text-white">{title}</h3>
       <p>{info}</p>
     </div>
