@@ -3,6 +3,10 @@ import { personal_data } from "@/config/home";
 import CircularBackground from "../common/CircularBackground";
 import HebtagonBG from "../common/HexagonBG";
 import SocialLinks from "../common/SocialLinks";
+import { cn } from "@/lib/utils";
+
+import styles from "../../app/styles.module.css";
+const { outlinedText, outlinedPureText } = styles;
 
 const Home = () => {
   return (
@@ -16,7 +20,7 @@ const Home = () => {
         src={personal_data.image}
         alt="Hero"
         className="absolute bottom-0 right-[0] h-[105%] w-auto object-cover z-[1]"
-        loading="eager"
+        loading="lazy"
       />
       {/* using img in this case is better than using Image/next */}
 
@@ -27,13 +31,23 @@ const Home = () => {
           className="font-black uppercase"
           style={{ wordBreak: "break-word" }}
         >
-          <h1 className="text-5xl outlined-pure-text text-[--main] ml-1">
+          <h1 className={cn(outlinedPureText, "text-5xl text-[--main] ml-1")}>
             {personal_data.name}
           </h1>
-          <h1 className="outlined-pure-text text-[--pure-text] xl:text-[8rem] xl:leading-[8rem] md:text-[6rem] md:leading-[6rem] text-[3rem] leading-[3rem]">
+          <h1
+            className={cn(
+              outlinedPureText,
+              "text-[--pure-text] xl:text-[8rem] xl:leading-[8rem] md:text-[6rem] md:leading-[6rem] text-[3rem] leading-[3rem]"
+            )}
+          >
             {personal_data.job.part1}
           </h1>
-          <h1 className="outlined-text text-[--pure-background] xl:text-[12rem] xl:leading-[12rem] md:text-[8rem] md:leading-[8rem] text-[4rem] leading-[4rem]">
+          <h1
+            className={cn(
+              outlinedText,
+              "text-[--pure-background] xl:text-[12rem] xl:leading-[12rem] md:text-[8rem] md:leading-[8rem] text-[4rem] leading-[4rem]"
+            )}
+          >
             {personal_data.job.part2}
           </h1>
         </div>

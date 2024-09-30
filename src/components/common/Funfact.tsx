@@ -26,7 +26,7 @@ const Funfact = ({
           bgMap[color]
         )}
       >
-        <Icon strokeWidth={1} size={32} className={colorMap[color]} />
+        <Icon strokeWidth={1} size={28} className={colorMap[color]} />
         <SmallHexagon className="w-12 h-12 bg-white opacity-[0.25]"></SmallHexagon>
       </div>
       <div className="ml-2">

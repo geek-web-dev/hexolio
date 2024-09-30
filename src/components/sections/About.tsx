@@ -41,6 +41,7 @@ const About = () => {
               <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-40 group">
                 <Image
                   className="object-cover"
+                  loading="lazy"
                   src={about_image}
                   alt={"me"}
                   fill
@@ -149,7 +150,7 @@ const About = () => {
             >
               <div
                 className={cn(
-                  "h-36 overflow-hidden flex flex-col gap-4 rounded-sm",
+                  "h-36 overflow-hidden flex flex-col gap-4 px-4 rounded-sm bg-[--background]",
                   sliderContainer
                 )}
               >

@@ -14,7 +14,7 @@ const Clients = () => {
       {clients.map((item, i) => (
         <div
           key={i}
-          className="space-y-2 rounded-sm  border border-[--line-color] p-4"
+          className="space-y-2 rounded-sm p-4 bg-[--pure-background]"
         >
           <p className="italic">
             {"“"}

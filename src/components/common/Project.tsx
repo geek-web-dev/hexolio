@@ -67,7 +67,7 @@ const Project = ({
         </div>
 
         <div className="absolute left-4 bottom-4 w-0 group-hover:w-[calc(100%-2rem)] h-[calc(50%-1rem)] bg-white/90 dark:bg-black/90 backdrop-blur-sm duration-2000 overflow-hidden rounded-b-sm shadow-md ease-in-out z-[5]">
-          <div className="flex gap-2 m-4">
+          <div className="flex gap-2 mx-4 sm:my-4 my-0">
             <div
               className="rounded-full p-4 text-[--main] w-14 h-14 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border border-[--main]"
               onClick={openProject}

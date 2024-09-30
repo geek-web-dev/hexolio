@@ -55,7 +55,7 @@ const HexagonBG = ({ className }: { className?: string }) => {
   return (
     <div className={cn(className, "fixed left-0 top-0 w-full h-full z-0")}>
       {/* level 1 */}
-      <Hexagon className="right-[361px] top-[-182px]" />
+      <Hexagon className="right-[361px] top-[-182px] !opacity-60" />
       <Hexagon className="right-[120px] top-[-182px]" />
       <Hexagon className="right-[-120px] top-[-182px] !opacity-65" />
 
@@ -77,7 +77,7 @@ const HexagonBG = ({ className }: { className?: string }) => {
       <Hexagon className="right-[-1px] top-[361px]" />
 
       {/* level 5 */}
-      <Hexagon className="right-[842px] top-[542px]" />
+      <Hexagon className="right-[842px] top-[542px] !opacity-60" />
       <Hexagon className="right-[601px] top-[542px]" />
       <Hexagon className="right-[360px] top-[542px] !opacity-65" />
       <Hexagon className="right-[119px] top-[542px]" />

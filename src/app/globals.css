@@ -95,23 +95,3 @@ html.dark a.active svg {
   color: black;
 }
 /* =============== Rules =============== */
-
-/*
-=
-=
-=
-=
-*/
-
-/* =============== Outlined text =============== */
-.outlined-text {
-  text-shadow: 1px 1px 0 var(--pure-text), -1px 1px 0 var(--pure-text),
-    1px -1px 0 var(--pure-text), -1px -1px 0 var(--pure-text);
-}
-
-.outlined-pure-text {
-  text-shadow: 1px 1px 0 var(--pure-background),
-    -1px 1px 0 var(--pure-background), 1px -1px 0 var(--pure-background),
-    -1px -1px 0 var(--pure-background);
-}
-/* =============== Outlined text =============== */
