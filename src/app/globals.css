@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --main: #14b8a6;
+
+    --background: #f6f6f6;
+    --pure-background: #fff;
+    --pure-text: #000;
+    --line-color: #eee;
+    --paragraph: #666666;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+  }
+
+  .dark {
+    --background: #0b0b0b;
+    --pure-background: #000;
+    --pure-text: #fff;
+    --line-color: #161616;
+    --paragraph: #999;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+* {
+  cursor: none !important;
+}
+.customCursor {
+  clip-path: polygon(0 100%, 0 0, 77% 64%, 29% 62%);
+  transition: width 0.3s, height 0.3s, transform 0.05s;
+}
+
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* =============== Rules =============== */
+html {
+  scroll-behavior: smooth;
+}
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+section {
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--background);
+  padding-bottom: 160px;
+  z-index: 20;
+}
+
+p {
+  color: var(--paragraph);
+}
+
+a.active svg {
+  color: white;
+}
+html.dark a.active svg {
+  color: black;
+}
+/* =============== Rules =============== */
+
+/*
+=
+=
+=
+=
+*/
+
+/* =============== Outlined text =============== */
+.outlined-text {
+  text-shadow: 1px 1px 0 var(--pure-text), -1px 1px 0 var(--pure-text),
+    1px -1px 0 var(--pure-text), -1px -1px 0 var(--pure-text);
+}
+
+.outlined-pure-text {
+  text-shadow: 1px 1px 0 var(--pure-background),
+    -1px 1px 0 var(--pure-background), 1px -1px 0 var(--pure-background),
+    -1px -1px 0 var(--pure-background);
+}
+/* =============== Outlined text =============== */
