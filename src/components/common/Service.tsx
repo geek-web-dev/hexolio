@@ -1,15 +1,16 @@
 import { cn } from "@/lib/utils";
-import { bg75Map, colorMap, ColorType, pureBgMap } from "@/shared";
+import { colorMap, ColorType, pureBgMap } from "@/shared";
 import { LucideIcon } from "lucide-react";
 
 import styles from "../../app/styles.module.css";
-import { SmallHexagon } from "./HexagonBG";
+import Image from "next/image";
 const { iconWrapParent, iconWrap, icon, face, front, back, hexagon } = styles;
 
 type ServiceProps = {
   service: string;
   description: string;
   Icon: LucideIcon;
+  image: string;
   color: ColorType;
   price: number;
 };
@@ -27,10 +28,11 @@ const ServiceIcon = ({
     <div
       className={cn(
         "rounded-sm w-16 h-16 flex items-center justify-center relative",
-        isFrontFace ? bg75Map[color] : pureBgMap[color]
+        isFrontFace ? "bg-[--background]" : pureBgMap[color],
+        isFrontFace ? colorMap[color] : "text-white"
       )}
     >
-      <Icon size={32} strokeWidth={1.25} className="text-white" />
+      <Icon size={32} strokeWidth={1.25} className="text-inherit" />
     </div>
   );
 };
@@ -39,33 +41,46 @@ const Service = ({
   service,
   description,
   Icon,
+  image,
   color,
   price,
 }: ServiceProps) => {
   return (
     <div
       className={cn(
-        "group bg-[--pure-background] p-4 rounded-sm border border-[--line-color] hover:shadow-md duration-500 dark:shadow-white/5 transition-shadow",
+        "group bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-500 dark:shadow-white/5 transition-shadow",
         iconWrapParent
       )}
     >
-      <div className="flex gap-4 items-end">
-        <div className={cn("w-16 h-16", iconWrap)}>
+      <div className="relative aspect-video">
+        <Image
+          src={image}
+          alt={service}
+          fill
+          sizes=""
+          loading="lazy"
+          // onLoad={() => setIsLoading(false)}
+          className={cn(
+            // isLoading ? "opacity-0" : "opacity-100",
+            // "transition-opacity duration-500",
+            "object-cover"
+          )}
+          // style={{ transitionDuration: `${duration}ms` }}
+        />
+        <div className="absolute left-0 top-0 bg-black/15 size-full group-hover:bg-black/0 duration-1000" />
+        <div className={cn("size-16 absolute right-4 -bottom-8", iconWrap)}>
           <div className={cn("relative", icon)}>
             <div className={cn(front, hexagon, face)}>
               <ServiceIcon Icon={Icon} color={color} isFrontFace={true} />
-              <SmallHexagon className="w-12 h-12">
-                <SmallHexagon className="w-8 h-8"></SmallHexagon>
-              </SmallHexagon>
             </div>
             <div className={cn(back, hexagon, face)}>
               <ServiceIcon Icon={Icon} color={color} isFrontFace={false} />
-              <SmallHexagon className="w-12 h-12">
-                <SmallHexagon className="w-8 h-8"></SmallHexagon>
-              </SmallHexagon>
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="p-4">
         <div className="font-[500] space-y-1">
           <span className={cn("tracking-widest", colorMap[color])}>
             ${price}/hour
@@ -74,8 +89,8 @@ const Service = ({
             {service}
           </h2>
         </div>
+        <p className="mt-4 text">{description}</p>
       </div>
-      <p className="mt-4 text">{description}</p>
     </div>
   );
 };

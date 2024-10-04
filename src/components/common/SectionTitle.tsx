@@ -10,12 +10,16 @@ const SectionTitle = ({
   description: string;
 }) => {
   return (
-    <div className="text-4xl mb-8 flex items-center flex-wrap gap-4">
-      <h1 className="text-[--pure-text] uppercase tracking-wider font-[900] first-letter:text-4xl opacity-75 first-letter:text-[--main]">
+    <div className="mb-12 flex items-center flex-wrap gap-4">
+      <h1 className="text-4xl text-[--pure-text] uppercase tracking-wider font-[900] first-letter:text-4xl opacity-75 first-letter:text-[--main]">
         {title}
       </h1>
-      <span className={cn(hexagon, "w-4 h-4 bg-[--main] block")} />
-      <p className="text-[--paragraph] opacity-50 capitalize font-bold">
+      <span className={cn(hexagon, "size-3 bg-[--main] block")} />
+      <span
+        className={cn(hexagon, "size-3 bg-[--pure-text] block opacity-75")}
+      />
+      <span className={cn(hexagon, "size-3 bg-[--main] block")} />
+      <p className="text-2xl text-[--paragraph] opacity-50 capitalize font-bold">
         {description}
       </p>
     </div>

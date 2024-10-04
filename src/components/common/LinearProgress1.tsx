@@ -1,3 +1,4 @@
+"use client";
 import { bgMap, colorMap, ColorType, pureBgMap } from "../../shared";
 import { cn } from "../../lib/utils";
 

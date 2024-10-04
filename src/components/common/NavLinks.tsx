@@ -46,7 +46,7 @@ const NavLinks = () => {
               {item.name}
               <div
                 className={cn(
-                  "absolute border-[4px] border-transparent border-t-black dark:border-t-white left-[50%] translate-x-[-50%] -bottom-3 translate-y-[-50%]"
+                  "absolute border-[4px] border-transparent border-t-[#222] dark:border-t-[#ddd] left-[50%] translate-x-[-50%] -bottom-3 translate-y-[-50%]"
                 )}
               ></div>
             </div>

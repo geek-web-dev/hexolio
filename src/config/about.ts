@@ -64,7 +64,7 @@ export const tools = [
 
   { name: "wordpress", image: "/images/tools/wordpress.png" },
 
-  { name: "vs", image: "/images/tools/vs.png" },
+  { name: "docker", image: "/images/tools/docker.png" },
 ];
 //
 

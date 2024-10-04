@@ -17,7 +17,7 @@ export const SmallHexagon = ({
       className={cn(
         hexagon,
         className,
-        "bg-white/15 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+        "bg-white/10 group-hover:bg-white/25 duration-300 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       )}
     >
       {children}
@@ -31,7 +31,7 @@ export const Hexagon = ({ className }: { className?: string }) => {
       className={cn(
         hexagon,
         className,
-        "w-60 h-60 bg-[--main] absolute opacity-50"
+        "w-60 h-60 bg-[--main] absolute opacity-50 group hover:opacity-75 duration-1000"
       )}
     >
       <SmallHexagon className="w-[180px] h-[180px]">

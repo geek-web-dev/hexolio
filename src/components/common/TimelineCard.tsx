@@ -16,7 +16,7 @@ const TimelineCard = ({
 }: TimelineCardProps) => {
   return (
     <div className="p-4 border border-[--line-color] rounded-sm relative z-40 bg-[--pure-background] hover:shadow-md duration-500 dark:shadow-white/5 transition-shadow">
-      <div className="bg-[--main] rounded-r-sm w-fit px-2 py-0.5 text-sm text-white font-[500] flex items-center gap-2">
+      <div className="bg-[--paragraph] rounded-r-sm w-fit px-2 py-0.5 text-sm text-white font-[500] flex items-center gap-2">
         <span>{from}</span>
         <div className="w-4 bg-white/50 h-px" />
         <span>{to}</span>

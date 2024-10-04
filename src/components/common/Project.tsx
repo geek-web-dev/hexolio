@@ -41,7 +41,7 @@ const Project = ({
         "duration-300"
       )}
     >
-      <div className="relative w-[calc(100%-1rem)] h-[calc(100%-1rem)] aspect-video overflow-hidden rounded-sm">
+      <div className="relative aspect-video overflow-hidden w-[calc(100%-1rem)] h-[calc(100%-1rem)] rounded-sm">
         <Image
           src={image}
           alt={title}
@@ -56,6 +56,8 @@ const Project = ({
           )}
           style={{ transitionDuration: `${duration}ms` }}
         />
+
+        <div className="absolute left-0 top-0 bg-black/25 size-full" />
 
         <div className="absolute left-4 top-4 w-0 group-hover:w-[calc(100%-2rem)] h-[calc(50%-1rem)] bg-white/90 dark:bg-black/90 backdrop-blur-sm duration-1000 overflow-hidden rounded-t-sm shadow-md ease-in-out z-[5]">
           <div className="m-4 text-nowrap">

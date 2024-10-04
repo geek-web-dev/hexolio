@@ -17,10 +17,10 @@
   }
 
   .dark {
-    --background: #0a0a0a;
+    --background: #0f0f0f;
     --pure-background: #000;
     --pure-text: #fff;
-    --line-color: #0f0f0f;
+    --line-color: #141414;
     --paragraph: #999;
   }
 }
@@ -71,6 +71,7 @@
 html {
   scroll-behavior: smooth;
 }
+
 img {
   user-select: none;
   pointer-events: none;
@@ -91,7 +92,12 @@ p {
 a.active svg {
   color: white;
 }
+
 html.dark a.active svg {
   color: black;
+}
+
+li {
+  list-style: none;
 }
 /* =============== Rules =============== */

@@ -1,8 +1,6 @@
 import { cn } from "@/lib/utils";
 import { bgMap, colorMap, ColorType } from "@/shared";
 import { LucideIcon } from "lucide-react";
-
-import { SmallHexagon } from "./HexagonBG";
 import styles from "../../app/styles.module.css";
 const { hexagon } = styles;
 
@@ -27,7 +25,12 @@ const Funfact = ({
         )}
       >
         <Icon strokeWidth={1} size={28} className={colorMap[color]} />
-        <SmallHexagon className="w-12 h-12 bg-white opacity-[0.25]"></SmallHexagon>
+        <div
+          className={cn(
+            "absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] size-10 rounded-full blur-md",
+            bgMap[color]
+          )}
+        />
       </div>
       <div className="ml-2">
         <span className={cn("text-xl font-[600]", colorMap[color])}>

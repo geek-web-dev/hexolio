@@ -19,13 +19,13 @@ const ContactInfo = ({ title, Icon, info, color }: ContactInfoProp) => {
         className={cn(
           hexagon,
           bgMap[color],
-          "w-16 h-16 flex justify-center items-center relative"
+          "size-16 flex justify-center items-center relative"
         )}
       >
         <Icon size={32} strokeWidth={0.75} className={colorMap[color]} />
         <div
           className={cn(
-            "absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] w-10 h-10 rounded-full blur-md",
+            "absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] size-10 rounded-full blur-md",
             bgMap[color]
           )}
         />

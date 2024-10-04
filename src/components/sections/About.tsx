@@ -180,7 +180,7 @@ const About = () => {
               <div className="space-y-4">
                 {goals.map((item, i) => (
                   <li key={i} className="text-[--pure-text]">
-                    <span className="font-[500]">{item.goal}</span>
+                    <span className="font-[500]">💎 {item.goal}</span>
                     <span className="text-[--paragraph] ml-2">
                       {item.description}
                     </span>
