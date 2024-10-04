@@ -172,7 +172,7 @@ const Contact = () => {
                   <FormSuccess message={success} />
                   <Button
                     type="submit"
-                    className="min-w-40 h-12 group "
+                    className="min-w-40 h-12 group bg-[--main]"
                     disabled={isPending}
                     onMouseEnter={cursorFocus}
                     onMouseLeave={cursorDefault}

@@ -1,7 +1,7 @@
 "use client";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { useState } from "react";
+import { useInView } from "react-intersection-observer";
 
 const Tool = ({
   name,
@@ -12,23 +12,29 @@ const Tool = ({
   image: string;
   duration: number;
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { ref: toolRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
   return (
-    <div className="flex flex-col items-center justify-center border border-[--line-color] rounded-sm p-4">
-      <Image
-        src={image}
-        width={38}
-        height={38}
-        alt={name}
-        loading="lazy"
-        onLoad={() => setIsLoading(false)}
-        className={cn(
-          isLoading ? "opacity-0" : "opacity-100",
-          "transition-opacity"
-        )}
-        style={{ transitionDuration: `${duration}ms` }}
-      />
-      <span className="text-[--pure-text] text-[11px] uppercase mt-2 tracking-widest font-[600] opacity-75 bg-[--pure-background] px-2 rounded-sm text-center">
+    <div
+      className="flex flex-col items-center justify-center rounded-sm p-4 border border-[--line-color]"
+      ref={toolRef}
+    >
+      <div className="relative z-0">
+        <Image
+          src={image}
+          width={38}
+          height={38}
+          alt={name}
+          loading="lazy"
+          className={cn(
+            animate ? "opacity-100" : "opacity-0",
+            "transition-opacity z-[10]"
+          )}
+          style={{ transitionDuration: `${duration}ms` }}
+        />
+      </div>
+      <span className="text-[--pure-text] text-[11px] uppercase mt-2 tracking-widest font-[600] opacity-75 px-2 rounded-sm text-center">
         {name}
       </span>
     </div>

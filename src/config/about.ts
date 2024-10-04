@@ -84,7 +84,7 @@ export const skills = [
 
 // ==================[ Languages ]================== //
 export const languages = [
-  { language: "English", percent: 98, color: "orange" },
+  { language: "English", percent: 96, color: "orange" },
 
   { language: "Arabic", percent: 90, color: "teal" },
 

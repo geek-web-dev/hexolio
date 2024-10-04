@@ -1,3 +1,4 @@
+"use client";
 import { services } from "@/config/services";
 import Service from "../common/Service";
 import { ColorType } from "@/shared";

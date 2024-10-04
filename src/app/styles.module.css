@@ -116,3 +116,19 @@
     -1px -1px 0 var(--pure-background);
 }
 /* =============== Outlined text =============== */
+
+/*
+=
+=
+=
+=
+*/
+
+/* =============== Helper calsses =============== */
+.centeredAbsolute {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+/* =============== Helper calsses =============== */

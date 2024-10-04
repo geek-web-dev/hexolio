@@ -31,16 +31,16 @@ export const Hexagon = ({ className }: { className?: string }) => {
       className={cn(
         hexagon,
         className,
-        "w-60 h-60 bg-[--main] absolute opacity-50 group hover:opacity-75 duration-1000"
+        "size-60 bg-[--main] absolute opacity-50 group hover:opacity-75 duration-1000"
       )}
     >
-      <SmallHexagon className="w-[180px] h-[180px]">
-        <SmallHexagon className="w-[120px] h-[120px]">
-          <SmallHexagon className="w-[60px] h-[60px]">
-            <SmallHexagon className="w-[30px] h-[30px]">
-              <SmallHexagon className="w-[15px] h-[15px]">
-                <SmallHexagon className="w-[7.5px] h-[7.5px]">
-                  <SmallHexagon className="w-[3.25px] h-[3.25px]" />
+      <SmallHexagon className="size-[180px]">
+        <SmallHexagon className="size-[120px]">
+          <SmallHexagon className="size-[60px]">
+            <SmallHexagon className="size-[30px]">
+              <SmallHexagon className="size-[15px]">
+                <SmallHexagon className="size-[7.5px]">
+                  <SmallHexagon className="size-[3.25px]" />
                 </SmallHexagon>
               </SmallHexagon>
             </SmallHexagon>

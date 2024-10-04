@@ -1,9 +1,11 @@
 import { cn } from "@/lib/utils";
-import { colorMap, ColorType, pureBgMap } from "@/shared";
+import { bgMap, colorMap, ColorType, pureBgMap } from "@/shared";
 import { LucideIcon } from "lucide-react";
 
-import styles from "../../app/styles.module.css";
 import Image from "next/image";
+import { useInView } from "react-intersection-observer";
+
+import styles from "../../app/styles.module.css";
 const { iconWrapParent, iconWrap, icon, face, front, back, hexagon } = styles;
 
 type ServiceProps = {
@@ -45,12 +47,16 @@ const Service = ({
   color,
   price,
 }: ServiceProps) => {
+  const { ref: serviceRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
   return (
     <div
       className={cn(
-        "group bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-500 dark:shadow-white/5 transition-shadow",
+        "group bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-500 dark:shadow-white/5 transition-shadow overflow-hidden z-0",
         iconWrapParent
       )}
+      ref={serviceRef}
     >
       <div className="relative aspect-video">
         <Image
@@ -59,16 +65,20 @@ const Service = ({
           fill
           sizes=""
           loading="lazy"
-          // onLoad={() => setIsLoading(false)}
           className={cn(
-            // isLoading ? "opacity-0" : "opacity-100",
-            // "transition-opacity duration-500",
+            animate ? "opacity-100" : "opacity-0",
+            "transition-opacity duration-1000",
             "object-cover"
           )}
-          // style={{ transitionDuration: `${duration}ms` }}
         />
         <div className="absolute left-0 top-0 bg-black/15 size-full group-hover:bg-black/0 duration-1000" />
-        <div className={cn("size-16 absolute right-4 -bottom-8", iconWrap)}>
+        <div
+          className={cn(
+            "size-16 absolute right-4 -bottom-8 duration-2000 ease-in-out z-[1]",
+            animate ? "translate-x-0" : "translate-x-[100%]",
+            iconWrap
+          )}
+        >
           <div className={cn("relative", icon)}>
             <div className={cn(front, hexagon, face)}>
               <ServiceIcon Icon={Icon} color={color} isFrontFace={true} />
@@ -78,6 +88,12 @@ const Service = ({
             </div>
           </div>
         </div>
+        <div
+          className={cn(
+            "absolute bottom-[-2px] left-[50%] translate-x-[-50%] h-[2px] duration-1000 z-[0] w-[0%] group-hover:w-[100%]",
+            pureBgMap[color]
+          )}
+        />
       </div>
 
       <div className="p-4">

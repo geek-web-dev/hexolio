@@ -1,4 +1,4 @@
-"use server";
+"use client";
 import { personal_data } from "@/config/home";
 import AboutCard from "../common/AboutCard";
 import {
@@ -15,11 +15,13 @@ import {
   tools,
   what_i_offer,
 } from "@/config/about";
+import { useState } from "react";
 import Tool from "../common/Tool";
 import Funfact from "../common/Funfact";
 import { ColorType } from "@/shared";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Link as LinkScroll } from "react-scroll";
 import HeroButton from "../common/HeroButton";
 import Image from "next/image";
 import Clients from "../common/Clients";
@@ -29,9 +31,11 @@ import LinearProgress1 from "../common/LinearProgress1";
 import CircularProgress from "../common/CircularProgress";
 import { Hexagon } from "../common/HexagonBG";
 import MaxWidthWrapper from "../common/MaxWidthWrapper";
+import { FileSearch, Mail } from "lucide-react";
 const { sliderContainer, dotAvilability } = styles;
 
 const About = () => {
+  const [loading, setLoading] = useState(true);
   return (
     <section id="about">
       <MaxWidthWrapper>
@@ -40,8 +44,12 @@ const About = () => {
             <div className="relative overflow-hidden group z-50">
               <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-40 group">
                 <Image
-                  className="object-cover"
+                  className={cn(
+                    "object-cover duration-300",
+                    loading ? "opacity-0" : "opacity-100"
+                  )}
                   loading="lazy"
+                  onLoad={() => setLoading(false)}
                   src={about_image}
                   alt={"me"}
                   fill
@@ -94,8 +102,11 @@ const About = () => {
             <AboutCard title="About Me" className="col-span-2">
               <p className="mb-4">{about_me}</p>
               <Link download={cv.file_type} href={cv.source}>
-                <HeroButton text="Show Cv" />
+                <HeroButton text="Show CV" Icon={FileSearch} />
               </Link>
+              <LinkScroll to="contact" className="ml-4">
+                <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
+              </LinkScroll>
             </AboutCard>
 
             <AboutCard title="What I Offer" className="col-span-2">
