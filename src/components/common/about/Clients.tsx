@@ -2,7 +2,7 @@ import { clients } from "@/config/about";
 import StarRating from "./StarRating";
 import { cn } from "@/lib/utils";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 const { slider } = styles;
 
 const Clients = () => {

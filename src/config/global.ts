@@ -9,30 +9,101 @@ import {
   faDribbble as dribble,
 } from "@fortawesome/free-brands-svg-icons";
 
-// Available Colors
-// "blue" | "green" | "red" | "yellow" | "orange" | "pink" | "purple" | "cyan" | "teal" | "lime" | "fuchsia" | "black"
+/*
+  Available Colors
+  |
+  1 - "blue"
+  2 - "green"
+  3 - "red"
+  4 - "yellow"
+  5 - "orange"
+  6 - "pink"
+  7 - "purple"
+  8 - "cyan"
+  9 - "teal"
+  10 - "lime"
+  11 - "fuchsia"
+  12 - "black"
+*/
 
 // ==================[ Default main color ]================== //
-export const main_color = "lime";
+export const main_color = "fuchsia";
 //
 
-// Available Social media icons
-// facebook | github | linkedin | instagram | youtube | upwork | x | dribble
+// ==================[ true is dark theme by default and false is light theme by default ]================== //
+export const is_dark_theme = true;
+//
 
 // ==================[ Social Links ]================== //
+
+/*
+  Available Social media icons
+  |
+  1 - facebook
+  2 - github
+  3 - linkedin
+  4 - instagram
+  5 - youtube
+  6 - upwork
+  7 - dribble
+  8 - x
+*/
+
 export const social_links = [
-  { Icon: dribble, link: "#", color: "pink" },
+  // 1
+  {
+    Icon: dribble,
+    link: "#",
+    color: "pink",
+  },
 
-  { Icon: github, link: "#", color: "black" },
+  // 2
+  {
+    Icon: github,
+    link: "#",
+    color: "black",
+  },
 
-  { Icon: linkedin, link: "#", color: "blue" },
+  // 3
+  {
+    Icon: linkedin,
+    link: "#",
+    color: "blue",
+  },
 
-  { Icon: x, link: "#", color: "black" },
+  // 4
+  {
+    Icon: x,
+    link: "#",
+    color: "black",
+  },
 
-  { Icon: instagram, link: "#", color: "fuchsia" },
+  // 5
+  {
+    Icon: instagram,
+    link: "#",
+    color: "fuchsia",
+  },
 
-  { Icon: upwork, link: "#", color: "green" },
+  // 6
+  {
+    Icon: facebook,
+    link: "#",
+    color: "blue",
+  },
 
-  { Icon: youtube, link: "#", color: "red" },
+  // 7
+  {
+    Icon: upwork,
+    link: "#",
+    color: "green",
+  },
+
+  // 8
+  {
+    Icon: youtube,
+    link: "#",
+    color: "red",
+  },
 ];
 //

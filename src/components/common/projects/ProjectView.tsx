@@ -4,9 +4,10 @@ import { cn } from "@/lib/utils";
 import { ExternalLink, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
-import styles from "../../app/styles.module.css";
 import { useProjectContext } from "@/context/ProjectContext";
+import CloseButton from "../global/CloseButton";
+import styles from "@/app/styles.module.css";
+import Overlay from "../global/Overlay";
 const { showAnimation } = styles;
 
 const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
@@ -17,27 +18,16 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
 
   return (
     <>
-      <div
-        className={cn(
-          "fixed right-1.5 top-5 w-8 h-8 z-[90] bg-[--main] rounded-sm flex items-center justify-center text-white",
-          showAnimation,
-          "hover:!opacity-75"
-        )}
-        onClick={() => setIsOpenProject(false)}
-      >
-        <X />
-      </div>
+      <Overlay handler={() => setIsOpenProject(false)} />
 
-      <div
-        className={cn(
-          "fixed bg-black/75 backdrop-blur-sm left-0 top-0 w-full h-full z-[80]",
-          showAnimation
-        )}
+      <CloseButton
+        className="right-1 top-1"
+        handler={() => setIsOpenProject(false)}
       />
 
       <div
         className={cn(
-          "fixed z-[85] bg-[--pure-background] overflow-y-auto overflow-x-hidden rounded-sm w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
+          "fixed z-[41] bg-[--pure-background] overflow-y-auto overflow-x-hidden rounded-sm w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
           "scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999] scrollbar-thin scrollbar-track-transparent border border-[--line-color] p-4",
           showAnimation
         )}
@@ -49,7 +39,7 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 src={image}
                 alt={title}
                 fill
-                sizes=""
+                sizes="99vw"
                 loading="lazy"
                 className="object-cover"
                 onClick={() => setIsOpenProject(true)}
@@ -62,7 +52,7 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 </h1>
                 <h3 className="text-3xl text-[--main]">{genre}</h3>
               </div>
-              <Link href={link}>
+              <Link href={link} target="_blank">
                 <ExternalLink
                   size={42}
                   strokeWidth={1}

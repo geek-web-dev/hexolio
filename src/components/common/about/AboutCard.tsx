@@ -13,7 +13,7 @@ const AboutCard = ({
   return (
     <div
       className={cn(
-        "rounded-sm border border-[--line-color] bg-[--pure-background] p-4 relative",
+        "rounded-sm bg-[--pure-background] p-4 relative",
         className
       )}
     >

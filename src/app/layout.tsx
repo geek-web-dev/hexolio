@@ -2,14 +2,17 @@ import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import ThemeButton from "@/components/common/ThemeButton";
-import NavLinks from "@/components/common/NavLinks";
-import ColorsPalette from "@/components/common/ColorsPalette";
+import ThemeButton from "@/components/common/global/ThemeButton";
+import NavLinks from "@/components/common/global/NavLinks";
+import ColorsPalette from "@/components/common/global/ColorsPalette";
 import { CursorContextProvider } from "@/context/CursorContext";
 import { app_info } from "@/config/app";
 import { Analytics } from "@vercel/analytics/react";
-import ProjectCardView from "@/components/common/ProjectCardView";
 import { ProjectContextProvider } from "@/context/ProjectContext";
+import { ServiceContextProvider } from "@/context/ServiceContext";
+import { is_dark_theme } from "@/config/global";
+import { ResumeContextProvider } from "@/context/ResumeContext";
+import CardViews from "@/components/common/global/CardViews";
 
 const font = Raleway({
   subsets: ["latin"],
@@ -32,7 +35,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999]"
+      className={cn(
+        is_dark_theme ? "dark" : "",
+        "scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999]"
+      )}
     >
       <body
         className={cn(
@@ -40,21 +46,25 @@ export default function RootLayout({
           "overflow-x-hidden bg-[--background] relative"
         )}
       >
-        <ProjectContextProvider>
-          <CursorContextProvider>
-            <ThemeButton />
+        <CursorContextProvider>
+          <ServiceContextProvider>
+            <ResumeContextProvider>
+              <ProjectContextProvider>
+                <ThemeButton />
 
-            <ColorsPalette />
+                <ColorsPalette />
 
-            <ProjectCardView />
+                <CardViews />
 
-            <NavLinks />
+                <NavLinks />
 
-            {children}
-          </CursorContextProvider>
+                {children}
+              </ProjectContextProvider>
+            </ResumeContextProvider>
+          </ServiceContextProvider>
+        </CursorContextProvider>
 
-          <Analytics />
-        </ProjectContextProvider>
+        <Analytics />
       </body>
     </html>
   );

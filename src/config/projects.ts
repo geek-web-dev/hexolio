@@ -1,5 +1,6 @@
 // ==================[ Projects ]================== //
 export const projects = [
+  // 1
   {
     title: "Project 1",
     description:
@@ -10,6 +11,7 @@ export const projects = [
     link: "",
   },
 
+  // 2
   {
     title: "Project 2",
     description:
@@ -20,6 +22,7 @@ export const projects = [
     link: "",
   },
 
+  // 3
   {
     title: "Project 3",
     description:
@@ -30,6 +33,7 @@ export const projects = [
     link: "",
   },
 
+  // 4
   {
     title: "Project 4",
     description:
@@ -40,6 +44,7 @@ export const projects = [
     link: "",
   },
 
+  // 5
   {
     title: "Project 5",
     description:
@@ -50,6 +55,7 @@ export const projects = [
     link: "",
   },
 
+  // 6
   {
     title: "Project 6",
     description:

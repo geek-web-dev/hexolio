@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils";
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 const { hexagon } = styles;
 
 const SectionTitle = ({
@@ -14,11 +14,13 @@ const SectionTitle = ({
       <h1 className="text-4xl text-[--pure-text] uppercase tracking-wider font-[900] first-letter:text-4xl opacity-75 first-letter:text-[--main]">
         {title}
       </h1>
-      <span className={cn(hexagon, "size-3 bg-[--main] block")} />
       <span
-        className={cn(hexagon, "size-3 bg-[--pure-text] block opacity-75")}
+        className={cn(hexagon, "size-3 bg-[--pure-text] block opacity-25")}
       />
-      <span className={cn(hexagon, "size-3 bg-[--main] block")} />
+      <span className={cn(hexagon, "size-3 bg-[--main] block opacity-50")} />
+      <span
+        className={cn(hexagon, "size-3 bg-[--pure-text] block opacity-25")}
+      />
       <p className="text-2xl text-[--paragraph] opacity-50 capitalize font-bold">
         {description}
       </p>

@@ -8,6 +8,9 @@ import {
   useState,
 } from "react";
 
+import styles from "../app/styles.module.css";
+const { customCursor } = styles;
+
 type CursorContextProps = {
   cursorDefault: () => void;
   cursorFocus: () => void;
@@ -57,8 +60,8 @@ export const CursorContextProvider = ({
       transform: `translate(${cursorPosition.x}px,${cursorPosition.y}px)`,
     },
     focus: {
-      width: 45,
-      height: 45,
+      width: 48,
+      height: 48,
       transform: `translate(${cursorPosition.x}px, ${cursorPosition.y}px)`,
     },
   };
@@ -68,7 +71,8 @@ export const CursorContextProvider = ({
       <div
         style={variants[cursorVariants]}
         className={cn(
-          "customCursor fixed top-0 left-0 pointer-events-none z-[99] duration-300",
+          customCursor,
+          "fixed top-0 left-0 pointer-events-none z-[99] duration-300",
           "bg-gradient-to-br from-black via-[--main] to-[--main] dark:from-white dark:via-[--main] dark:to-[--main]"
         )}
       />

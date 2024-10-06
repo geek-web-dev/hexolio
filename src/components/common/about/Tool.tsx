@@ -20,7 +20,7 @@ const Tool = ({
       className="flex flex-col items-center justify-center rounded-sm p-4 border border-[--line-color]"
       ref={toolRef}
     >
-      <div className="relative z-0">
+      <div className="relative">
         <Image
           src={image}
           width={38}
@@ -29,7 +29,7 @@ const Tool = ({
           loading="lazy"
           className={cn(
             animate ? "opacity-100" : "opacity-0",
-            "transition-opacity z-[10]"
+            "transition-opacity"
           )}
           style={{ transitionDuration: `${duration}ms` }}
         />

@@ -1,7 +1,7 @@
 import { bgMap, colorMap, ColorType } from "@/shared";
 import { LucideIcon } from "lucide-react";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 import { cn } from "@/lib/utils";
 const { hexagon } = styles;
 
@@ -14,7 +14,7 @@ type ContactInfoProp = {
 
 const ContactInfo = ({ title, Icon, info, color }: ContactInfoProp) => {
   return (
-    <div className="p-6 flex flex-col items-center justify-center space-y-4 bg-[--pure-background] rounded-sm border border-[--line-color]">
+    <div className="p-6 flex flex-col items-center justify-center bg-[--pure-background] space-y-4  rounded-sm">
       <div
         className={cn(
           hexagon,

@@ -1,33 +1,64 @@
+"use client";
 import { experience } from "@/config/experience";
-import TimelineCard from "../common/TimelineCard";
-import SectionTitle from "../common/SectionTitle";
+import TimelineCard from "../common/experience/TimelineCard";
+import SectionTitle from "../common/global/SectionTitle";
 
-import styles from "../../app/styles.module.css";
 import { cn } from "@/lib/utils";
-import MaxWidthWrapper from "../common/MaxWidthWrapper";
-const { hexagon } = styles;
+import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
+import { BriefcaseBusiness, GraduationCap, LucideIcon } from "lucide-react";
+import { useInView } from "react-intersection-observer";
+import styles from "@/app/styles.module.css";
+const { hexagon, centeredAbsolute } = styles;
 
-const Line = ({ title }: { title: string }) => {
+const Line = ({ title, Icon }: { title: string; Icon: LucideIcon }) => {
+  const { ref: lineRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
+
   return (
     <>
-      <div className="w-px h-[calc(100%+96px)] bg-[--paragraph] absolute -top-12 left-4 z-[1] ">
+      <div
+        className={cn(
+          "w-px bg-[#ddd] dark:bg-[#222] absolute -top-12 left-4 z-10 h-[calc(100%+96px)]"
+        )}
+        ref={lineRef}
+      >
         <div
           className={cn(
-            "size-4 bg-[--paragraph] absolute top-0 left-[50%] translate-x-[-50%]"
+            "size-8 bg-[--paragraph] absolute -top-2 left-[50%] translate-x-[-50%] rounded-full"
           )}
         >
-          <h1 className="font-[800] absolute text-[--paragraph] top-[50%] translate-y-[-50%] left-8 uppercase text-2xl bg-[--background] z-10 px-2">
-            {title}
-          </h1>
+          <Icon
+            className={cn(centeredAbsolute, "text-[--pure-background]")}
+            size={20}
+            strokeWidth={1.25}
+          />
+          <div className="absolute top-[50%] translate-y-[-50%] left-16  z-10 px-4  bg-[--background]">
+            <h1 className="font-[900] text-[--paragraph] opacity-75 uppercase text-2xl tracking-widest">
+              {title}
+            </h1>
+          </div>
         </div>
         <div
           className={cn(
             hexagon,
-            "size-4 bg-[--paragraph] absolute bottom-0 left-[50%] translate-x-[-50%]"
+            "size-8 bg-[--paragraph] absolute bottom-0 left-[50%] translate-x-[-50%] duration-3000"
           )}
-        />
+        >
+          {" "}
+          <Icon
+            className={cn(centeredAbsolute, "text-[--pure-background]")}
+            size={20}
+            strokeWidth={1.25}
+          />
+        </div>
       </div>
-      <div className="w-full h-[0.5px] bg-[--paragraph] absolute left-0 -top-10 z-[0] opacity-25" />
+      <div
+        className={cn(
+          "h-[0.5px] bg-[--paragraph] absolute left-0 -top-10 z-0 opacity-25 duration-3000",
+          animate ? "w-[100%]" : "w-[0%]"
+        )}
+      />
     </>
   );
 };
@@ -44,18 +75,28 @@ const Experience = () => {
           <div className="relative">
             <div className="grid gap-4">
               {experience.education.map((item, i) => (
-                <TimelineCard key={i} {...item} />
+                <TimelineCard
+                  key={i}
+                  idx={i}
+                  resumePart={"education"}
+                  {...item}
+                />
               ))}
             </div>
-            <Line title="education" />
+            <Line title="education" Icon={GraduationCap} />
           </div>
           <div className="relative lg:mt-0 mt-32">
             <div className="grid gap-4">
               {experience.working.map((item, i) => (
-                <TimelineCard key={i} {...item} />
+                <TimelineCard
+                  key={i}
+                  idx={i}
+                  resumePart={"working"}
+                  {...item}
+                />
               ))}
             </div>
-            <Line title="working" />
+            <Line title="working" Icon={BriefcaseBusiness} />
           </div>
         </div>
       </MaxWidthWrapper>

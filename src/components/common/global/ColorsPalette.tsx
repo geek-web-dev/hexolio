@@ -6,7 +6,7 @@ import { colors, ColorType, hexMap, pureBgMap } from "@/shared";
 import { Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 const { hexagon } = styles;
 
 const ColorsPalette = () => {
@@ -28,7 +28,7 @@ const ColorsPalette = () => {
       <div
         className={cn(
           hexagon,
-          "rounded-l-md fixed z-[75] bg-[--main] hover:bg-[--background] shadow-md w-6 h-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none",
+          "rounded-l-md fixed z-30 bg-[--main] hover:bg-[--background] shadow-md size-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none",
           activePalette ? "bg-white dark:bg-[#222]" : ""
         )}
         onClick={() => setActivePalette((p) => !p)}
@@ -46,7 +46,7 @@ const ColorsPalette = () => {
       </div>
       <div
         className={cn(
-          "fixed w-6 bg-[--background] top-16  rounded-sm shadow-md flex flex-col py-1 gap-1 items-center duration-300 z-40 select-none",
+          "fixed w-6 bg-[--background] top-16  rounded-sm shadow-md flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
           activePalette ? "right-1" : "-right-7"
         )}
       >

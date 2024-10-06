@@ -5,12 +5,12 @@ import { Sun } from "lucide-react";
 import { useState } from "react";
 import { FontAwesomeIcon as FAI } from "@fortawesome/react-fontawesome";
 import { faMoon } from "@fortawesome/free-solid-svg-icons";
-
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
+import { is_dark_theme } from "@/config/global";
 const { hexagon } = styles;
 
 const ThemeButton = () => {
-  const [isDark, setIsDark] = useState(false);
+  const [isDark, setIsDark] = useState(is_dark_theme);
 
   const { cursorFocus, cursorDefault } = useCursorContext();
 
@@ -23,7 +23,7 @@ const ThemeButton = () => {
     <div
       className={cn(
         hexagon,
-        "rounded-l-md fixed z-[75] bg-[#222] backdrop-blur-sm shadow-md w-6 h-6 flex justify-center items-center top-1 right-1 cursor-pointer group duration-300",
+        "rounded-l-md fixed z-30 bg-[#222] backdrop-blur-sm shadow-md w-6 h-6 flex justify-center items-center top-1 right-1 cursor-pointer group duration-300",
         "hover:bg-white dark:hover:bg-orange-500"
       )}
       onClick={toggleHander}

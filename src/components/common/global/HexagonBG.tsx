@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { ReactNode } from "react";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 import { Sparkle } from "lucide-react";
 const { hexagon } = styles;
 
@@ -17,7 +17,7 @@ export const SmallHexagon = ({
       className={cn(
         hexagon,
         className,
-        "bg-white/10 group-hover:bg-white/25 duration-300 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
+        "bg-white/5 group-hover:bg-white/10 duration-1000 absolute left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%]"
       )}
     >
       {children}
@@ -31,7 +31,7 @@ export const Hexagon = ({ className }: { className?: string }) => {
       className={cn(
         hexagon,
         className,
-        "size-60 bg-[--main] absolute opacity-50 group hover:opacity-75 duration-1000"
+        "size-60 bg-[--main] absolute opacity-50 group hover:opacity-50 duration-1000"
       )}
     >
       <SmallHexagon className="size-[180px]">

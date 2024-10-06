@@ -8,20 +8,24 @@ import {
 } from "lucide-react";
 
 // ==================[ About Image ]================== //
-export const about_image = "/images/about.png"; // make sure you are the middle in the image to looks good
+export const about_image = "/images/about.png";
 //
 
-// ==================[ Are you Freelancer? ]================== //
-export const is_freelancer = true; // true if you are, otherwise false
+// ==================[ Are you Freelancer? -> true if you are, otherwise false ]================== //
+export const is_freelancer = true; //
 //
 
-// ==================[ Are you available for hire? ]================== //
-export const is_available = true; // true if you are, otherwise false
+// ==================[ Are you available -> for hire? true if you are, otherwise false ]================== //
+export const is_available = true;
+//
+
+// ==================[ About Background Image -> if you want write image path otherwise leave it "" ]================== //
+export const background_img_path = "";
 //
 
 // ==================[ About Me ]================== //
 export const about_me =
-  "I am a passionate web developer with a strong foundation in front-end and full-stack development. With expertise in Typescript, Node.js, React, Next.js, and Tailwind CSS, PHP Laravel, I build dynamic, responsive, and user-friendly websites and applications. I am committed to staying up-to-date with the latest technologies and best practices in web development, ensuring that my projects are both modern and efficient with SEO and amazing performance optimization and accessibility. I enjoy solving complex problems and creating seamless digital experiences that delight users and help businesses grow.";
+  "Hey 👋🏼, I am a passionate web developer with a strong foundation in front-end and full-stack development 💪🏽. With expertise in Typescript, Node.js, React, Next.js, and Tailwind CSS, PHP Laravel, I build dynamic, responsive, and user-friendly websites and applications. I am committed to staying up-to-date with the latest technologies and best practices in web development ✅, ensuring that my projects are both modern and efficient with SEO and amazing performance optimization and accessibility 💎. I enjoy solving complex problems and creating seamless digital experiences that delight users and help businesses grow 🚀.";
 //
 
 // ==================[ Cv File ]================== //
@@ -33,70 +37,168 @@ export const cv = {
 
 // ==================[ Why Work With Me or What I offer ]================== //
 export const what_i_offer =
-  "I offer a range of web development services tailored to meet the unique needs of each client. Whether you need a sleek, modern website, a robust web application, or a comprehensive e-commerce solution, I am here to help. My services include front-end development with a focus on responsive design, full-stack development for complex applications, and ongoing maintenance and support to keep your site running smoothly.";
+  "I offer a range of web development services tailored to meet the unique needs of each client. Whether you need a sleek, modern website, a robust web application, or a comprehensive e-commerce solution 🛠, I am here to help. My services include front-end development with a focus on responsive design 🎨, full-stack development for complex applications ⚙️, and ongoing maintenance and support to keep your site running smoothly 🚀.";
 //
 
 // ==================[ What I Use or Tools ]================== //
 export const tools = [
-  { name: "html", image: "/images/tools/html.png" },
-
-  { name: "tailwind", image: "/images/tools/tailwind.png" },
-
-  { name: "ts", image: "/images/tools/ts.png" },
-
-  { name: "react", image: "/images/tools/react.png" },
-
-  { name: "angular", image: "/images/tools/angular.png" },
-
-  { name: "nestjs", image: "/images/tools/nestjs.png" },
-
-  { name: "graphql", image: "/images/tools/graphql.png" },
-
-  { name: "nextjs", image: "/images/tools/nextjs.png" },
-
-  { name: "sql", image: "/images/tools/sql.png" },
-
-  { name: "laravel", image: "/images/tools/laravel.png" },
-
-  { name: "figma", image: "/images/tools/figma.png" },
-
-  { name: "php", image: "/images/tools/php.png" },
-
-  { name: "wordpress", image: "/images/tools/wordpress.png" },
-
-  { name: "docker", image: "/images/tools/docker.png" },
+  // 1
+  {
+    name: "html",
+    image: "/images/tools/html.png",
+  },
+  // 2
+  {
+    name: "tailwind",
+    image: "/images/tools/tailwind.png",
+  },
+  // 3
+  {
+    name: "ts",
+    image: "/images/tools/ts.png",
+  },
+  // 4
+  {
+    name: "react",
+    image: "/images/tools/react.png",
+  },
+  // 5
+  {
+    name: "angular",
+    image: "/images/tools/angular.png",
+  },
+  // 6
+  {
+    name: "nestjs",
+    image: "/images/tools/nestjs.png",
+  },
+  // 7
+  {
+    name: "graphql",
+    image: "/images/tools/graphql.png",
+  },
+  // 8
+  {
+    name: "nextjs",
+    image: "/images/tools/nextjs.png",
+  },
+  // 9
+  {
+    name: "sql",
+    image: "/images/tools/sql.png",
+  },
+  // 10
+  {
+    name: "laravel",
+    image: "/images/tools/laravel.png",
+  },
+  // 11
+  {
+    name: "figma",
+    image: "/images/tools/figma.png",
+  },
+  // 12
+  {
+    name: "php",
+    image: "/images/tools/php.png",
+  },
+  // 13
+  {
+    name: "wordpress",
+    image: "/images/tools/wordpress.png",
+  },
+  // 14
+  {
+    name: "docker",
+    image: "/images/tools/docker.png",
+  },
 ];
 //
 
+/*
+  Available Colors
+  |
+  1 - "blue"
+  2 - "green"
+  3 - "red"
+  4 - "yellow"
+  5 - "orange"
+  6 - "pink"
+  7 - "purple"
+  8 - "cyan"
+  9 - "teal"
+  10 - "lime"
+  11 - "fuchsia"
+  12 - "black"
+*/
+
 // ==================[ Skills ]================== //
 export const skills = [
-  { skill: "Responsive Design", percent: 95, color: "orange" },
+  // 1
+  {
+    skill: "Responsive Design",
+    percent: 95,
+    color: "orange",
+  },
 
-  { skill: "Coding", percent: 90, color: "yellow" },
+  // 2
+  {
+    skill: "Coding",
+    percent: 90,
+    color: "yellow",
+  },
 
-  { skill: "Problem Solving", percent: 88, color: "pink" },
+  // 3
+  {
+    skill: "Problem Solving",
+    percent: 88,
+    color: "pink",
+  },
 
-  { skill: "Project Management", percent: 79, color: "purple" },
+  // 4
+  {
+    skill: "Project Management",
+    percent: 79,
+    color: "purple",
+  },
 
-  { skill: "Communication", percent: 92, color: "teal" },
+  // 5
+  {
+    skill: "Communication",
+    percent: 92,
+    color: "teal",
+  },
 ];
 //
 
 // ==================[ Languages ]================== //
 export const languages = [
-  { language: "English", percent: 96, color: "orange" },
+  // 1
+  {
+    language: "English",
+    percent: 96,
+    color: "orange",
+  },
 
-  { language: "Arabic", percent: 90, color: "teal" },
+  // 2
+  {
+    language: "Arabic",
+    percent: 90,
+    color: "teal",
+  },
 
-  { language: "French", percent: 60, color: "blue" },
+  // 3
+  {
+    language: "French",
+    percent: 60,
+    color: "blue",
+  },
 ];
 //
 
-// Available Colors
-// "blue" | "green" | "red" | "yellow" | "orange" | "pink" | "purple" | "cyan" | "teal" | "lime" | "fuchsia"
-
 // ==================[ Funfacts ]================== //
 export const funfacts = [
+  // 1
   {
     title: "Years of experience",
     Icon: FlaskConical,
@@ -104,6 +206,7 @@ export const funfacts = [
     color: "green",
   },
 
+  // 2
   {
     title: "Happy Client",
     Icon: Smile,
@@ -111,6 +214,7 @@ export const funfacts = [
     color: "fuchsia",
   },
 
+  // 3
   {
     title: "Projects Done",
     Icon: Layers3,
@@ -118,6 +222,7 @@ export const funfacts = [
     color: "cyan",
   },
 
+  // 4
   {
     title: "Working Hours",
     Icon: AlarmClock,
@@ -125,6 +230,7 @@ export const funfacts = [
     color: "orange",
   },
 
+  // 5
   {
     title: "Awards Won",
     Icon: Award,
@@ -132,6 +238,7 @@ export const funfacts = [
     color: "lime",
   },
 
+  // 6
   {
     title: "Courses Done",
     Icon: GraduationCap,
@@ -143,13 +250,15 @@ export const funfacts = [
 
 // ==================[ What's Client says ]================== //
 export const clients = [
+  // 1
   {
     name: "john mark",
     rate: 5,
     comment:
-      "I've been using Quickolio for over a 3 monthes now, The user interface is intuitive and the feature",
+      "I've been using for over a 3 monthes now, The user interface is intuitive and the feature",
   },
 
+  // 2
   {
     name: "Amelia Daniel",
     rate: 4.5,
@@ -157,6 +266,7 @@ export const clients = [
       "Your themes really amazing and inspiring me, I am goning to work with you again",
   },
 
+  // 3
   {
     name: "Ahmed Belal",
     rate: 5,
@@ -168,52 +278,101 @@ export const clients = [
 
 // ==================[ More Personal Data ]================== //
 export const more_personal_data = [
-  { title: "age", data: 32 },
+  // 1
+  {
+    title: "age",
+    data: 32,
+  },
 
-  { title: "nationality", data: "Egyption" },
+  // 2
+  {
+    title: "nationality",
+    data: "Egyption",
+  },
 
-  { title: "main language", data: "Arabic" },
+  // 3
+  {
+    title: "main language",
+    data: "Arabic",
+  },
 
-  { title: "english level", data: "Fluent (A)" },
+  // 4
+  {
+    title: "english level",
+    data: "Fluent (A)",
+  },
 
-  { title: "freelance", data: "Available" },
+  // 5
+  {
+    title: "freelance",
+    data: "Available",
+  },
 
-  { title: "working offline", data: "Not Available" },
+  // 6
+  {
+    title: "working offline",
+    data: "Not Available",
+  },
 
-  { title: "phone", data: "(+1) 945 325 4653" },
+  // 7
+  {
+    title: "phone",
+    data: "(+1) 945 325 4653",
+  },
 
-  { title: "email", data: "example@gmail.com" },
+  // 8
+  {
+    title: "email",
+    data: "example@gmail.com",
+  },
 
-  { title: "resident", data: "America, New York" },
+  // 9
+  {
+    title: "resident",
+    data: "America, New York",
+  },
 
-  { title: "availble working time", data: "6AM - 10PM" },
+  // 10
+  {
+    title: "availble working time",
+    data: "6AM - 10PM",
+  },
 ];
 //
 
 // ==================[ Goals ]================== //
 export const goals = [
+  // 1
   {
-    goal: "Deliver High-Quality Web Solutions:",
+    goal: "💎 Deliver High-Quality Web Solutions:",
     description:
       " Focus on creating websites and applications that are visually appealing, highly functional, and optimized for performance and SEO.",
   },
 
+  // 2
   {
-    goal: "Enhance User Experience:",
+    goal: "😊 Enhance User Experience:",
     description:
       "Develop user-centric designs that provide seamless and intuitive navigation, ensuring a positive experience for all visitors.",
   },
 
+  // 3
   {
-    goal: "Take on Challenging Projects:",
+    goal: "💪🏽 Take on Challenging Projects:",
     description:
       "Seek out complex and innovative projects that challenge my skills and allow me to push the boundaries of what is possible in web development.",
   },
 
+  // 4
   {
-    goal: "Contribute to the Developer Community:",
+    goal: "✅ Contribute to the Developer Community:",
     description:
       "Share knowledge and resources through blogging, open-source contributions, and mentoring, to give back to the development community and support others in their growth.",
   },
 ];
+//
+
+// ==================[ Quote ]================== //
+export const quote =
+  "True mastery lies not in the act of working itself but in the relentless pursuit of growth, where every line of code becomes a stepping stone toward a vision. In this journey, perseverance transforms effort into excellence, and passion turns challenges into progress.";
 //

@@ -1,3 +1,22 @@
+/* =============== Custom Cursor =============== */
+.customCursor {
+  clip-path: polygon(0 100%, 0 0, 77% 64%, 29% 62%);
+  transition: width 0.3s, height 0.3s, transform 0.1s;
+}
+
+@media (max-width: 450px) {
+  .customCursor {
+    display: none;
+  }
+}
+/* =============== Custom Cursor =============== */
+
+/*
+=
+=
+=
+*/
+
 /* =============== Animated Icon =============== */
 .iconWrapParent:hover .iconWrap .icon {
   transform: translateX(-100%) rotateY(-180deg);
@@ -7,14 +26,15 @@
   perspective: 500px;
 }
 
-.iconWrap .icon {
+.icon {
   position: relative;
   transform-style: preserve-3d;
   transition: 1s;
+  transition-timing-function: ease-out;
   transform-origin: 100% 50%;
 }
 
-.iconWrap .icon .face {
+.face {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -23,13 +43,12 @@
   background-color: var(--main-color);
 }
 
-.iconWrap .icon .back {
+.back {
   transform: rotateY(180deg);
 }
 /* =============== Animated Icon =============== */
 
 /*
-=
 =
 =
 =
@@ -116,6 +135,35 @@
     -1px -1px 0 var(--pure-background);
 }
 /* =============== Outlined text =============== */
+
+/*
+=
+=
+=
+=
+*/
+
+/* =============== Spinner =============== */
+.spinner {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #fff;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* =============== Spinner =============== */
 
 /*
 =

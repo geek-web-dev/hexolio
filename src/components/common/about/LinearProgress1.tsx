@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
-import { bgMap, colorMap, ColorType, pureBgMap } from "../../shared";
-import { cn } from "../../lib/utils";
+import { bgMap, colorMap, ColorType, pureBgMap } from "@/shared";
+import { cn } from "@/lib/utils";
 import { useInView } from "react-intersection-observer";
 
 type LinearProgressProps = {

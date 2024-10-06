@@ -2,6 +2,7 @@
 export const experience = {
   // --- Education history --- //
   education: [
+    // 1
     {
       event: "Computer Science",
       at: "Harvard",
@@ -10,6 +11,7 @@ export const experience = {
         "Graduated with a solid foundation in software development, algorithms, data structures, databases, discrete math, and computer systems, with hands-on experience in various programming languages and technologies.",
     },
 
+    // 2
     {
       event: "Framework Courses",
       at: "Web School",
@@ -18,6 +20,7 @@ export const experience = {
         "Attended specialized courses covering popular web development frameworks such as React, Node.js, and Next.js, Laravel, .net core gaining practical knowledge in building responsive and dynamic web applications.",
     },
 
+    // 3
     {
       event: "Bachelor Degree",
       at: "MIT",
@@ -29,6 +32,7 @@ export const experience = {
 
   // --- Working history --- //
   working: [
+    // 1
     {
       event: "Front-end developer",
       at: "Freelaning",
@@ -37,6 +41,7 @@ export const experience = {
         "Developed responsive and user-friendly interfaces using HTML, CSS, JavaScript, and front-end frameworks. Worked with clients to create visually appealing websites that meet their business needs and improve UX.",
     },
 
+    // 2
     {
       event: "Back-end developer",
       at: "Freelaning",
@@ -45,6 +50,7 @@ export const experience = {
         "Built and maintained server-side logic, databases, and APIs using Node.js and other back-end technologies. Ensured data security, efficient database management, and robust application performance for various projects.",
     },
 
+    // 3
     {
       event: "Full-stack developer",
       at: "Working Remotely",

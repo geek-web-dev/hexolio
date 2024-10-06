@@ -1,7 +1,7 @@
 import { projects } from "@/config/projects";
-import Project from "../common/Project";
-import SectionTitle from "../common/SectionTitle";
-import MaxWidthWrapper from "../common/MaxWidthWrapper";
+import Project from "../common/projects/Project";
+import SectionTitle from "../common/global/SectionTitle";
+import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 
 const Projects = () => {
   return (

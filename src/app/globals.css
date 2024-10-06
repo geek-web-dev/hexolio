@@ -4,9 +4,9 @@
 
 @layer base {
   :root {
-    --main: #84cc16;
+    --main: #d946ef;
 
-    --background: #f7f7f7;
+    --background: #f0f0f0;
     --pure-background: #fff;
     --pure-text: #000;
     --line-color: #eee;
@@ -14,6 +14,7 @@
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
+    --strock: 1px;
   }
 
   .dark {
@@ -36,35 +37,6 @@
 
 * {
   cursor: none !important;
-}
-.customCursor {
-  clip-path: polygon(0 100%, 0 0, 77% 64%, 29% 62%);
-  transition: width 0.3s, height 0.3s, transform 0.05s;
-}
-@media (max-width: 450px) {
-  .customCursor {
-    display: none;
-  }
-}
-
-.spinner {
-  width: 26px;
-  height: 26px;
-  border: 3px solid #fff;
-  border-bottom-color: transparent;
-  border-radius: 50%;
-  display: inline-block;
-  box-sizing: border-box;
-  animation: rotation 1s linear infinite;
-}
-
-@keyframes rotation {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
 }
 
 /* =============== Rules =============== */

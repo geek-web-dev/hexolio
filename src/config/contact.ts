@@ -1,10 +1,25 @@
 import { Mail, CheckCircle2, Phone, MapPinnedIcon } from "lucide-react";
 
-// Available Colors
-// "blue" | "green" | "red" | "yellow" | "orange" | "pink" | "purple" | "cyan" | "teal" | "lime" | "fuchsia"
+/*
+  Available Colors
+  |
+  1 - "blue"
+  2 - "green"
+  3 - "red"
+  4 - "yellow"
+  5 - "orange"
+  6 - "pink"
+  7 - "purple"
+  8 - "cyan"
+  9 - "teal"
+  10 - "lime"
+  11 - "fuchsia"
+  12 - "black"
+*/
 
 // ==================[ Contact Info ]================== //
 export const contact_info = [
+  // 1
   {
     title: "Phone Number",
     Icon: Phone,
@@ -12,6 +27,7 @@ export const contact_info = [
     color: "blue",
   },
 
+  // 2
   {
     title: "Email",
     Icon: Mail,
@@ -19,6 +35,7 @@ export const contact_info = [
     color: "yellow",
   },
 
+  // 3
   {
     title: "Location",
     Icon: MapPinnedIcon,
@@ -26,6 +43,7 @@ export const contact_info = [
     color: "fuchsia",
   },
 
+  // 4
   {
     title: "Availability",
     Icon: CheckCircle2,

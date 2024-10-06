@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils";
 import { colorHoverMap, ColorType, pureBgMap } from "@/shared";
 import { useCursorContext } from "@/context/CursorContext";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 const { hexagon } = styles;
 
 const SocialLinks = () => {
@@ -20,7 +20,7 @@ const SocialLinks = () => {
           target="_blank"
           className={cn(
             hexagon,
-            "group w-8 h-8 flex items-center justify-center text-white hover:bg-white duration-300",
+            "group size-8 flex items-center justify-center text-white hover:bg-white duration-300",
             item.color === "black"
               ? "bg-[#222]"
               : pureBgMap[item.color as ColorType],
@@ -32,9 +32,7 @@ const SocialLinks = () => {
         >
           <FAI
             icon={item.Icon}
-            className={cn(
-              "group-hover:scale-110 text-inherit w-[16px] h-[16px]"
-            )}
+            className="group-hover:scale-110 text-inherit size-[16px]"
           />
         </Link>
       ))}

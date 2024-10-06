@@ -1,9 +1,10 @@
 "use client";
 import { personal_data } from "@/config/home";
-import AboutCard from "../common/AboutCard";
+import AboutCard from "../common/about/AboutCard";
 import {
   about_image,
   about_me,
+  background_img_path,
   cv,
   funfacts,
   goals,
@@ -11,26 +12,27 @@ import {
   is_freelancer,
   languages,
   more_personal_data,
+  quote,
   skills,
   tools,
   what_i_offer,
 } from "@/config/about";
 import { useState } from "react";
-import Tool from "../common/Tool";
-import Funfact from "../common/Funfact";
+import Tool from "../common/about/Tool";
+import Funfact from "../common/about/Funfact";
 import { ColorType } from "@/shared";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Link as LinkScroll } from "react-scroll";
-import HeroButton from "../common/HeroButton";
+import HeroButton from "../common/global/HeroButton";
 import Image from "next/image";
-import Clients from "../common/Clients";
+import Clients from "../common/about/Clients";
 
 import styles from "../../app/styles.module.css";
-import LinearProgress1 from "../common/LinearProgress1";
-import CircularProgress from "../common/CircularProgress";
-import { Hexagon } from "../common/HexagonBG";
-import MaxWidthWrapper from "../common/MaxWidthWrapper";
+import LinearProgress1 from "../common/about/LinearProgress1";
+import CircularProgress from "../common/about/CircularProgress";
+import { Hexagon } from "../common/global/HexagonBG";
+import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 import { FileSearch, Mail } from "lucide-react";
 const { sliderContainer, dotAvilability } = styles;
 
@@ -40,9 +42,9 @@ const About = () => {
     <section id="about">
       <MaxWidthWrapper>
         <div className="grid md:grid-cols-12 gap-4">
-          <div className="bg-[--pure-background] border border-[--line-color] md:col-span-5 md:sticky relative left-0 top-4 h-fit p-4 rounded-sm mt-4">
-            <div className="relative overflow-hidden group z-50">
-              <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-40 group">
+          <div className="bg-[--pure-background] md:col-span-5 md:sticky relative left-0 top-4 h-fit p-4 rounded-sm mt-4">
+            <div className="relative overflow-hidden group">
+              <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-10 group">
                 <Image
                   className={cn(
                     "object-cover duration-300",
@@ -53,22 +55,37 @@ const About = () => {
                   src={about_image}
                   alt={"me"}
                   fill
-                  sizes=""
+                  sizes="99vw"
                 />
               </div>
 
-              <div className="absolute left-0 top-0 w-full h-full">
-                <Hexagon className="left-[-121px] bottom-[181px]" />
-                <Hexagon className="left-[120px] bottom-[181px]" />
-                <Hexagon className="left-[361px] bottom-[181px] !opacity-65" />
+              <div className="absolute left-0 top-0 size-full">
+                {background_img_path ? (
+                  <>
+                    <div className="absolute left-0 top-0 size-full bg-black/35 dark:bg-black/50 z-[1]" />
+                    <Image
+                      src={background_img_path}
+                      alt="background"
+                      fill
+                      sizes="80vw"
+                      className="relative object-cover z-0"
+                    />
+                  </>
+                ) : (
+                  <>
+                    <Hexagon className="left-[-121px] bottom-[181px]" />
+                    <Hexagon className="left-[120px] bottom-[181px]" />
+                    <Hexagon className="left-[361px] bottom-[181px] !opacity-65" />
 
-                <Hexagon className="left-0 bottom-0 !opacity-65" />
-                <Hexagon className="left-[241px] bottom-0" />
-                <Hexagon className="left-[482px] bottom-0" />
+                    <Hexagon className="left-0 bottom-0 !opacity-65" />
+                    <Hexagon className="left-[241px] bottom-0" />
+                    <Hexagon className="left-[482px] bottom-0" />
 
-                <Hexagon className="left-[-120px] bottom-[-181px]" />
-                <Hexagon className="left-[120px] bottom-[-181px]" />
-                <Hexagon className="left-[361px] bottom-[-181px] !opacity-65" />
+                    <Hexagon className="left-[-120px] bottom-[-181px]" />
+                    <Hexagon className="left-[120px] bottom-[-181px]" />
+                    <Hexagon className="left-[361px] bottom-[-181px] !opacity-65" />
+                  </>
+                )}
               </div>
             </div>
             <div className="mt-4 space-y-1">
@@ -104,9 +121,13 @@ const About = () => {
               <Link download={cv.file_type} href={cv.source}>
                 <HeroButton text="Show CV" Icon={FileSearch} />
               </Link>
-              <LinkScroll to="contact" className="ml-4">
-                <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
-              </LinkScroll>
+              {is_available ? (
+                <LinkScroll to="contact" className="ml-4">
+                  <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
+                </LinkScroll>
+              ) : (
+                ""
+              )}
             </AboutCard>
 
             <AboutCard title="What I Offer" className="col-span-2">
@@ -190,14 +211,22 @@ const About = () => {
             <AboutCard title="my Goals" className="col-span-2">
               <div className="space-y-4">
                 {goals.map((item, i) => (
-                  <li key={i} className="text-[--pure-text]">
-                    <span className="font-[500]">💎 {item.goal}</span>
-                    <span className="text-[--paragraph] ml-2">
+                  <li key={i} className="text-[--pure-text] flex flex-col">
+                    <span className="font-[500]">{item.goal}</span>
+                    <span className="text-[--paragraph]">
                       {item.description}
                     </span>
                   </li>
                 ))}
               </div>
+            </AboutCard>
+
+            <AboutCard title="my Quote" className="col-span-2">
+              <blockquote className="text-[--paragraph] italic">
+                {"“"}
+                {quote}
+                {"”"}
+              </blockquote>
             </AboutCard>
           </div>
         </div>

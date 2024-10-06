@@ -5,7 +5,7 @@ import { LucideIcon } from "lucide-react";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
 
-import styles from "../../app/styles.module.css";
+import styles from "@/app/styles.module.css";
 const { hexagon, centeredAbsolute } = styles;
 
 const Funfact = ({
@@ -29,7 +29,8 @@ const Funfact = ({
         <div
           className={cn(
             hexagon,
-            "absolute size-full flex items-center justify-center rounded-sm text-white group-hover:rotate-90 duration-1000",
+            "absolute size-full flex items-center justify-center rounded-sm text-white duration-2000",
+            animate ? "rotate-180" : "",
             bgMap[color]
           )}
         >

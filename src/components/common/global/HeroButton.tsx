@@ -1,5 +1,5 @@
 "use client";
-import { Button } from "../ui/button";
+import { Button } from "../../ui/button";
 import { LucideIcon } from "lucide-react";
 import { useCursorContext } from "@/context/CursorContext";
 import { cn } from "@/lib/utils";
