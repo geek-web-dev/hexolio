@@ -4,8 +4,8 @@ import CircularBackground from "../common/global/CircularBackground";
 import HexagonBG from "../common/global/HexagonBG";
 import SocialLinks from "../common/global/SocialLinks";
 import { cn } from "@/lib/utils";
-
 import styles from "../../app/styles.module.css";
+import Image from "next/image";
 const { outlinedText, outlinedPureText } = styles;
 
 const Home = () => {
@@ -15,14 +15,15 @@ const Home = () => {
       <CircularBackground className="left-[50%] top-[50%] translate-x-[-50%] translate-y-[-50%] opacity-100" />
       <CircularBackground className="-right-48 -top-48" />
 
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
+      <Image
         src={personal_data.image}
         alt={personal_data.name}
-        loading="lazy"
-        className="absolute bottom-0 right-[0] h-[102%] w-auto object-cover z-10"
+        width={833}
+        height={744}
+        className="absolute bottom-0 right-[0] object-cover z-10"
+        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 80vw"
+        quality={100}
       />
-      {/* using img in this case is better than using Image/next */}
 
       <HexagonBG />
 

@@ -36,15 +36,7 @@ export const Hexagon = ({ className }: { className?: string }) => {
     >
       <SmallHexagon className="size-[180px]">
         <SmallHexagon className="size-[120px]">
-          <SmallHexagon className="size-[60px]">
-            <SmallHexagon className="size-[30px]">
-              <SmallHexagon className="size-[15px]">
-                <SmallHexagon className="size-[7.5px]">
-                  <SmallHexagon className="size-[3.25px]" />
-                </SmallHexagon>
-              </SmallHexagon>
-            </SmallHexagon>
-          </SmallHexagon>
+          <SmallHexagon className="size-[60px]" />
         </SmallHexagon>
       </SmallHexagon>
     </div>

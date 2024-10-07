@@ -114,7 +114,12 @@ const About = () => {
                 <HeroButton text="Show CV" Icon={FileSearch} />
               </Link>
               {is_available ? (
-                <LinkScroll to="contact" spy={false} className="ml-4">
+                <LinkScroll
+                  to="contact"
+                  spy={false}
+                  role="button"
+                  className="ml-4"
+                >
                   <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
                 </LinkScroll>
               ) : null}
@@ -199,7 +204,7 @@ const About = () => {
             </AboutCard>
 
             <AboutCard title="my Goals" className="col-span-2">
-              <div className="space-y-4">
+              <ul className="space-y-4">
                 {goals.map((item, i) => (
                   <li key={i} className="text-[--pure-text] flex flex-col">
                     <span className="font-[500]">{item.goal}</span>
@@ -208,7 +213,7 @@ const About = () => {
                     </span>
                   </li>
                 ))}
-              </div>
+              </ul>
             </AboutCard>
 
             <AboutCard title="my Quote" className="col-span-2">

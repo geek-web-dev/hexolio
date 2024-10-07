@@ -47,6 +47,7 @@ const NavLinks = () => {
               to={item.name.toLowerCase()}
               spy={false}
               offset={-32}
+              role="div"
               className="size-10 rounded-sm shadow-sm flex justify-center items-center cursor-pointer group relative"
               onMouseEnter={cursorFocus}
               onMouseLeave={cursorDefault}

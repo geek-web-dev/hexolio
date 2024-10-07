@@ -20,7 +20,7 @@ const LinearProgress1 = ({
     <div ref={progressRef}>
       <div className="flex justify-between items-center text-sm mb-3 font-semibold">
         <h3 className="text-[--paragraph]">{title}</h3>
-        <span className={colorMap[color]}>{value}%</span>
+        <span className={cn(colorMap[color], "font-mono")}>{value}%</span>
       </div>
       <div
         className={cn(

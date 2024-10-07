@@ -6,6 +6,7 @@ import { ReactNode, useState } from "react";
 import { useCursorContext } from "@/context/CursorContext";
 import { useProjectContext } from "@/context/ProjectContext";
 import ImageOverlay from "../global/ImageOverlay";
+import { cn } from "@/lib/utils";
 
 type ProjectProps = {
   title: string;
@@ -16,6 +17,7 @@ type ProjectProps = {
 };
 
 const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
+  const [loading, setLoading] = useState(true);
   const { setIsOpenProject, setProjectIdx } = useProjectContext();
 
   const [ready, setReady] = useState(false);
@@ -28,7 +30,11 @@ const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
           alt={title}
           fill
           sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 80vw"
-          className="object-cover"
+          onLoad={() => setLoading(false)}
+          className={cn(
+            "object-cover duration-1000",
+            loading ? "opacity-0" : "opacity-100"
+          )}
         />
 
         <ImageOverlay />
