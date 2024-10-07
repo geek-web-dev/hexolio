@@ -1,7 +1,7 @@
 /* =============== Custom Cursor =============== */
 .customCursor {
   clip-path: polygon(0 100%, 0 0, 77% 64%, 29% 62%);
-  transition: width 0.3s, height 0.3s, transform 0.1s;
+  transition: width 0.3s, height 0.3s, transform 0.05s;
 }
 
 @media (max-width: 450px) {

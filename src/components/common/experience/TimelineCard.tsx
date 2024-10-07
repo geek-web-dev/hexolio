@@ -44,7 +44,7 @@ const TimelineCard = ({
         animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       )}
       ref={timelineCardRef}
-      style={{ transition: "opacity 3000ms, transform 3000ms" }}
+      style={{ transition: "opacity 1000ms, transform 1000ms" }}
     >
       <div
         className={cn(

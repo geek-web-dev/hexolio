@@ -42,7 +42,7 @@ const Line = ({ title, Icon }: { title: string; Icon: LucideIcon }) => {
         <div
           className={cn(
             hexagon,
-            "size-8 bg-[--paragraph] absolute bottom-0 left-[50%] translate-x-[-50%] duration-3000"
+            "size-8 bg-[--paragraph] absolute bottom-0 left-[50%] translate-x-[-50%]"
           )}
         >
           {" "}
@@ -55,8 +55,8 @@ const Line = ({ title, Icon }: { title: string; Icon: LucideIcon }) => {
       </div>
       <div
         className={cn(
-          "h-[0.5px] bg-[--paragraph] absolute left-0 -top-10 z-0 opacity-25 duration-3000",
-          animate ? "w-[100%]" : "w-[0%]"
+          "h-[0.5px] w-full bg-[--paragraph] absolute left-0 -top-10 z-0 opacity-25 duration-1000 origin-left",
+          animate ? "scale-x-100" : "scale-x-0"
         )}
       />
     </>

@@ -91,7 +91,7 @@ const Service = ({
   return (
     <div
       className={cn(
-        "bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-500 dark:shadow-none transition-shadow overflow-hidden z-0",
+        "bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-1000 dark:shadow-none transition-shadow overflow-hidden z-0",
         iconWrapParent
       )}
       ref={serviceRef}
@@ -102,21 +102,20 @@ const Service = ({
             src={image}
             alt={service}
             fill
-            sizes="80vw"
+            sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
             loading="lazy"
             className={cn(
               animate ? "opacity-100" : "opacity-50",
-              "transition-opacity duration-3000",
+              "transition-opacity duration-1000",
               "object-cover"
             )}
           />
-
-          <div className="absolute left-0 top-0 bg-black/25 group-hover:bg-black/5 size-full duration-3000" />
+          <div className="absolute left-0 top-0 bg-black/10 group-hover:bg-black/0 bg-gradient-to-t from-black/45 to-black/10 size-full duration-1000" />
 
           <div
             className={cn(
-              "size-14 absolute  -bottom-7 duration-2000 ease-in-out z-10",
-              animate ? "translate-x-0 right-4" : "right-0 translate-x-[100%]",
+              "size-14 absolute  -bottom-7 right-4 duration-1000 ease-in-out z-10",
+              animate ? "translate-x-0" : "translate-x-[100%]",
               iconWrap
             )}
           >
@@ -144,18 +143,10 @@ const Service = ({
               </Link>
             </div>
           </div>
-
           <div
             className={cn(
-              "absolute bottom-[-1px] left-[50%] translate-x-[-50%] h-[2px] duration-1000 z-0 w-[0%] group-hover:w-[100%]",
-              pureBgMap[color]
-            )}
-          />
-
-          <div
-            className={cn(
-              "absolute bottom-4 w-[90px] h-[36px] duration-2000 ease-in-out z-10",
-              animate ? "left-4 translate-x-0" : "left-0 translate-x-[-100%]",
+              "absolute bottom-4 left-4 w-[90px] h-[36px] duration-1000 ease-in-out z-10",
+              animate ? "translate-x-0" : "translate-x-[-100%]",
               iconWrap
             )}
           >

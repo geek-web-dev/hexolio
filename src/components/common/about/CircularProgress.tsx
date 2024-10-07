@@ -27,7 +27,9 @@ const CircularProgress = ({
 
   const [counter, setCounter] = useState(0);
   const [done, setDone] = useState(false);
-  const { ref: progressRef, inView: animate } = useInView();
+  const { ref: progressRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
 
   const startCount = () => {
     setDone(true);
@@ -43,9 +45,7 @@ const CircularProgress = ({
   };
 
   useEffect(() => {
-    if (animate && !done) {
-      startCount();
-    }
+    if (animate && !done) startCount();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animate, done]);
 

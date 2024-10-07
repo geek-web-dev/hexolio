@@ -27,7 +27,7 @@ const ProjectButton = ({
   const { cursorDefault, cursorFocus } = useCursorContext();
   return (
     <div
-      className="rounded-full text-[--main] size-14 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border border-[--main]"
+      className="rounded-full text-[--main] sm:size-14 size-10 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border border-[--main]"
       onMouseEnter={cursorFocus}
       onMouseLeave={cursorDefault}
       title="Show the project"
@@ -66,7 +66,7 @@ const Project = ({
           src={image}
           alt={title}
           fill
-          sizes="50vw"
+          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
           loading="lazy"
           onLoad={() => setIsLoading(false)}
           className={cn(
@@ -77,9 +77,9 @@ const Project = ({
           style={{ transitionDuration: `${duration}ms` }}
         />
 
-        <div className="absolute left-0 top-0 bg-black opacity-25 group-hover:opacity-75 size-full duration-1000" />
-
-        <div className="absolute left-4 bottom-4 size-[calc(100%-2rem)] opacity-0 group-hover:opacity-95 bg-[--background] backdrop-blur-sm duration-1000 transition-opacity shadow-md ease-in-out z-10">
+        <div className="absolute left-0 top-0 bg-black/25 group-hover:bg-black/75 dark:group-hover:bg-white/25 size-full duration-1000 group-hover:backdrop-blur-sm" />
+        {/*  */}
+        <div className="absolute left-4 top-4 size-[calc(100%-2rem)] opacity-0 group-hover:opacity-95 bg-[--background] backdrop-blur-sm duration-1000 shadow-md ease-in-out z-10">
           <div className="m-4">
             <h3 className="font-semibold sm:text-2xl text-[--pure-text]">
               {title}
@@ -92,11 +92,14 @@ const Project = ({
                   setProjectIdx(projectIdx);
                 }}
               >
-                <Eye strokeWidth={1.25} />
+                <Eye strokeWidth={1.25} className="sm:size-6 size-4" />
               </ProjectButton>
               <ProjectButton>
                 <Link href={link} title="Open the project" target="_blank">
-                  <ExternalLink strokeWidth={1.25} />
+                  <ExternalLink
+                    strokeWidth={1.25}
+                    className="sm:size-6 size-4"
+                  />
                 </Link>
               </ProjectButton>
             </div>

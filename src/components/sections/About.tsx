@@ -55,7 +55,7 @@ const About = () => {
                   src={about_image}
                   alt={"me"}
                   fill
-                  sizes="99vw"
+                  sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
                 />
               </div>
 

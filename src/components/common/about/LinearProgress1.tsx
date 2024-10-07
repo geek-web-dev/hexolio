@@ -22,7 +22,9 @@ const LinearProgress1 = ({
 
   const [counter, setCounter] = useState(0);
   const [done, setDone] = useState(false);
-  const { ref: progressRef, inView: animate } = useInView();
+  const { ref: progressRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
 
   const startCount = () => {
     setDone(true);
@@ -38,9 +40,7 @@ const LinearProgress1 = ({
   };
 
   useEffect(() => {
-    if (animate && !done) {
-      startCount();
-    }
+    if (animate && !done) startCount();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [animate, done]);
 
@@ -51,12 +51,19 @@ const LinearProgress1 = ({
         <span className={colorMap[color]}>{counter}%</span>
       </div>
       <div
-        className={cn("w-full rounded-e-sm relative", bgMap[color])}
+        className={cn(
+          "w-full rounded-e-sm relative overflow-hidden",
+          bgMap[color]
+        )}
         style={{ height: pathWidth }}
       >
         <div
-          className={cn("absolute h-full rounded-e-sm", pureBgMap[color])}
-          style={{ width: `${counter}%` }}
+          className={cn(
+            "absolute h-full rounded-e-sm duration-2000 ease-in-out origin-left",
+            animate ? "scale-x-100" : "scale-x-0",
+            pureBgMap[color]
+          )}
+          style={{ width: `${value}%` }}
         />
       </div>
     </div>

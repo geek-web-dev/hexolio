@@ -39,11 +39,12 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 src={image}
                 alt={title}
                 fill
-                sizes="99vw"
+                sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
                 loading="lazy"
                 className="object-cover"
                 onClick={() => setIsOpenProject(true)}
               />
+              <div className="absolute left-0 top-0 bg-black/10 group-hover:bg-black/0 bg-gradient-to-t from-black/45 to-black/10 size-full duration-1000" />
             </div>
             <div className="flex justify-between items-center">
               <div className="space-y-2">
