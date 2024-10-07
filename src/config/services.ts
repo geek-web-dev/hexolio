@@ -180,5 +180,5 @@ export const services = [
     color: "red",
     price: 11,
   },
-];
+] as const;
 //

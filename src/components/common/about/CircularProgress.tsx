@@ -1,78 +1,42 @@
 "use client";
-import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { bgHexMap, colorHexMap, colorMap, ColorType } from "@/shared";
 import { useInView } from "react-intersection-observer";
-
-type CircularProgressProps = {
-  title: string;
-  value: number;
-  color: ColorType;
-  size?: number;
-  pathWidth?: number;
-};
 
 const CircularProgress = ({
   title,
   value,
   color,
-  size = 122,
-  pathWidth = 8,
-}: CircularProgressProps) => {
-  if (size > 140) size = 140;
-  else if (size < 100) size = 100;
-
-  if (value > 100) value = 100;
-  else if (value < 0) value = 0;
-
-  const [counter, setCounter] = useState(0);
-  const [done, setDone] = useState(false);
+}: {
+  title: string;
+  value: number;
+  color: ColorType;
+}) => {
   const { ref: progressRef, inView: animate } = useInView({
     triggerOnce: true,
   });
 
-  const startCount = () => {
-    setDone(true);
-    const interval = setInterval(() => {
-      setCounter((p) => {
-        const newCounter = p + 1;
-        if (newCounter === value) {
-          clearInterval(interval);
-        }
-        return newCounter;
-      });
-    }, 2000 / value);
-  };
-
-  useEffect(() => {
-    if (animate && !done) startCount();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [animate, done]);
-
   return (
-    <div ref={progressRef}>
+    <div
+      ref={progressRef}
+      className={cn("duration-1000", animate ? "opacity-100" : "opacity-0")}
+    >
       <div
-        className="rounded-full flex justify-center items-center duration-1000 transition-colors"
+        className="rounded-full flex justify-center items-center transition-colors size-[122px]"
         style={{
-          background: `conic-gradient(${colorHexMap[color]} ${
-            counter * 3.6
-          }deg, ${bgHexMap[color]} 0deg)`,
-          width: size,
-          height: size,
+          background: `conic-gradient(${colorHexMap[color]} ${value}%, ${bgHexMap[color]} 0%)`,
         }}
       >
         <div
-          className={cn("absolute rounded-full ", "bg-[--pure-background]")}
-          style={{
-            width: `calc(${size}px - ${pathWidth}px)`,
-            height: `calc(${size}px - ${pathWidth}px)`,
-          }}
+          className={
+            "absolute rounded-full bg-[--pure-background] size-[114px]"
+          }
         />
 
         <p className="relative m-0 text-center font-semibold flex flex-col gap-1">
           <span className="text-[--paragraph] text-sm">{title}</span>
           <span className={cn("percentage text-md", colorMap[color])}>
-            {counter}%
+            {value}%
           </span>
         </p>
       </div>

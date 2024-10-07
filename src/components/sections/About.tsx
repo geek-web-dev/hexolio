@@ -17,10 +17,8 @@ import {
   tools,
   what_i_offer,
 } from "@/config/about";
-import { useState } from "react";
 import Tool from "../common/about/Tool";
 import Funfact from "../common/about/Funfact";
-import { ColorType } from "@/shared";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Link as LinkScroll } from "react-scroll";
@@ -37,7 +35,6 @@ import { FileSearch, Mail } from "lucide-react";
 const { sliderContainer, dotAvilability } = styles;
 
 const About = () => {
-  const [loading, setLoading] = useState(true);
   return (
     <section id="about">
       <MaxWidthWrapper>
@@ -46,16 +43,11 @@ const About = () => {
             <div className="relative overflow-hidden group">
               <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-10 group">
                 <Image
-                  className={cn(
-                    "object-cover duration-300",
-                    loading ? "opacity-0" : "opacity-100"
-                  )}
-                  loading="lazy"
-                  onLoad={() => setLoading(false)}
                   src={about_image}
                   alt={"me"}
                   fill
                   sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
+                  className="object-cover"
                 />
               </div>
 
@@ -67,7 +59,7 @@ const About = () => {
                       src={background_img_path}
                       alt="background"
                       fill
-                      sizes="80vw"
+                      sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw"
                       className="relative object-cover z-0"
                     />
                   </>
@@ -122,12 +114,10 @@ const About = () => {
                 <HeroButton text="Show CV" Icon={FileSearch} />
               </Link>
               {is_available ? (
-                <LinkScroll to="contact" className="ml-4">
+                <LinkScroll to="contact" spy={false} className="ml-4">
                   <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
                 </LinkScroll>
-              ) : (
-                ""
-              )}
+              ) : null}
             </AboutCard>
 
             <AboutCard title="What I Offer" className="col-span-2">
@@ -137,7 +127,7 @@ const About = () => {
             <AboutCard title="What I Use" className="col-span-2">
               <div className="grid 2xl:grid-cols-7 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-4">
                 {tools.map((item, i) => (
-                  <Tool {...item} duration={100 + i * 300} key={i} />
+                  <Tool {...item} key={i} />
                 ))}
               </div>
             </AboutCard>
@@ -149,7 +139,7 @@ const About = () => {
                     key={i}
                     value={item.percent}
                     title={item.skill}
-                    color={item.color as ColorType}
+                    color={item.color}
                   />
                 ))}
               </div>
@@ -162,7 +152,7 @@ const About = () => {
                     key={i}
                     value={item.percent}
                     title={item.language}
-                    color={item.color as ColorType}
+                    color={item.color}
                   />
                 ))}
               </div>
@@ -171,7 +161,7 @@ const About = () => {
             <AboutCard title="Funfacts" className="col-span-2">
               <div className="grid xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-2 gap-4 justify-between">
                 {funfacts.map((item, i) => (
-                  <Funfact {...item} key={i} color={item.color as ColorType} />
+                  <Funfact {...item} key={i} />
                 ))}
               </div>
             </AboutCard>

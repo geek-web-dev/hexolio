@@ -2,26 +2,19 @@
 import { experience } from "@/config/experience";
 import TimelineCard from "../common/experience/TimelineCard";
 import SectionTitle from "../common/global/SectionTitle";
-
 import { cn } from "@/lib/utils";
 import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 import { BriefcaseBusiness, GraduationCap, LucideIcon } from "lucide-react";
-import { useInView } from "react-intersection-observer";
 import styles from "@/app/styles.module.css";
 const { hexagon, centeredAbsolute } = styles;
 
 const Line = ({ title, Icon }: { title: string; Icon: LucideIcon }) => {
-  const { ref: lineRef, inView: animate } = useInView({
-    triggerOnce: true,
-  });
-
   return (
     <>
       <div
         className={cn(
           "w-px bg-[#ddd] dark:bg-[#222] absolute -top-12 left-4 z-10 h-[calc(100%+96px)]"
         )}
-        ref={lineRef}
       >
         <div
           className={cn(
@@ -53,12 +46,7 @@ const Line = ({ title, Icon }: { title: string; Icon: LucideIcon }) => {
           />
         </div>
       </div>
-      <div
-        className={cn(
-          "h-[0.5px] w-full bg-[--paragraph] absolute left-0 -top-10 z-0 opacity-25 duration-1000 origin-left",
-          animate ? "scale-x-100" : "scale-x-0"
-        )}
-      />
+      <div className="h-[0.5px] w-full bg-[--paragraph] absolute left-0 -top-10 z-0 opacity-25 duration-1000 origin-left" />
     </>
   );
 };

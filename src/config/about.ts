@@ -11,16 +11,16 @@ import {
 export const about_image = "/images/about.png";
 //
 
-// ==================[ Are you Freelancer? -> true if you are, otherwise false ]================== //
-export const is_freelancer = true; //
+// ==================[ Are you Freelancer? ]================== //
+export const is_freelancer = true; // true if you are, otherwise false
 //
 
-// ==================[ Are you available -> for hire? true if you are, otherwise false ]================== //
-export const is_available = true;
+// ==================[ Are you available for hire? ]================== //
+export const is_available = true; // true if you are, otherwise false
 //
 
-// ==================[ About Background Image -> if you want write image path otherwise leave it "" ]================== //
-export const background_img_path = "";
+// ==================[ About Background Image ]================== //
+export const background_img_path = ""; // image path for background | leave it "" for default background
 //
 
 // ==================[ About Me ]================== //
@@ -112,7 +112,7 @@ export const tools = [
     name: "docker",
     image: "/images/tools/docker.png",
   },
-];
+] as const;
 //
 
 /*
@@ -168,7 +168,7 @@ export const skills = [
     percent: 92,
     color: "teal",
   },
-];
+] as const;
 //
 
 // ==================[ Languages ]================== //
@@ -193,7 +193,7 @@ export const languages = [
     percent: 60,
     color: "blue",
   },
-];
+] as const;
 //
 
 // ==================[ Funfacts ]================== //
@@ -245,7 +245,7 @@ export const funfacts = [
     count: 92,
     color: "pink",
   },
-];
+] as const;
 //
 
 // ==================[ What's Client says ]================== //
@@ -273,7 +273,7 @@ export const clients = [
     comment:
       "You are really professional one and i am so happy of working with you, Thanks for solving my problems and I am goning to work with you again",
   },
-];
+] as const;
 //
 
 // ==================[ More Personal Data ]================== //
@@ -337,7 +337,7 @@ export const more_personal_data = [
     title: "availble working time",
     data: "6AM - 10PM",
   },
-];
+] as const;
 //
 
 // ==================[ Goals ]================== //
@@ -369,7 +369,7 @@ export const goals = [
     description:
       "Share knowledge and resources through blogging, open-source contributions, and mentoring, to give back to the development community and support others in their growth.",
   },
-];
+] as const;
 //
 
 // ==================[ Quote ]================== //

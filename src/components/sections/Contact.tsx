@@ -21,8 +21,6 @@ import FormError from "../common/contact/FormError";
 import { contact_info } from "@/config/contact";
 import ContactInfo from "../common/contact/ContactInfo";
 import { useCursorContext } from "@/context/CursorContext";
-import { cn } from "@/lib/utils";
-import { ColorType } from "@/shared";
 import SectionTitle from "../common/global/SectionTitle";
 import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 import Footer from "../common/contact/Footer";
@@ -93,7 +91,7 @@ const Contact = () => {
         <div className="grid">
           <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:order-1 order-2 lg:mt-0 mt-4">
             {contact_info.map((item, i) => (
-              <ContactInfo key={i} {...item} color={item.color as ColorType} />
+              <ContactInfo key={i} {...item} />
             ))}
           </div>
 

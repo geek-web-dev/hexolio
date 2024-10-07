@@ -4,13 +4,7 @@ import { Home } from "lucide-react";
 import { LinkBadge } from "./NavLinks";
 import { useCursorContext } from "@/context/CursorContext";
 
-const PageProgress = ({
-  size = 50,
-  pathWidth = 4,
-}: {
-  size?: number;
-  pathWidth?: number;
-}) => {
+const PageProgress = () => {
   const [scroll, setScroll] = useState(0);
   const { cursorFocus, cursorDefault } = useCursorContext();
 
@@ -35,21 +29,13 @@ const PageProgress = ({
       onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
     >
       <div
-        className="rounded-full flex justify-center items-center duration-1000 transition-colors"
+        className="rounded-full flex justify-center items-center duration-1000 transition-colors size-[50px]"
         style={{
-          background: `conic-gradient(var(--main) ${
-            scroll * 3.6
-          }deg, var(--line-color) 0deg)`,
-          width: size,
-          height: size,
+          background: `conic-gradient(var(--main) ${scroll}%, var(--line-color) 0)`,
         }}
       >
         <div
-          className={cn("absolute rounded-full ", "bg-[--background]")}
-          style={{
-            width: `calc(${size}px - ${pathWidth}px)`,
-            height: `calc(${size}px - ${pathWidth}px)`,
-          }}
+          className={cn("absolute rounded-full bg-[--background] size-[46px]")}
         />
         <div
           className="size-10 rounded-full flex justify-center items-center duration-300 cursor-pointer group"

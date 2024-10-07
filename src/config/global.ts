@@ -105,5 +105,5 @@ export const social_links = [
     link: "#",
     color: "red",
   },
-];
+] as const;
 //

@@ -65,5 +65,5 @@ export const projects = [
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
     link: "",
   },
-];
+] as const;
 //

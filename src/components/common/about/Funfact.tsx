@@ -3,7 +3,6 @@ import { cn } from "@/lib/utils";
 import { bgMap, colorMap, ColorType } from "@/shared";
 import { LucideIcon } from "lucide-react";
 import { useInView } from "react-intersection-observer";
-import CountUp from "react-countup";
 
 import styles from "@/app/styles.module.css";
 const { hexagon, centeredAbsolute } = styles;
@@ -24,13 +23,18 @@ const Funfact = ({
   });
 
   return (
-    <div className="flex items-end group" ref={funFactRef}>
+    <div
+      className={cn(
+        "flex items-end duration-1000",
+        animate ? "opacity-100" : "opacity-0"
+      )}
+      ref={funFactRef}
+    >
       <div className="relative size-14">
         <div
           className={cn(
             hexagon,
-            "absolute size-full flex items-center justify-center rounded-sm text-white duration-2000",
-            animate ? "rotate-180" : "",
+            "absolute size-full flex items-center justify-center rounded-sm text-white",
             bgMap[color]
           )}
         >
@@ -49,8 +53,8 @@ const Funfact = ({
         />
       </div>
       <div className="ml-2">
-        <span className={cn("text-xl font-[600]", colorMap[color])}>
-          {animate ? <CountUp startVal={0} end={count} /> : 0}
+        <span className={cn("text-xl font-[600] font-mono", colorMap[color])}>
+          {count}
         </span>
         <h3 className="dark:text-[#ddd] capitalize text-nowrap font-[500]">
           {title}

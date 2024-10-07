@@ -7,5 +7,5 @@ export const app_info = {
 
   keywords:
     "web developer, front-end developer, full-stack developer, JavaScript developer, Node.js, React, Next.js, Tailwind CSS, responsive design, SEO-friendly websites, web development services, freelance developer, custom web applications, UI/UX design, portfolio, programming, coding",
-};
+} as const;
 //

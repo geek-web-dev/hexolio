@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, Eye } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { ArrowRight, ArrowUpRight, ExternalLink, Eye } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { useCursorContext } from "@/context/CursorContext";
 import { useProjectContext } from "@/context/ProjectContext";
-import { useInView } from "react-intersection-observer";
+import ImageOverlay from "../global/ImageOverlay";
 
 type ProjectProps = {
   title: string;
@@ -14,15 +13,80 @@ type ProjectProps = {
   genre: string;
   link: string;
   projectIdx: number;
-  duration: number;
+};
+
+const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
+  const { setIsOpenProject, setProjectIdx } = useProjectContext();
+
+  const [ready, setReady] = useState(false);
+
+  return (
+    <div className="shadow-md hover:shadow-lg group flex items-center justify-center bg-[#ccc] dark:bg-[#262626] duration-1000 transition-shadow">
+      <div className="relative aspect-video overflow-hidden size-[calc(100%-1rem)] rounded-sm">
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 80vw"
+          className="object-cover"
+        />
+
+        <ImageOverlay />
+
+        <div className="absolute left-0 bottom-0 w-full p-4 group-hover: bg-white/85 dark:bg-black/85 backdrop-blur-sm z-10 duration-1000 ease-in-out translate-y-[100%] group-hover:translate-y-0">
+          <div className="flex justify-between items-center">
+            <div className="space-y-2">
+              <h3 className="font-semibold sm:text-2xl text-[--pure-text]">
+                {title}
+              </h3>
+              <h4 className="sm:text-xl text-[--main]">{genre}</h4>
+            </div>
+
+            <div className="flex gap-2">
+              <ProjectButton
+                clickHandler={() => {
+                  setIsOpenProject(true);
+                  setProjectIdx(projectIdx);
+                }}
+              >
+                <Eye strokeWidth={1.25} className="sm:size-6 size-4" />
+              </ProjectButton>
+
+              <Link
+                href={link}
+                title="Open the project"
+                target="_blank"
+                onMouseEnter={() => setReady(true)}
+                onMouseLeave={() => setReady(false)}
+              >
+                <ProjectButton>
+                  {ready ? (
+                    <ArrowUpRight
+                      strokeWidth={1.25}
+                      className="sm:size-6 size-4"
+                    />
+                  ) : (
+                    <ArrowRight
+                      strokeWidth={1.25}
+                      className="sm:size-6 size-4"
+                    />
+                  )}
+                </ProjectButton>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 const ProjectButton = ({
   children,
-  handler,
+  clickHandler,
 }: {
   children: ReactNode;
-  handler?: () => void;
+  clickHandler?: () => void;
 }) => {
   const { cursorDefault, cursorFocus } = useCursorContext();
   return (
@@ -31,81 +95,9 @@ const ProjectButton = ({
       onMouseEnter={cursorFocus}
       onMouseLeave={cursorDefault}
       title="Show the project"
-      onClick={handler}
+      onClick={clickHandler}
     >
       {children}
-    </div>
-  );
-};
-
-const Project = ({
-  title,
-  image,
-  genre,
-  link,
-  projectIdx,
-  duration,
-}: ProjectProps) => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { setIsOpenProject, setProjectIdx } = useProjectContext();
-
-  const { ref: projectRef, inView: animate } = useInView({
-    triggerOnce: true,
-  });
-
-  return (
-    <div
-      className={cn(
-        "shadow-md hover:shadow-lg group flex items-center justify-center bg-[#d6d6d6] dark:bg-[#262626] duration-1000 transition-transform",
-        animate ? "translate-y-0" : "translate-y-4"
-      )}
-      ref={projectRef}
-    >
-      <div className="relative aspect-video overflow-hidden w-[calc(100%-1rem)] h-[calc(100%-1rem)] rounded-sm">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
-          loading="lazy"
-          onLoad={() => setIsLoading(false)}
-          className={cn(
-            isLoading ? "opacity-0" : "opacity-100",
-            "transition-opacity duration-500",
-            "object-cover"
-          )}
-          style={{ transitionDuration: `${duration}ms` }}
-        />
-
-        <div className="absolute left-0 top-0 bg-black/25 group-hover:bg-black/75 dark:group-hover:bg-white/25 size-full duration-1000 group-hover:backdrop-blur-sm" />
-        {/*  */}
-        <div className="absolute left-4 top-4 size-[calc(100%-2rem)] opacity-0 group-hover:opacity-95 bg-[--background] backdrop-blur-sm duration-1000 shadow-md ease-in-out z-10">
-          <div className="m-4">
-            <h3 className="font-semibold sm:text-2xl text-[--pure-text]">
-              {title}
-            </h3>
-            <h4 className="sm:text-xl text-[--main] mt-2">{genre}</h4>
-            <div className="flex gap-2 mt-4">
-              <ProjectButton
-                handler={() => {
-                  setIsOpenProject(true);
-                  setProjectIdx(projectIdx);
-                }}
-              >
-                <Eye strokeWidth={1.25} className="sm:size-6 size-4" />
-              </ProjectButton>
-              <ProjectButton>
-                <Link href={link} title="Open the project" target="_blank">
-                  <ExternalLink
-                    strokeWidth={1.25}
-                    className="sm:size-6 size-4"
-                  />
-                </Link>
-              </ProjectButton>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 };

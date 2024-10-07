@@ -11,14 +11,9 @@ const Projects = () => {
           title="projects"
           description="My working gallery & projects portfolio"
         />
-        <div className="grid lg:grid-cols-2 mt-4 gap-4 rounded-sm">
+        <div className="grid xl:grid-cols-2 mt-4 gap-4 rounded-sm">
           {projects.map((item, i) => (
-            <Project
-              key={i}
-              projectIdx={i}
-              duration={100 * (i + 1)}
-              {...item}
-            />
+            <Project key={i} projectIdx={i} {...item} />
           ))}
         </div>
       </MaxWidthWrapper>

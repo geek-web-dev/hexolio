@@ -41,7 +41,7 @@ const TimelineCard = ({
     <div
       className={cn(
         "relative w-[calc(100%-36px)] ml-auto z-20 mb-4",
-        animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        animate ? "translate-y-0" : "translate-y-4"
       )}
       ref={timelineCardRef}
       style={{ transition: "opacity 1000ms, transform 1000ms" }}

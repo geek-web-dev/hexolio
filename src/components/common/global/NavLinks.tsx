@@ -21,11 +21,7 @@ export const LinkBadge = ({ title }: { title: string }) => {
       )}
     >
       {title}
-      <div
-        className={cn(
-          "absolute border-[4px] border-transparent border-t-[#222] dark:border-t-[#ddd] left-[50%] translate-x-[-50%] -bottom-3 translate-y-[-50%]"
-        )}
-      ></div>
+      <div className="absolute border-[4px] border-transparent border-t-[#222] dark:border-t-[#ddd] left-[50%] translate-x-[-50%] -bottom-3 translate-y-[-50%]" />
     </div>
   );
 };
@@ -49,8 +45,8 @@ const NavLinks = () => {
             <Link
               key={i}
               to={item.name.toLowerCase()}
+              spy={false}
               offset={-32}
-              data-id={item.name.toLowerCase()}
               className="size-10 rounded-sm shadow-sm flex justify-center items-center cursor-pointer group relative"
               onMouseEnter={cursorFocus}
               onMouseLeave={cursorDefault}

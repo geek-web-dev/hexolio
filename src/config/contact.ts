@@ -50,5 +50,5 @@ export const contact_info = [
     info: "Available for work",
     color: "green",
   },
-];
+] as const;
 //

@@ -28,8 +28,8 @@ const ColorsPalette = () => {
       <div
         className={cn(
           hexagon,
-          "rounded-l-md fixed z-30 bg-[--main] hover:bg-[--background] shadow-md size-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none",
-          activePalette ? "bg-white dark:bg-[#222]" : ""
+          "rounded-l-md fixed z-30 bg-[--main] hover:bg-[--background] size-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none",
+          activePalette ? "bg-[#e4e4e4] dark:bg-[#222]" : ""
         )}
         onClick={() => setActivePalette((p) => !p)}
       >
@@ -46,8 +46,8 @@ const ColorsPalette = () => {
       </div>
       <div
         className={cn(
-          "fixed w-6 bg-[--background] top-16  rounded-sm shadow-md flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
-          activePalette ? "right-1" : "-right-7"
+          "fixed right-0 top-16 w-6 bg-white border border-[--line-color] dark:bg-[#222] rounded-sm flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
+          activePalette ? " -translate-x-1" : "translate-x-[100%]"
         )}
       >
         {colors.map((c, i) => (

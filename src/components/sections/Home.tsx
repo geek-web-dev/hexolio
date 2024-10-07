@@ -19,8 +19,8 @@ const Home = () => {
       <img
         src={personal_data.image}
         alt={personal_data.name}
-        className="absolute bottom-0 right-[0] h-[105%] w-auto object-cover z-10"
         loading="lazy"
+        className="absolute bottom-0 right-[0] h-[102%] w-auto object-cover z-10"
       />
       {/* using img in this case is better than using Image/next */}
 

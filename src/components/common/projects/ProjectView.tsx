@@ -8,6 +8,7 @@ import { useProjectContext } from "@/context/ProjectContext";
 import CloseButton from "../global/CloseButton";
 import styles from "@/app/styles.module.css";
 import Overlay from "../global/Overlay";
+import ImageOverlay from "../global/ImageOverlay";
 const { showAnimation } = styles;
 
 const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
@@ -39,12 +40,11 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 src={image}
                 alt={title}
                 fill
-                sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
-                loading="lazy"
+                sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 80vw"
                 className="object-cover"
                 onClick={() => setIsOpenProject(true)}
               />
-              <div className="absolute left-0 top-0 bg-black/10 group-hover:bg-black/0 bg-gradient-to-t from-black/45 to-black/10 size-full duration-1000" />
+              <ImageOverlay />
             </div>
             <div className="flex justify-between items-center">
               <div className="space-y-2">

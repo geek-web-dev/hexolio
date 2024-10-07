@@ -8,5 +8,5 @@ export const personal_data = {
     part1: "full stack",
     part2: "Developer",
   },
-};
+} as const;
 //
