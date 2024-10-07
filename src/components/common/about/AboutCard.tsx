@@ -11,12 +11,7 @@ const AboutCard = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn(
-        "rounded-sm bg-[--pure-background] p-4 relative",
-        className
-      )}
-    >
+    <div className={cn("bg-[--pure-background] p-4 relative", className)}>
       <h1 className="text-2xl font-semibold text-[--pure-text] uppercase tracking-wide">
         {title}
       </h1>

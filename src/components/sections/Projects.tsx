@@ -11,7 +11,7 @@ const Projects = () => {
           title="projects"
           description="My working gallery & projects portfolio"
         />
-        <div className="grid xl:grid-cols-2 mt-4 gap-4 rounded-sm">
+        <div className="grid xl:grid-cols-2 mt-4 gap-4">
           {projects.map((item, i) => (
             <Project key={i} projectIdx={i} {...item} />
           ))}

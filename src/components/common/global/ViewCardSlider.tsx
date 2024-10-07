@@ -76,7 +76,7 @@ const ViewCardSlider = ({
 
       <div
         className={cn(
-          "fixed z-[42] bg-[--pure-background] overflow-y-auto overflow-x-hidden rounded-sm xl:size-[50%] size-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border border-[--line-color]",
+          "fixed z-[42] bg-[--pure-background] overflow-y-auto overflow-x-hidden  xl:size-[50%] size-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border border-[--line-color]",
           "scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999] scrollbar-thin scrollbar-track-transparent p-4",
           showAnimation
         )}

@@ -47,7 +47,7 @@ const Service = ({
   return (
     <div
       className={cn(
-        "bg-[--pure-background] rounded-sm border border-[--line-color] hover:shadow-md duration-1000 dark:shadow-none transition-shadow overflow-hidden z-0",
+        "bg-[--pure-background] border border-[--line-color] hover:shadow-md duration-1000 dark:shadow-none transition-shadow overflow-hidden z-0",
         iconWrapParent
       )}
       ref={serviceRef}
@@ -144,7 +144,7 @@ const ServiceIcon = ({
   return (
     <div
       className={cn(
-        "rounded-sm size-14 flex items-center justify-center",
+        "size-14 flex items-center justify-center",
         isFrontFace ? "bg-[--background]" : pureBgMap[color],
         isFrontFace ? colorMap[color] : "text-white"
       )}

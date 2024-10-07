@@ -12,10 +12,7 @@ const Clients = () => {
       style={{ animationDuration: `${clients.length * 8}s` }}
     >
       {clients.map((item, i) => (
-        <div
-          key={i}
-          className="space-y-2 rounded-sm p-4 bg-[--pure-background]"
-        >
+        <div key={i} className="space-y-2 p-4 bg-[--pure-background]">
           <p className="italic">
             {"“"}
             {item.comment}
@@ -25,7 +22,7 @@ const Clients = () => {
             <h4 className="text-[--pure-text] capitalize font-[500]">
               {item.name}
             </h4>
-            <div className="h-px w-8 bg-[--paragraph] rounded-sm opacity-15" />
+            <div className="h-px w-8 bg-[--paragraph] opacity-15" />
             <StarRating averageRate={item.rate} />
           </div>
         </div>

@@ -6,6 +6,8 @@ import { ReactNode, useState } from "react";
 import { useCursorContext } from "@/context/CursorContext";
 import { useProjectContext } from "@/context/ProjectContext";
 import ImageOverlay from "../global/ImageOverlay";
+import { useInView } from "react-intersection-observer";
+import { cn } from "@/lib/utils";
 
 type ProjectProps = {
   title: string;
@@ -16,13 +18,26 @@ type ProjectProps = {
 };
 
 const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
+  const { ref: projectRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
+
   const { setIsOpenProject, setProjectIdx } = useProjectContext();
 
   const [ready, setReady] = useState(false);
 
   return (
-    <div className="shadow-md hover:shadow-lg group flex items-center justify-center bg-[#ccc] dark:bg-[#262626] duration-1000 transition-shadow">
-      <div className="relative aspect-video overflow-hidden size-[calc(100%-1rem)] rounded-sm">
+    <div
+      className={cn(
+        "shadow-md hover:shadow-lg group flex items-center justify-center bg-[#ccc] dark:bg-[#262626]",
+        animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+      )}
+      style={{
+        transition: "shadow 1000ms, opacity 1000ms, transform 1000ms",
+      }}
+      ref={projectRef}
+    >
+      <div className="relative aspect-video overflow-hidden size-[calc(100%-1rem)]">
         <Image
           src={image}
           alt={title}
@@ -91,7 +106,7 @@ const ProjectButton = ({
   const { cursorDefault, cursorFocus } = useCursorContext();
   return (
     <div
-      className="rounded-full text-[--main] sm:size-14 size-10 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border border-[--main]"
+      className="rounded-full text-[--main] sm:size-14 size-10 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border-[1px] border-[#bbb] dark:border-[#333]"
       onMouseEnter={cursorFocus}
       onMouseLeave={cursorDefault}
       title="Show the project"

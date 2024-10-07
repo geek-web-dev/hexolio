@@ -5,13 +5,11 @@
 @layer base {
   :root {
     --main: #d946ef;
-
     --background: #f0f0f0;
     --pure-background: #fff;
     --pure-text: #000;
     --line-color: #eee;
     --paragraph: #666666;
-
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --strock: 1px;
@@ -53,7 +51,7 @@ section {
   position: relative;
   min-height: 100vh;
   background-color: var(--background);
-  padding-bottom: 160px;
+  padding-bottom: 180px;
   z-index: 20;
 }
 

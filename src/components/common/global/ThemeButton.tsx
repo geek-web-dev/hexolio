@@ -23,7 +23,7 @@ const ThemeButton = () => {
     <div
       className={cn(
         hexagon,
-        "rounded-l-md fixed z-30 bg-[#222] backdrop-blur-sm shadow-md w-6 h-6 flex justify-center items-center top-1 right-1 cursor-pointer group duration-300",
+        "fixed z-30 bg-[#222] backdrop-blur-sm shadow-md size-6 flex justify-center items-center top-1 right-1 cursor-pointer group duration-300",
         "hover:bg-white dark:hover:bg-orange-500"
       )}
       onClick={toggleHander}

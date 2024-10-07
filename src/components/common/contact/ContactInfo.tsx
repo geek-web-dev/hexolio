@@ -14,7 +14,7 @@ type ContactInfoProp = {
 
 const ContactInfo = ({ title, Icon, info, color }: ContactInfoProp) => {
   return (
-    <div className="p-6 flex flex-col items-center justify-center bg-[--pure-background] space-y-4  rounded-sm">
+    <div className="p-6 flex flex-col items-center justify-center bg-[--pure-background] space-y-4">
       <div
         className={cn(
           hexagon,

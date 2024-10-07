@@ -39,9 +39,9 @@ const About = () => {
     <section id="about">
       <MaxWidthWrapper>
         <div className="grid md:grid-cols-12 gap-4">
-          <div className="bg-[--pure-background] md:col-span-5 md:sticky relative left-0 top-4 h-fit p-4 rounded-sm mt-4">
+          <div className="bg-[--pure-background] md:col-span-5 md:sticky relative left-0 top-4 h-fit p-4 mt-4">
             <div className="relative overflow-hidden group">
-              <div className="relative w-full h-auto aspect-square overflow-hidden rounded-sm z-10 group">
+              <div className="relative w-full h-auto aspect-square overflow-hidden z-10 group">
                 <Image
                   src={about_image}
                   alt={"me"}
@@ -92,7 +92,7 @@ const About = () => {
               <div className="flex items-center gap-2 text-[--paragraph]">
                 <div
                   className={cn(
-                    "w-2 h-2 relative rounded-full",
+                    "size-2 relative rounded-full",
                     is_available ? "bg-[#7d7]" : "bg-red-500"
                   )}
                 >
@@ -117,8 +117,8 @@ const About = () => {
                 <LinkScroll
                   to="contact"
                   spy={false}
-                  role="button"
                   className="ml-4"
+                  href="contact"
                 >
                   <HeroButton text="Hire me" Icon={Mail} variant="outlined" />
                 </LinkScroll>
@@ -132,7 +132,7 @@ const About = () => {
             <AboutCard title="What I Use" className="col-span-2">
               <div className="grid 2xl:grid-cols-7 xl:grid-cols-5 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-4 grid-cols-2 gap-4">
                 {tools.map((item, i) => (
-                  <Tool {...item} key={i} />
+                  <Tool {...item} key={i} duration={(i + 1) * 300} />
                 ))}
               </div>
             </AboutCard>
@@ -177,7 +177,7 @@ const About = () => {
             >
               <div
                 className={cn(
-                  "h-36 overflow-hidden flex flex-col gap-4 px-4 rounded-sm bg-[--background]",
+                  "h-36 overflow-hidden flex flex-col gap-4 px-4 bg-[--background]",
                   sliderContainer
                 )}
               >

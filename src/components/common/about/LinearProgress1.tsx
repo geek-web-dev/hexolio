@@ -23,14 +23,11 @@ const LinearProgress1 = ({
         <span className={cn(colorMap[color], "font-mono")}>{value}%</span>
       </div>
       <div
-        className={cn(
-          "w-full rounded-e-sm relative overflow-hidden h-1.5",
-          bgMap[color]
-        )}
+        className={cn("w-full relative overflow-hidden h-1.5", bgMap[color])}
       >
         <div
           className={cn(
-            "absolute h-full rounded-e-sm duration-1000 ease-in-out origin-left",
+            "absolute h-full duration-1000 ease-in-out origin-left",
             animate ? "scale-x-100" : "scale-x-0",
             pureBgMap[color]
           )}

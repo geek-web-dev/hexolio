@@ -34,7 +34,7 @@ const Funfact = ({
         <div
           className={cn(
             hexagon,
-            "absolute size-full flex items-center justify-center rounded-sm text-white",
+            "absolute size-full flex items-center justify-center text-white",
             bgMap[color]
           )}
         >

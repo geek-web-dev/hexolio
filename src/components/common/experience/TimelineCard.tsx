@@ -41,7 +41,7 @@ const TimelineCard = ({
     <div
       className={cn(
         "relative w-[calc(100%-36px)] ml-auto z-20 mb-4",
-        animate ? "translate-y-0" : "translate-y-4"
+        animate ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
       )}
       ref={timelineCardRef}
       style={{ transition: "opacity 1000ms, transform 1000ms" }}
@@ -53,14 +53,20 @@ const TimelineCard = ({
         )}
       />
 
-      <div className="relative bg-[--paragraph] rounded-r-sm w-fit px-2 py-0.5 text-sm text-white dark:text-black font-[500] flex items-center gap-2">
+      <div className="relative bg-[--paragraph] w-fit px-2 py-0.5 text-sm text-white dark:text-black font-[500] flex items-center gap-2">
         <span>{from}</span>
         <div className="w-4 bg-white/50 dark:bg-black/50 h-px relative" />
         <span>{to}</span>
         <div className="absolute -left-2 top-[50%] translate-y-[-50%] border-[4px] border-transparent border-r-[--paragraph]" />
       </div>
 
-      <div className="bg-[--pure-background] p-4 mt-2 shadow-sm rounded-sm">
+      <div
+        className={cn(
+          "bg-[--pure-background] p-4 mt-2 shadow-sm",
+          animate ? "translate-y-0" : "translate-y-4"
+        )}
+        style={{ transition: "opacity 1000ms, transform 1000ms" }}
+      >
         <div className=" space-y-2">
           <h1 className="text-[--pure-text] text-xl">
             <span className="font-[500]">{event}</span> -{" "}

@@ -9,6 +9,7 @@ import CloseButton from "../global/CloseButton";
 import styles from "@/app/styles.module.css";
 import Overlay from "../global/Overlay";
 import ImageOverlay from "../global/ImageOverlay";
+import { useState } from "react";
 const { showAnimation } = styles;
 
 const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
@@ -16,6 +17,8 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
     projects[projectIdx];
 
   const { setIsOpenProject } = useProjectContext();
+
+  const [loading, setLoading] = useState(true);
 
   return (
     <>
@@ -28,21 +31,24 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
 
       <div
         className={cn(
-          "fixed z-[41] bg-[--pure-background] overflow-y-auto overflow-x-hidden rounded-sm w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
+          "fixed z-[41] bg-[--pure-background] overflow-y-auto overflow-x-hidden w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
           "scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999] scrollbar-thin scrollbar-track-transparent border border-[--line-color] p-4",
           showAnimation
         )}
       >
         <div className="grid">
           <div className="space-y-4">
-            <div className="relative w-full h-auto aspect-video overflow-hidden rounded-sm border border-[--line-color]">
+            <div className="relative w-full h-auto aspect-video overflow-hidden border border-[--line-color]">
               <Image
                 src={image}
                 alt={title}
                 fill
                 sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 80vw"
-                className="object-cover"
-                onClick={() => setIsOpenProject(true)}
+                onLoad={() => setLoading(false)}
+                className={cn(
+                  "object-cover duration-1000",
+                  loading ? "opacity-0" : "opacity-100"
+                )}
               />
               <ImageOverlay />
             </div>
@@ -66,10 +72,7 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
               <h3 className="text-2xl">Tools Used:</h3>
               <div className="flex gap-2 flex-wrap">
                 {tools_used.map((tool, i) => (
-                  <div
-                    className="border border-[--line-color] rounded-sm px-2"
-                    key={i}
-                  >
+                  <div className="border border-[--line-color] px-2" key={i}>
                     {tool}
                   </div>
                 ))}

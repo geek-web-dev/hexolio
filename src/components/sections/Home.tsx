@@ -18,7 +18,7 @@ const Home = () => {
       <Image
         src={personal_data.image}
         alt={personal_data.name}
-        width={833}
+        width={843}
         height={744}
         className="absolute bottom-0 right-[0] object-cover z-10"
         sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw"
