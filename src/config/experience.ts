@@ -28,7 +28,7 @@ export const experience = {
       description:
         "Completed advanced computer science courses focusing on web development, machine learning, deep learning, computer vision, image proccessing, and data analysis, enhancing my technical skills and understanding of modern development practices.",
     },
-  ],
+  ] as any[],
 
   // --- Working history --- //
   working: [
@@ -58,6 +58,6 @@ export const experience = {
       description:
         "Currently working as a remote full-stack developer, designing and implementing full-scale web applications from concept to deployment. Skilled in both front-end and back-end development, including RESTful API integration, database management.",
     },
-  ],
-};
+  ] as any[],
+} as const;
 //
