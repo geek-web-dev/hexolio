@@ -58,7 +58,7 @@ const Service = ({
             src={image}
             alt={service}
             fill
-            sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 90vw"
+            sizes="50vw"
             className="object-cover"
           />
 

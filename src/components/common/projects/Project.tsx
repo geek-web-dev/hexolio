@@ -1,12 +1,11 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, ExternalLink, Eye } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Eye } from "lucide-react";
 import { ReactNode, useState } from "react";
 import { useCursorContext } from "@/context/CursorContext";
 import { useProjectContext } from "@/context/ProjectContext";
 import ImageOverlay from "../global/ImageOverlay";
-import { cn } from "@/lib/utils";
 
 type ProjectProps = {
   title: string;
@@ -17,7 +16,6 @@ type ProjectProps = {
 };
 
 const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
-  const [loading, setLoading] = useState(true);
   const { setIsOpenProject, setProjectIdx } = useProjectContext();
 
   const [ready, setReady] = useState(false);
@@ -29,12 +27,8 @@ const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
           src={image}
           alt={title}
           fill
-          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw, 80vw"
-          onLoad={() => setLoading(false)}
-          className={cn(
-            "object-cover duration-1000",
-            loading ? "opacity-0" : "opacity-100"
-          )}
+          sizes="50vw"
+          className="object-cover"
         />
 
         <ImageOverlay />

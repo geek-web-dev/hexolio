@@ -8,7 +8,7 @@ const Tool = ({ name, image }: { name: string; image: string }) => {
         width={38}
         height={38}
         alt={name}
-        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw"
+        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 70vw"
       />
       <span className="text-[--pure-text] text-[11px] uppercase mt-2 tracking-widest font-[600] opacity-75 px-2 rounded-sm text-center">
         {name}
