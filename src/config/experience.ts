@@ -59,5 +59,5 @@ export const experience = {
         "Currently working as a remote full-stack developer, designing and implementing full-scale web applications from concept to deployment. Skilled in both front-end and back-end development, including RESTful API integration, database management.",
     },
   ],
-} as const;
+};
 //
