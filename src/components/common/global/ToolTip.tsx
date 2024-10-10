@@ -4,7 +4,7 @@ const ToolTip = ({ title }: { title: string }) => {
   return (
     <div
       className={cn(
-        " uppercase px-2 py-1 absolute left-[50%] translate-x-[-50%] duration-300 dark:font-[500] text-sm",
+        " uppercase px-2 py-1 absolute left-[50%] translate-x-[-50%] duration-300 dark:font-[500] text-sm rounded-sm",
         "group-hover:opacity-100 opacity-0 -translate-y-12",
         "bg-[#222] dark:bg-[#ddd] text-[--pure-background]"
       )}

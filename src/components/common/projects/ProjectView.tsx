@@ -55,25 +55,25 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
               />
               <ImageOverlay />
             </div>
-            <div className="flex justify-between items-center">
-              <div className="space-y-2">
+            <div className="space-y-2">
+              <div className="flex justify-between items-center">
                 <h1 className="text-4xl font-semibold text-[--pure-text]">
                   {title}
                 </h1>
-                <h3 className="text-3xl text-[--main]">{genre}</h3>
+                <Link
+                  href={link}
+                  target="_blank"
+                  onMouseEnter={cursorFocus}
+                  onMouseLeave={cursorDefault}
+                >
+                  <ExternalLink
+                    size={42}
+                    strokeWidth={1}
+                    className="text-[--pure-text] hover:text-[--main] duration-300"
+                  />
+                </Link>
               </div>
-              <Link
-                href={link}
-                target="_blank"
-                onMouseEnter={cursorFocus}
-                onMouseLeave={cursorDefault}
-              >
-                <ExternalLink
-                  size={42}
-                  strokeWidth={1}
-                  className="text-[--pure-text] hover:text-[--main] duration-300"
-                />
-              </Link>
+              <h3 className="text-3xl text-[--main]">{genre}</h3>
             </div>
 
             <p className="text-lg">{description}</p>

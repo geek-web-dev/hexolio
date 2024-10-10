@@ -42,7 +42,7 @@ const ColorsPalette = () => {
       </div>
       <div
         className={cn(
-          "fixed right-0 top-16 w-6 bg-white dark:bg-[#222] flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
+          "fixed right-0 top-16 w-6 bg-white dark:bg-[#222] flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none rounded-full",
           activePalette ? " -translate-x-1" : "translate-x-[100%]"
         )}
       >
@@ -51,7 +51,7 @@ const ColorsPalette = () => {
             key={i}
             className={cn(
               pureBgMap[c as ColorType],
-              "size-4 hover:scale-95 duration-150 text-white flex justify-center items-center",
+              "size-4 hover:scale-95 duration-150 text-white text-sm flex justify-center items-center rounded-full",
               activeColor === i ? "pointer-events-none" : "cursor-pointer"
             )}
             onClick={() => {

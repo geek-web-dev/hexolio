@@ -11,6 +11,10 @@ import {
 export const about_image = "/images/about.png";
 //
 
+// ==================[ Years Experience ]================== //
+export const years_experience = 9;
+//
+
 // ==================[ Are you Freelancer? ]================== //
 export const is_freelancer = true; // true if you are, otherwise false
 //

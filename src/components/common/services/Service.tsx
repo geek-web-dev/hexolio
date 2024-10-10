@@ -83,6 +83,7 @@ const Service = ({
             className={cn(
               centeredAbsolute,
               "size-12 bg-white rounded-full opacity-0 group-hover:opacity-100 duration-300 flex justify-center items-center shadow-md",
+              colorMap[color],
               bgHoverMap[color],
               "hover:text-white"
             )}

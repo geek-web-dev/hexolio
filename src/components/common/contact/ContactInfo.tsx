@@ -22,7 +22,7 @@ const ContactInfo = ({ title, Icon, info, color }: ContactInfoProp) => {
           "size-20 flex justify-center items-center relative"
         )}
       >
-        <Icon size={40} strokeWidth={0.5} className={colorMap[color]} />
+        <Icon size={40} strokeWidth={0.75} className={colorMap[color]} />
         <div
           className={cn(
             "absolute left-[50%] translate-x-[-50%] top-[50%] translate-y-[-50%] size-10 rounded-full blur-md",
