@@ -5,22 +5,22 @@
 @layer base {
   :root {
     --main: #d946ef;
-    --background: #f0f0f0;
+    --background: #f3f3f3;
     --pure-background: #fff;
     --pure-text: #000;
-    --line-color: #eee;
+    --line-color: #dfdfdf;
     --paragraph: #666666;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --strock: 1px;
+    --radius: 0.5rem;
   }
 
   .dark {
-    --background: #0f0f0f;
-    --pure-background: #000;
+    --background: #000;
+    --pure-background: #0e0e0e;
     --pure-text: #fff;
-    --line-color: #141414;
-    --paragraph: #999;
+    --line-color: #161616;
+    --paragraph: #aaa;
   }
 }
 
@@ -57,6 +57,7 @@ section {
 
 p {
   color: var(--paragraph);
+  line-height: 1.6;
 }
 
 a.active svg {

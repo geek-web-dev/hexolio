@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Home } from "lucide-react";
-import { LinkBadge } from "./NavLinks";
 import { useCursorContext } from "@/context/CursorContext";
+import ToolTip from "./ToolTip";
 
 const PageProgress = () => {
   const [scroll, setScroll] = useState(0);
@@ -27,27 +27,28 @@ const PageProgress = () => {
     <div
       className="fixed right-2 sm:bottom-4 bottom-16 z-30 cursor-pointer group rounded-full "
       onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+      aria-label="back to home section"
     >
       <div
-        className="rounded-full flex justify-center items-center duration-1000 transition-colors size-[50px]"
+        className="rounded-full flex justify-center items-center duration-1000 transition-colors size-14"
         style={{
           background: `conic-gradient(var(--main) ${scroll}%, var(--line-color) 0)`,
         }}
       >
         <div
-          className={cn("absolute rounded-full bg-[--background] size-[46px]")}
+          className={cn("absolute rounded-full bg-[--background] size-[53px]")}
         />
         <div
-          className="size-10 rounded-full flex justify-center items-center duration-300 cursor-pointer group"
+          className=" rounded-full flex justify-center items-center duration-300 cursor-pointer group"
           onMouseEnter={cursorFocus}
           onMouseLeave={cursorDefault}
         >
           <Home
             size={20}
-            strokeWidth={1.5}
             className="relative text-[--pure-text]"
+            strokeWidth={1.5}
           />
-          <LinkBadge title="home" />
+          <ToolTip title="home" />
         </div>
       </div>
     </div>

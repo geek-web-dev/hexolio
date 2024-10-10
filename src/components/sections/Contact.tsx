@@ -26,11 +26,15 @@ import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 import Footer from "../common/contact/Footer";
 import { useServiceContext } from "@/context/ServiceContext";
 import { services } from "@/config/services";
-
+import { useInView } from "react-intersection-observer";
 import styles from "@/app/styles.module.css";
+import { cn } from "@/lib/utils";
 const { spinner } = styles;
 
 const Contact = () => {
+  const { ref: contactFormRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
   const { isGetService, setIsGetService, serviceIdx } = useServiceContext();
 
   const sendEmailSchema = z.object({
@@ -86,139 +90,144 @@ const Contact = () => {
       <MaxWidthWrapper>
         <SectionTitle
           title="contact"
-          description="contact me now & get in touch !"
+          description="Contact me now & get in touch !"
         />
-        <div className="grid">
-          <div className="grid lg:grid-cols-4 sm:grid-cols-2 gap-4 lg:order-1 order-2 lg:mt-0 mt-4">
+
+        <div
+          className={cn(
+            "grid lg:grid-cols-2 gap-4 duration-1000 transition-opacity",
+            animate ? "opacity-100" : "opacity-0"
+          )}
+          ref={contactFormRef}
+        >
+          <div className="grid sm:grid-cols-2 gap-4 lg:mt-0 mt-8 lg:order-1 order-2">
             {contact_info.map((item, i) => (
               <ContactInfo key={i} {...item} />
             ))}
           </div>
 
-          <div className="grid mt-4 lg:order-2 order-1">
-            <div>
-              <Form {...form}>
-                <form
-                  className="space-y-4"
-                  onSubmit={form.handleSubmit(submitHandler)}
-                >
-                  <div className="grid grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem className="md:col-span-1 col-span-2">
-                          <FormLabel className="text-[--pure-text]">
-                            Email <span className="text-red-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              {...field}
-                              placeholder="Your Email"
-                              type="text"
-                              disabled={isPending}
-                              autoComplete="on"
-                              className="bg-white dark:bg-[#161616] h-12 text-[--pure-text]"
-                              onMouseEnter={cursorFocus}
-                              onMouseLeave={cursorDefault}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem className="relative md:col-span-1 col-span-2">
-                          {isGetService ? (
-                            <CircleX
-                              className="absolute  right-4 top-11 z-10 text-red-500 hover:opacity-50 duration-300"
-                              onClick={() => setIsGetService(false)}
-                              onMouseEnter={cursorFocus}
-                              onMouseLeave={cursorDefault}
-                            />
-                          ) : null}
-
-                          <FormLabel className="text-[--pure-text]">
-                            Subject <span className="text-red-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Input
-                              {...field}
-                              placeholder="Your Subject"
-                              type="text"
-                              disabled={isPending || isGetService}
-                              autoComplete="on"
-                              className="bg-white dark:bg-[#161616] h-12 text-[--pure-text]"
-                              onMouseEnter={cursorFocus}
-                              onMouseLeave={cursorDefault}
-                              value={
-                                isGetService
-                                  ? `I am looking for ( ${services[serviceIdx].service} ) service`
-                                  : field.value
-                              }
-                              onChange={field.onChange}
-                            />
-                          </FormControl>
-                          {isGetService ? null : <FormMessage />}
-                        </FormItem>
-                      )}
-                    />
-
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem className="col-span-2">
-                          <FormLabel className="text-[--pure-text]">
-                            Message <span className="text-red-500">*</span>
-                          </FormLabel>
-                          <FormControl>
-                            <Textarea
-                              {...field}
-                              placeholder="Your Message"
-                              disabled={isPending}
-                              autoComplete="on"
-                              className="bg-white dark:bg-[#161616] min-h-[184px] text-[--pure-text]"
-                              onMouseEnter={cursorFocus}
-                              onMouseLeave={cursorDefault}
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                  </div>
-                  <FormError message={error} />
-                  <FormSuccess message={success} />
-
-                  <Button
-                    type="submit"
-                    className="min-w-40 h-12 group bg-[--main]"
-                    disabled={isPending}
-                    onMouseEnter={cursorFocus}
-                    onMouseLeave={cursorDefault}
-                  >
-                    {isPending ? (
-                      <span className={spinner}></span>
-                    ) : (
-                      <>
-                        <span className="group-hover:scale-90 duration-200">
-                          Send
-                        </span>
-                        <Send
-                          size={18}
-                          className="ml-1 group-hover:scale-110 group-hover:ml-2 group-hover:translate-y-[-2px] duration-200"
-                        />
-                      </>
+          <div className="lg:order-2 order-1">
+            <Form {...form}>
+              <form
+                className="space-y-4"
+                onSubmit={form.handleSubmit(submitHandler)}
+              >
+                <div className="flex flex-col gap-4">
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem className="md:col-span-1 col-span-2">
+                        <FormLabel className="text-[--pure-text]">
+                          Email <span className="text-red-500">*</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Your Email"
+                            type="text"
+                            disabled={isPending}
+                            autoComplete="on"
+                            className="bg-[--pure-background] h-12 text-[--pure-text]"
+                            onMouseEnter={cursorFocus}
+                            onMouseLeave={cursorDefault}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
                     )}
-                  </Button>
-                </form>
-              </Form>
-            </div>
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="subject"
+                    render={({ field }) => (
+                      <FormItem className="relative md:col-span-1 col-span-2">
+                        {isGetService ? (
+                          <CircleX
+                            className="absolute  right-4 top-11 z-10 text-red-500 hover:opacity-50 duration-300"
+                            onClick={() => setIsGetService(false)}
+                            onMouseEnter={cursorFocus}
+                            onMouseLeave={cursorDefault}
+                          />
+                        ) : null}
+
+                        <FormLabel className="text-[--pure-text]">
+                          Subject <span className="text-red-500">*</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Input
+                            {...field}
+                            placeholder="Your Subject"
+                            type="text"
+                            disabled={isPending || isGetService}
+                            autoComplete="on"
+                            className="bg-[--pure-background] h-12 text-[--pure-text]"
+                            onMouseEnter={cursorFocus}
+                            onMouseLeave={cursorDefault}
+                            value={
+                              isGetService
+                                ? `I am looking for ( ${services[serviceIdx].service} ) service`
+                                : field.value
+                            }
+                            onChange={field.onChange}
+                          />
+                        </FormControl>
+                        {isGetService ? null : <FormMessage />}
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="message"
+                    render={({ field }) => (
+                      <FormItem className="col-span-2">
+                        <FormLabel className="text-[--pure-text]">
+                          Message <span className="text-red-500">*</span>
+                        </FormLabel>
+                        <FormControl>
+                          <Textarea
+                            {...field}
+                            placeholder="Your Message"
+                            disabled={isPending}
+                            autoComplete="on"
+                            className="bg-[--pure-background] min-h-[184px] text-[--pure-text]"
+                            onMouseEnter={cursorFocus}
+                            onMouseLeave={cursorDefault}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+                </div>
+                <FormError message={error} />
+                <FormSuccess message={success} />
+
+                <Button
+                  type="submit"
+                  className="min-w-40 h-12 group bg-[--main]"
+                  disabled={isPending}
+                  onMouseEnter={cursorFocus}
+                  onMouseLeave={cursorDefault}
+                >
+                  {isPending ? (
+                    <span className={spinner}></span>
+                  ) : (
+                    <>
+                      <span className="group-hover:scale-90 duration-200">
+                        Send
+                      </span>
+                      <Send
+                        size={18}
+                        className="ml-1 group-hover:scale-110 group-hover:ml-2 group-hover:translate-y-[-2px] duration-200"
+                      />
+                    </>
+                  )}
+                </Button>
+              </form>
+            </Form>
           </div>
         </div>
         <Footer />

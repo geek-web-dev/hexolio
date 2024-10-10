@@ -3,6 +3,7 @@ import StarRating from "./StarRating";
 import { cn } from "@/lib/utils";
 
 import styles from "@/app/styles.module.css";
+import { Quote } from "lucide-react";
 const { slider } = styles;
 
 const Clients = () => {
@@ -12,7 +13,7 @@ const Clients = () => {
       style={{ animationDuration: `${clients.length * 8}s` }}
     >
       {clients.map((item, i) => (
-        <div key={i} className="space-y-2 p-4 bg-[--pure-background]">
+        <div key={i} className="space-y-2 p-4 bg-[--background] rounded-lg">
           <p className="italic">
             {"“"}
             {item.comment}
@@ -24,6 +25,7 @@ const Clients = () => {
             </h4>
             <div className="h-px w-8 bg-[--paragraph] opacity-15" />
             <StarRating averageRate={item.rate} />
+            <Quote className="ml-auto text-[--line-color]" />
           </div>
         </div>
       ))}

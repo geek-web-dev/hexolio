@@ -13,19 +13,18 @@ const Tool = ({
     triggerOnce: true,
   });
   return (
-    <div
-      className="flex flex-col items-center justify-center p-4 border border-[--line-color]"
-      ref={toolRef}
-    >
-      <Image
-        src={image}
-        width={38}
-        height={38}
-        alt={name}
-        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 70vw"
-        style={{ transitionDuration: `${duration}ms` }}
-        className={animate ? "opacity-100" : "opacity-0"}
-      />
+    <div className="flex flex-col items-center justify-center" ref={toolRef}>
+      <div className="bg-[#f3f3f3]/75 dark:bg-black/25 w-full py-4 flex justify-center items-center rounded-lg">
+        <Image
+          src={image}
+          width={38}
+          height={38}
+          alt={name}
+          sizes="(max-width: 768px) 60vw, (max-width: 1200px) 70vw"
+          style={{ transitionDuration: `${duration}ms` }}
+          className={animate ? "opacity-100" : "opacity-0"}
+        />
+      </div>
       <span className="text-[--pure-text] text-[11px] uppercase mt-2 tracking-widest font-[600] opacity-75 px-2 text-center">
         {name}
       </span>

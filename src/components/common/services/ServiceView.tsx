@@ -5,10 +5,10 @@ import { services } from "@/config/services";
 import { bg75Map, colorMap, ColorType } from "@/shared";
 import ArrowLink from "../global/ArrowLink";
 import { Link } from "react-scroll";
-import Image from "next/image";
 import ViewCardSlider from "../global/ViewCardSlider";
 
 import styles from "@/app/styles.module.css";
+import { LucideIcon } from "lucide-react";
 const { hexagon } = styles;
 
 const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
@@ -16,6 +16,7 @@ const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
     useServiceContext();
   const service = services[serviceIdx];
   const color = service.color as ColorType;
+  const Icon = service.Icon as LucideIcon;
 
   return (
     <ViewCardSlider
@@ -26,14 +27,13 @@ const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
       list={services}
     >
       <div className="space-y-4">
-        <div className="relative size-[108px] flex items-center justify-center border border-[--line-color] z-0">
-          <Image
-            src={service.image}
-            alt={service.service}
-            fill
-            sizes="33vw"
-            className="relative object-cover h-full z-10"
-          />
+        <div
+          className={cn(
+            hexagon,
+            "relative size-[108px] flex items-center justify-center bg-[--pure-background] z-0"
+          )}
+        >
+          <Icon size={54} className={colorMap[color]} strokeWidth={0.75} />
           <div
             className={cn(
               "absolute -right-3 -bottom-3 size-6 z-0",
@@ -71,7 +71,7 @@ const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
 
       <div
         className={cn(
-          "absolute -left-24 -top-24 size-48 z-[-1]",
+          "absolute -left-28 -top-28 size-56 z-[-1]",
           bg75Map[color],
           hexagon
         )}

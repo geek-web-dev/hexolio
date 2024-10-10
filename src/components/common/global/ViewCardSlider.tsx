@@ -21,7 +21,7 @@ const IndicatorButton = ({
     <div
       className={cn(
         showAnimation,
-        "fixed size-8 z-40 bg-[--line-color] select-none xl:bottom-[calc(25%-3rem)] bottom-[calc(10%-3rem)] flex justify-center items-center",
+        "fixed size-8 z-40 bg-[--line-color] select-none xl:bottom-[calc(25%-3rem)] bottom-[calc(10%-3rem)] flex justify-center items-center rounded-sm",
         "hover:!opacity-75",
         isLeft
           ? "xl:right-[calc(25%+3rem)] right-[calc(10%+3rem)]"
@@ -76,12 +76,12 @@ const ViewCardSlider = ({
 
       <div
         className={cn(
-          "fixed z-[42] bg-[--pure-background] overflow-y-auto overflow-x-hidden  xl:size-[50%] size-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border border-[--line-color]",
+          "fixed z-[42] bg-[--pure-background] overflow-y-auto overflow-x-hidden  xl:size-[50%] size-[80%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border border-[--line-color] rounded-lg",
           "scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999] scrollbar-thin scrollbar-track-transparent p-4",
           showAnimation
         )}
       >
-        <div className="absolute right-4 top-4 font-semibold text-[--pure-text] bg-[--background] py-0.5 px-2 z-10">
+        <div className="absolute right-4 top-4 font-semibold text-[--pure-text] bg-[--background] py-0.5 px-2 z-10 rounded-sm">
           <span className={color ? colorMap[color] : "text-[--main]"}>
             {idx + 1}
           </span>

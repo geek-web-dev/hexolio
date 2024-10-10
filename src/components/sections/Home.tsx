@@ -18,11 +18,12 @@ const Home = () => {
       <Image
         src={personal_data.image}
         alt={personal_data.name}
-        width={843}
-        height={744}
-        className="absolute bottom-0 right-[0] object-cover z-10"
-        sizes="(max-width: 768px) 60vw, (max-width: 1200px) 75vw"
+        fill
+        sizes="(max-width: 1200px) 75vw, 90vw"
+        className="object-cover !w-auto !h-[102%] z-10"
+        style={{ left: "unset", top: "unset" }}
         quality={100}
+        priority
       />
 
       <HexagonBG />

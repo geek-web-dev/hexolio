@@ -22,11 +22,20 @@ export const experience = {
 
     // 3
     {
-      event: "Bachelor Degree",
+      event: "Master Degree",
       at: "MIT",
       year: { from: "2021", to: "2023" },
       description:
         "Completed advanced computer science courses focusing on web development, machine learning, deep learning, computer vision, image proccessing, and data analysis, enhancing my technical skills and understanding of modern development practices.",
+    },
+
+    // 4
+    {
+      event: "Get a PhD",
+      at: "MIT",
+      year: { from: "2024", to: "now" },
+      description:
+        "I am now pursuing a PhD to deepen my knowledge in cutting-edge technologies and explore innovative solutions to complex problems. My research focuses on bridging the gap between theory and real-world applications, leveraging my practical experience to contribute to the advancement of the field.",
     },
   ] as any[],
 
@@ -57,6 +66,15 @@ export const experience = {
       year: { from: "2022", to: "2024" },
       description:
         "Currently working as a remote full-stack developer, designing and implementing full-scale web applications from concept to deployment. Skilled in both front-end and back-end development, including RESTful API integration, database management.",
+    },
+
+    // 4
+    {
+      event: "Full-stack developer",
+      at: "Freelancing",
+      year: { from: "2024", to: "now" },
+      description:
+        "Currently working as a freelancer full-stack developer because give enough time to Phd, designing and implementing full-scale web applications from concept to deployment. Skilled in both front-end and back-end development, including RESTful API integration, database management.",
     },
   ] as any[],
 } as const;

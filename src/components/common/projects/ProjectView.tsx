@@ -10,6 +10,7 @@ import styles from "@/app/styles.module.css";
 import Overlay from "../global/Overlay";
 import ImageOverlay from "../global/ImageOverlay";
 import { useState } from "react";
+import { useCursorContext } from "@/context/CursorContext";
 const { showAnimation } = styles;
 
 const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
@@ -17,6 +18,8 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
     projects[projectIdx];
 
   const { setIsOpenProject } = useProjectContext();
+
+  const { cursorDefault, cursorFocus } = useCursorContext();
 
   const [loading, setLoading] = useState(true);
 
@@ -31,14 +34,14 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
 
       <div
         className={cn(
-          "fixed z-[41] bg-[--pure-background] overflow-y-auto overflow-x-hidden w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%]",
+          "fixed z-[41] bg-[--pure-background] overflow-y-auto overflow-x-hidden w-[94.5%] h-[94.5%] top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] rounded-lg",
           "scrollbar-thumb-[#333] dark:scrollbar-thumb-[#999] scrollbar-thin scrollbar-track-transparent border border-[--line-color] p-4",
           showAnimation
         )}
       >
         <div className="grid">
           <div className="space-y-4">
-            <div className="relative w-full h-auto aspect-video overflow-hidden border border-[--line-color]">
+            <div className="relative w-full h-auto aspect-video overflow-hidden border border-[--line-color] rounded-lg">
               <Image
                 src={image}
                 alt={title}
@@ -59,20 +62,30 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 </h1>
                 <h3 className="text-3xl text-[--main]">{genre}</h3>
               </div>
-              <Link href={link} target="_blank">
+              <Link
+                href={link}
+                target="_blank"
+                onMouseEnter={cursorFocus}
+                onMouseLeave={cursorDefault}
+              >
                 <ExternalLink
                   size={42}
                   strokeWidth={1}
-                  className="text-[--pure-text] hover:text-[--main] hover:scale-110 duration-300"
+                  className="text-[--pure-text] hover:text-[--main] duration-300"
                 />
               </Link>
             </div>
+
             <p className="text-lg">{description}</p>
-            <div className="flex items-center gap-2 text-[--pure-text]">
+
+            <div className="flex flex-col gap-2 text-[--pure-text]">
               <h3 className="text-2xl">Tools Used:</h3>
               <div className="flex gap-2 flex-wrap">
                 {tools_used.map((tool, i) => (
-                  <div className="border border-[--line-color] px-2" key={i}>
+                  <div
+                    className="border border-[--line-color] py-2 px-4 rounded-lg"
+                    key={i}
+                  >
                     {tool}
                   </div>
                 ))}

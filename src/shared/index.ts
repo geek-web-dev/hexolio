@@ -116,6 +116,21 @@ export const colorHoverMap = {
   black: "hover:text-black dark:text-white",
 };
 
+export const bgHoverMap = {
+  blue: "hover:bg-blue-500",
+  green: "hover:bg-green-500",
+  red: "hover:bg-red-500",
+  yellow: "hover:bg-yellow-500",
+  orange: "hover:bg-orange-500",
+  pink: "hover:bg-pink-500",
+  purple: "hover:bg-purple-500",
+  cyan: "hover:bg-cyan-500",
+  teal: "hover:bg-teal-500",
+  lime: "hover:bg-lime-500",
+  fuchsia: "hover:bg-fuchsia-500",
+  black: "hover:bg-black dark:text-white",
+};
+
 export const colorHexMap = {
   blue: "#3b82f6",
   green: "#22c55e",

@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { bg75Map, colorMap, ColorType, pureBgMap } from "@/shared";
-import { LucideIcon } from "lucide-react";
+import { bgHoverMap, colorMap, ColorType, pureBgMap } from "@/shared";
+import { LucideIcon, Plus } from "lucide-react";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-scroll";
@@ -9,7 +9,18 @@ import { useServiceContext } from "@/context/ServiceContext";
 import ArrowLink from "../global/ArrowLink";
 import { useCursorContext } from "@/context/CursorContext";
 import ImageOverlay from "../global/ImageOverlay";
-const { iconWrapParent, iconWrap, icon, face, back, hexagon } = styles;
+const {
+  iconWrapParent,
+  iconWrap,
+  icon,
+  goToLeft,
+  goToRight,
+  face,
+  back,
+  hexagon,
+  showAnimation,
+  centeredAbsolute,
+} = styles;
 
 type ServiceProps = {
   service: string;
@@ -19,6 +30,7 @@ type ServiceProps = {
   color: ColorType;
   price: number;
   idx: number;
+  doShowAnimation?: boolean;
 };
 
 const Service = ({
@@ -29,6 +41,7 @@ const Service = ({
   color,
   price,
   idx,
+  doShowAnimation = false,
 }: ServiceProps) => {
   const { ref: serviceRef, inView: animate } = useInView({
     triggerOnce: true,
@@ -47,7 +60,8 @@ const Service = ({
   return (
     <div
       className={cn(
-        "bg-[--pure-background] border border-[--line-color] hover:shadow-md duration-1000 dark:shadow-none transition-shadow overflow-hidden z-0",
+        doShowAnimation ? showAnimation : "",
+        "bg-[--pure-background] hover:shadow-md duration-1000 dark:shadow-none transition-shadow overflow-hidden z-0 rounded-lg",
         iconWrapParent
       )}
       ref={serviceRef}
@@ -64,45 +78,49 @@ const Service = ({
 
           <ImageOverlay />
 
+          <Link
+            to="contact"
+            className={cn(
+              centeredAbsolute,
+              "size-12 bg-white rounded-full opacity-0 group-hover:opacity-100 duration-300 flex justify-center items-center shadow-md",
+              bgHoverMap[color],
+              "hover:text-white"
+            )}
+            title={`Get ${service} service`}
+            onClick={() => {
+              setServiceIdx(idx);
+              setIsGetService(true);
+            }}
+            onMouseEnter={cursorFocus}
+            onMouseLeave={cursorDefault}
+          >
+            <Plus size={24} strokeWidth={1.5} />
+          </Link>
+
           <div
             className={cn(
               "size-14 absolute right-0 -bottom-7 duration-1000 ease-in-out z-10",
-              animate ? "-translate-x-4" : "translate-x-[100%]",
+              animate ? "-translate-x-2" : "translate-x-[100%]",
               iconWrap
             )}
           >
-            <div className={icon}>
+            <div className={cn(icon, goToLeft)}>
               <div className={cn(hexagon, face)}>
                 <ServiceIcon Icon={Icon} color={color} isFrontFace={true} />
               </div>
-              <Link
-                to="contact"
-                className={cn(
-                  back,
-                  hexagon,
-                  face,
-                  "hover:opacity-75 duration-300"
-                )}
-                onMouseEnter={cursorFocus}
-                onMouseLeave={cursorDefault}
-                title={`Get ${service} service`}
-                onClick={() => {
-                  setServiceIdx(idx);
-                  setIsGetService(true);
-                }}
-              >
+              <div className={cn(back, hexagon, face)}>
                 <ServiceIcon Icon={Icon} color={color} isFrontFace={false} />
-              </Link>
+              </div>
             </div>
           </div>
           <div
             className={cn(
-              "absolute left-0 bottom-4 w-[90px] h-[36px] duration-1000 ease-in-out z-10",
-              animate ? "translate-x-4" : "translate-x-[-100%]",
+              "absolute left-0 top-2 w-[90px] h-[36px] duration-1000 ease-in-out z-10",
+              animate ? "translate-x-2" : "translate-x-[-100%]",
               iconWrap
             )}
           >
-            <div className={icon}>
+            <div className={cn(icon, goToRight)}>
               <div className={face}>
                 <ServicePrice price={price} isFrontFace={true} color={color} />
               </div>
@@ -166,8 +184,8 @@ const ServicePrice = ({
   return (
     <div
       className={cn(
-        "font-[500] tracking-widest w-[90px] h-[36px] flex items-center justify-center text-sm",
-        isFrontFace ? "bg-white/95 dark:bg-black/75" : bg75Map[color],
+        "font-[500] tracking-widest w-[90px] h-[32px] flex items-center justify-center text-sm rounded-lg",
+        isFrontFace ? "bg-[--background]" : pureBgMap[color],
         isFrontFace ? colorMap[color] : "text-white"
       )}
     >

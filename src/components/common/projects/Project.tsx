@@ -1,8 +1,7 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, Eye } from "lucide-react";
-import { ReactNode, useState } from "react";
+import { ArrowRight, ZoomIn } from "lucide-react";
 import { useCursorContext } from "@/context/CursorContext";
 import { useProjectContext } from "@/context/ProjectContext";
 import ImageOverlay from "../global/ImageOverlay";
@@ -15,104 +14,89 @@ type ProjectProps = {
   genre: string;
   link: string;
   projectIdx: number;
+  inCard?: boolean;
 };
 
-const Project = ({ title, image, genre, link, projectIdx }: ProjectProps) => {
+const Project = ({
+  title,
+  image,
+  genre,
+  link,
+  projectIdx,
+  inCard = false,
+}: ProjectProps) => {
   const { ref: projectRef, inView: animate } = useInView({
     triggerOnce: true,
   });
 
   const { setIsOpenProject, setProjectIdx } = useProjectContext();
-
-  const [ready, setReady] = useState(false);
+  const { cursorDefault, cursorFocus } = useCursorContext();
 
   return (
     <div
       className={cn(
-        "shadow-md hover:shadow-lg group flex items-center justify-center bg-[#ccc] dark:bg-[#262626]",
         animate ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
       )}
-      style={{
-        transition: "shadow 1000ms, opacity 1000ms, transform 1000ms",
-      }}
+      style={{ transition: "opacity 1000ms, transform 1000ms" }}
       ref={projectRef}
     >
-      <div className="relative aspect-video overflow-hidden size-[calc(100%-1rem)]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="50vw"
-          className="object-cover"
-        />
-
-        <ImageOverlay />
-
-        <div className="absolute left-0 bottom-0 w-full p-4 group-hover: bg-white/85 dark:bg-black/85 backdrop-blur-sm z-10 duration-1000 ease-in-out translate-y-[100%] group-hover:translate-y-0">
-          <div className="flex justify-between items-center">
-            <div className="space-y-2">
-              <h3 className="font-semibold sm:text-2xl text-[--pure-text]">
-                {title}
-              </h3>
-              <h4 className="sm:text-xl text-[--main]">{genre}</h4>
-            </div>
-
-            <div className="flex gap-2">
-              <ProjectButton
-                clickHandler={() => {
-                  setIsOpenProject(true);
-                  setProjectIdx(projectIdx);
-                }}
-              >
-                <Eye strokeWidth={1.25} className="sm:size-6 size-4" />
-              </ProjectButton>
-
-              <Link
-                href={link}
-                title="Open the project"
-                target="_blank"
-                onMouseEnter={() => setReady(true)}
-                onMouseLeave={() => setReady(false)}
-              >
-                <ProjectButton>
-                  {ready ? (
-                    <ArrowUpRight
-                      strokeWidth={1.25}
-                      className="sm:size-6 size-4"
-                    />
-                  ) : (
-                    <ArrowRight
-                      strokeWidth={1.25}
-                      className="sm:size-6 size-4"
-                    />
-                  )}
-                </ProjectButton>
-              </Link>
-            </div>
+      <div
+        className={cn(
+          inCard ? "bg-[--background]" : "bg-[--pure-background]",
+          "shadow-md group flex items-center justify-center p-4 pb-0 overflow-hidden rounded-t-3xl"
+        )}
+      >
+        <div className="relative aspect-video overflow-hidden size-full translate-y-4 hover:translate-y-0 duration-300 rounded-t-3xl">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            sizes="50vw"
+            className="object-cover"
+          />
+          <ImageOverlay />
+          <div
+            className={cn(
+              "absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 size-12 rounded-full shadow-lg",
+              "flex justify-center items-center",
+              "duration-300 opacity-0 group-hover:opacity-100 bg-white hover:bg-[--main] text-[--main] hover:text-white"
+            )}
+            onClick={() => {
+              setIsOpenProject(true);
+              setProjectIdx(projectIdx);
+            }}
+            onMouseEnter={cursorFocus}
+            onMouseLeave={cursorDefault}
+            title="Show the project"
+          >
+            <ZoomIn size={24} strokeWidth={1.5} />
           </div>
         </div>
       </div>
-    </div>
-  );
-};
 
-const ProjectButton = ({
-  children,
-  clickHandler,
-}: {
-  children: ReactNode;
-  clickHandler?: () => void;
-}) => {
-  const { cursorDefault, cursorFocus } = useCursorContext();
-  return (
-    <div
-      className="rounded-full text-[--main] sm:size-14 size-10 flex items-center justify-center hover:text-white hover:bg-[--main] duration-300 border-[1px] border-[#bbb] dark:border-[#333]"
-      onMouseEnter={cursorFocus}
-      onMouseLeave={cursorDefault}
-      title="Show the project"
-      onClick={clickHandler}
-    >
-      {children}
+      <div className="space-y-2 mt-4">
+        <div className="flex justify-between items-center font-semibold">
+          <h1 className="text-[--pure-text] text-2xl">{title}</h1>
+          <Link
+            href={link}
+            title="Vist the project"
+            target="_blank"
+            onMouseEnter={cursorFocus}
+            onMouseLeave={cursorDefault}
+            className="group text-[--paragraph] hover:text-[--main] duration-300 mr-4"
+          >
+            <span className="flex items-center gap-2">
+              Visit Site
+              <ArrowRight
+                strokeWidth={1}
+                size={16}
+                className="duration-300 group-hover:-rotate-45"
+              />
+            </span>
+          </Link>
+        </div>
+        <p>{genre}</p>
+      </div>
     </div>
   );
 };

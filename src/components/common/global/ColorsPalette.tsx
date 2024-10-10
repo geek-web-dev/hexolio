@@ -6,9 +6,6 @@ import { colors, ColorType, hexMap, pureBgMap } from "@/shared";
 import { Palette } from "lucide-react";
 import { useEffect, useState } from "react";
 
-import styles from "@/app/styles.module.css";
-const { hexagon } = styles;
-
 const ColorsPalette = () => {
   const [activeColor, setActiveColor] = useState(0);
   const [activePalette, setActivePalette] = useState(false);
@@ -27,9 +24,8 @@ const ColorsPalette = () => {
     <>
       <div
         className={cn(
-          hexagon,
-          "fixed z-30 bg-[--main] hover:bg-[--background] size-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none",
-          activePalette ? "bg-[#e4e4e4] dark:bg-[#222]" : ""
+          "fixed z-30 bg-[#222] hover:bg-[--main] size-6 flex justify-center items-center top-8 right-1 cursor-pointer group duration-300 select-none rounded-full",
+          activePalette ? "bg-[--main]" : ""
         )}
         onClick={() => setActivePalette((p) => !p)}
       >
@@ -37,8 +33,8 @@ const ColorsPalette = () => {
           size={16}
           strokeWidth={1.5}
           className={cn(
-            "text-white group-hover:text-[--main] group-hover:scale-105 duration-75",
-            activePalette ? "text-[--main]" : ""
+            "text-white group-hover:text-white group-hover:scale-105 duration-75",
+            activePalette ? "text-white" : ""
           )}
           onMouseEnter={cursorFocus}
           onMouseLeave={cursorDefault}
@@ -46,7 +42,7 @@ const ColorsPalette = () => {
       </div>
       <div
         className={cn(
-          "fixed right-0 top-16 w-6 bg-white border border-[--line-color] dark:bg-[#222] flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
+          "fixed right-0 top-16 w-6 bg-white dark:bg-[#222] flex flex-col py-1 gap-1 items-center duration-300 z-30 select-none",
           activePalette ? " -translate-x-1" : "translate-x-[100%]"
         )}
       >

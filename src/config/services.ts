@@ -106,13 +106,13 @@ export const services = [
 
   // 6
   {
-    service: "System Design",
+    service: "Marketing",
     description:
-      "I design scalable and efficient system architectures tailored to your specific needs. By focusing on modularity, performance, and maintainability, I create robust systems that support your business objectives and future growth.",
-    Icon: system_design,
-    image: "/images/services/service6.jpg",
-    color: "green",
-    price: 90,
+      "As a dedicated web developer with expertise in marketing, I specialize in creating visually stunning, high-converting websites designed to drive traffic and boost your online presence. By integrating cutting-edge technologies and optimizing for search engines, I ensure your website not only looks great but performs excellently to meet your business goals.",
+    Icon: marketing,
+    image: "/images/services/service12.jpg",
+    color: "red",
+    price: 11,
   },
 
   // 7
@@ -172,13 +172,13 @@ export const services = [
 
   // 12
   {
-    service: "Marketing",
+    service: "System Design",
     description:
-      "As a dedicated web developer with expertise in marketing, I specialize in creating visually stunning, high-converting websites designed to drive traffic and boost your online presence. By integrating cutting-edge technologies and optimizing for search engines, I ensure your website not only looks great but performs excellently to meet your business goals.",
-    Icon: marketing,
-    image: "/images/services/service12.jpg",
-    color: "red",
-    price: 11,
+      "I design scalable and efficient system architectures tailored to your specific needs. By focusing on modularity, performance, and maintainability, I create robust systems that support your business objectives and future growth.",
+    Icon: system_design,
+    image: "/images/services/service6.jpg",
+    color: "green",
+    price: 90,
   },
 ] as any[];
 //

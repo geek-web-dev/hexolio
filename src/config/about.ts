@@ -1,10 +1,10 @@
 import {
-  AlarmClock,
-  Award,
-  FlaskConical,
-  GraduationCap,
-  Layers3,
-  Smile,
+  AlarmClock as time,
+  Award as award,
+  FlaskConical as experience,
+  GraduationCap as courses,
+  Layers3 as projects,
+  Smile as happy_clients,
 } from "lucide-react";
 
 // ==================[ About Image ]================== //
@@ -30,7 +30,7 @@ export const about_me =
 
 // ==================[ Cv File ]================== //
 export const cv = {
-  source: "/cv.pdf",
+  source: "/cv.pdf", // if you don't have just leave source: ""
   file_type: "pdf",
 };
 //
@@ -193,15 +193,32 @@ export const languages = [
     percent: 60,
     color: "blue",
   },
+
+  // 4
+  {
+    language: "German",
+    percent: 75,
+    color: "pink",
+  },
 ] as const;
 //
 
+/*
+  Available funfacts icons
+  |
+  1 - experience
+  2 - happy_clients
+  3 - projects
+  4 - time
+  5 - award
+  6 - courses
+*/
 // ==================[ Funfacts ]================== //
 export const funfacts = [
   // 1
   {
     title: "Years of experience",
-    Icon: FlaskConical,
+    Icon: experience,
     count: 9,
     color: "green",
   },
@@ -209,7 +226,7 @@ export const funfacts = [
   // 2
   {
     title: "Happy Client",
-    Icon: Smile,
+    Icon: happy_clients,
     count: 102,
     color: "fuchsia",
   },
@@ -217,7 +234,7 @@ export const funfacts = [
   // 3
   {
     title: "Projects Done",
-    Icon: Layers3,
+    Icon: projects,
     count: 230,
     color: "cyan",
   },
@@ -225,7 +242,7 @@ export const funfacts = [
   // 4
   {
     title: "Working Hours",
-    Icon: AlarmClock,
+    Icon: time,
     count: 3000,
     color: "orange",
   },
@@ -233,7 +250,7 @@ export const funfacts = [
   // 5
   {
     title: "Awards Won",
-    Icon: Award,
+    Icon: award,
     count: 4,
     color: "lime",
   },
@@ -241,7 +258,7 @@ export const funfacts = [
   // 6
   {
     title: "Courses Done",
-    Icon: GraduationCap,
+    Icon: courses,
     count: 92,
     color: "pink",
   },

@@ -25,7 +25,7 @@ const Funfact = ({
   return (
     <div
       className={cn(
-        "flex items-end duration-1000",
+        "flex items-center duration-1000",
         animate ? "opacity-100" : "opacity-0"
       )}
       ref={funFactRef}
@@ -52,8 +52,13 @@ const Funfact = ({
           className={cn(colorMap[color], centeredAbsolute)}
         />
       </div>
-      <div className="ml-2">
-        <span className={cn("text-xl font-[600] font-mono", colorMap[color])}>
+      <div className="ml-2 space-y-2 leading-none">
+        <span
+          className={cn(
+            "text-xl font-[600] font-mono leading-none",
+            colorMap[color]
+          )}
+        >
           {count}
         </span>
         <h3 className="dark:text-[#ddd] capitalize text-nowrap font-[500]">

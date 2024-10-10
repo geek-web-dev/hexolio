@@ -20,7 +20,7 @@ const CloseButton = ({
     <div
       className={cn(
         color ? pureBgMap[color] : "bg-[--main]",
-        "fixed size-8 z-[42] flex items-center justify-center text-white",
+        "fixed size-8 z-[42] flex items-center justify-center text-white rounded-sm",
         showAnimation,
         "hover:!opacity-75",
         className

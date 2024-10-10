@@ -19,7 +19,9 @@ const ArrowLink = ({
     <span
       className={cn(
         "flex items-center group relative w-fit",
-        color ? colorMap[color] : "text-[--main]",
+        color
+          ? colorMap[color]
+          : "hover:!text-[--main] text-[#222] dark:text-[#ccc] duration-300",
         className
       )}
       onClick={handler}
@@ -34,7 +36,9 @@ const ArrowLink = ({
       <span
         className={cn(
           "absolute bottom-0 left-0 w-[50%] group-hover:w-[80%] h-px opacity-40 duration-300",
-          color ? pureBgMap[color] : "bg-[--main]"
+          color
+            ? pureBgMap[color]
+            : "bg-[#222] dark:bg-[#ccc] group-hover:!bg-[--main]"
         )}
       />
     </span>

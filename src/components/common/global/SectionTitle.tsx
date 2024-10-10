@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import styles from "@/app/styles.module.css";
 const { hexagon } = styles;
+import { useInView } from "react-intersection-observer";
 
 const SectionTitle = ({
   title,
@@ -9,15 +10,28 @@ const SectionTitle = ({
   title: string;
   description: string;
 }) => {
+  const { ref: titleRef, inView: animate } = useInView({
+    triggerOnce: true,
+  });
   return (
-    <div className="mb-12 space-y-2 opacity-75">
-      <h1 className="text-5xl first-letter:text-6xl text-[--pure-text] uppercase tracking-widest font-[900] first-letter:text-[--main]">
+    <div
+      className={cn(
+        "mb-12 select-none duration-1000",
+        animate ? "opacity-25" : "opacity-0"
+      )}
+      ref={titleRef}
+    >
+      <h1
+        className={cn(
+          "relative text-[--pure-text] text-5xl first-letter:text-7xl uppercase tracking-[4px] font-[900] "
+        )}
+      >
         {title}
+        <span className="absolute -left-2 top-[22px] bg-[--background] w-14 h-2 -rotate-45" />
       </h1>
-      <div className="flex gap-2 items-center ml-1">
-        <span className={cn(hexagon, "size-3 bg-[--main] block")} />
-        <p className="text-xl">{description}</p>
+      <div className="flex gap-4 items-center ml-1">
         <span className={cn(hexagon, "size-3 bg-[--pure-text] block")} />
+        <p className="text-xl text-[--pure-text]">{description}</p>
       </div>
     </div>
   );

@@ -12,7 +12,7 @@ const Overlay = ({
   return (
     <div
       className={cn(
-        "fixed bg-black/75 dark:bg-black/25 backdrop-blur-sm left-0 top-0 size-full z-40",
+        "fixed bg-black/75 dark:bg-black/50 backdrop-blur-sm left-0 top-0 size-full z-40",
         showAnimation,
         className
       )}
