@@ -4,7 +4,6 @@ import {
   background_img_path,
   is_available,
   is_freelancer,
-  years_experience,
 } from "@/config/about";
 import { personal_data } from "@/config/home";
 import HireAvailability from "../global/HireAvailability";
