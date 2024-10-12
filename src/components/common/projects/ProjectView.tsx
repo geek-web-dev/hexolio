@@ -14,7 +14,7 @@ import { useCursorContext } from "@/context/CursorContext";
 const { showAnimation } = styles;
 
 const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
-  const { title, description, genre, image, link, tools_used } =
+  const { title, description, genre, image, link, tools_used, duration } =
     projects[projectIdx];
 
   const { setIsOpenProject } = useProjectContext();
@@ -55,11 +55,9 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
               />
               <ImageOverlay />
             </div>
-            <div className="space-y-2">
+            <div className="space-y-2 text-[--sub-text]">
               <div className="flex justify-between items-center">
-                <h1 className="text-4xl font-semibold text-[--pure-text]">
-                  {title}
-                </h1>
+                <h1 className="text-4xl font-semibold">{title}</h1>
                 <Link
                   href={link}
                   target="_blank"
@@ -69,21 +67,21 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                   <ExternalLink
                     size={42}
                     strokeWidth={1}
-                    className="text-[--pure-text] hover:text-[--main] duration-300"
+                    className="hover:text-[--main] duration-300"
                   />
                 </Link>
               </div>
-              <h3 className="text-3xl text-[--main]">{genre}</h3>
+              <h3 className="text-3xl opacity-50">{genre}</h3>
             </div>
 
             <p className="text-lg">{description}</p>
 
-            <div className="flex flex-col gap-2 text-[--pure-text]">
+            <div className="flex flex-col gap-2 text-[--sub-text]">
               <h3 className="text-2xl">Tools Used:</h3>
               <div className="flex gap-2 flex-wrap">
                 {tools_used.map((tool, i) => (
                   <div
-                    className="border border-[--line-color] py-2 px-4 rounded-lg"
+                    className="bg-[--background] py-2 px-4 rounded-lg font-[500]"
                     key={i}
                   >
                     {tool}
@@ -91,6 +89,11 @@ const ProjectView = ({ projectIdx }: { projectIdx: number }) => {
                 ))}
               </div>
             </div>
+
+            <h3 className="text-2xl text-[--sub-text]">
+              Duration: <span className="text-[--main]">{duration}</span> to
+              finish
+            </h3>
           </div>
         </div>
       </div>

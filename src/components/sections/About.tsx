@@ -64,7 +64,7 @@ const About = () => {
 
                 <HireAvailability
                   isAvailable={is_available}
-                  className="border border-[--line-color] px-4 py-2 border-dashed rounded-full"
+                  className="border border-[--line-color] px-4 py-2 border-dashed rounded-s-lg rounded-r-full"
                 />
               </div>
             </AboutCard>
@@ -161,10 +161,10 @@ const About = () => {
                     className="flex items-center gap-2 text-lg font-[500]"
                     key={i}
                   >
-                    <span className="capitalize text-[--pure-text]">
+                    <span className="capitalize text-[--sub-text]">
                       {item.title}
                     </span>
-                    <div className="h-px w-4 bg-[--paragraph] opacity-25" />
+                    <div className="h-px w-4 bg-[--line-color]" />
                     <span className="text-[--main]">{item.data}</span>
                   </div>
                 ))}
@@ -175,7 +175,7 @@ const About = () => {
             <AboutCard title="my Goals" className="col-span-2">
               <ul className="space-y-4">
                 {goals.map((item, i) => (
-                  <li key={i} className="text-[--pure-text] flex flex-col">
+                  <li key={i} className="text-[--sub-text] flex flex-col">
                     <span className="font-[500]">{item.goal}</span>
                     <span className="text-[--paragraph]">
                       {item.description}

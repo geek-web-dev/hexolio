@@ -76,7 +76,7 @@ const Project = ({
 
       <div className="space-y-2 mt-4">
         <div className="flex justify-between items-center font-semibold">
-          <h1 className="text-[--pure-text] text-2xl">{title}</h1>
+          <h1 className="text-[--sub-text] text-2xl capitalize">{title}</h1>
           <Link
             href={link}
             title="Vist the project"

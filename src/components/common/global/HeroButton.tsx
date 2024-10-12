@@ -20,7 +20,7 @@ const HeroButton = ({
     <Button
       className={cn(
         className,
-        "group w-32 relative overflow-hidden",
+        "group w-32 relative overflow-hidden rounded-b-lg",
         variant === "regular"
           ? "bg-[--main] text-white"
           : "border-[2px] border-[--main] text-[--main]"

@@ -25,12 +25,12 @@ const Funfact = ({
   return (
     <div
       className={cn(
-        "flex items-center duration-1000",
+        "flex items-center duration-1000 gap-4",
         animate ? "opacity-100" : "opacity-0"
       )}
       ref={funFactRef}
     >
-      <div className="relative size-14">
+      <div className="relative size-16">
         <div
           className={cn(
             hexagon,
@@ -48,11 +48,11 @@ const Funfact = ({
         </div>
         <Icon
           strokeWidth={1}
-          size={28}
+          size={32}
           className={cn(colorMap[color], centeredAbsolute)}
         />
       </div>
-      <div className="ml-2 space-y-2 leading-none">
+      <div className="space-y-2 leading-none">
         <span
           className={cn(
             "text-xl font-[600] font-mono leading-none",
@@ -61,7 +61,7 @@ const Funfact = ({
         >
           {count}
         </span>
-        <h3 className="dark:text-[#ddd] capitalize text-nowrap font-[500]">
+        <h3 className="text-[--sub-text] capitalize text-nowrap font-[500]">
           {title}
         </h3>
       </div>

@@ -14,26 +14,19 @@ const SectionTitle = ({
     triggerOnce: true,
   });
   return (
-    <div
+    <h1
       className={cn(
-        "mb-12 select-none duration-1000",
-        animate ? "opacity-25" : "opacity-0"
+        "relative md:text-8xl sm:text-6xl text-5xl",
+        "mb-24 select-none duration-1000 ease-out text-[--pure-text] font-extrabold text-center uppercase w-fit mx-auto",
+        animate
+          ? "opacity-100 translate-y-0 scale-y-100"
+          : "opacity-0 translate-y-24 scale-y-50"
       )}
       ref={titleRef}
     >
-      <h1
-        className={cn(
-          "relative text-[--pure-text] text-5xl first-letter:text-7xl uppercase tracking-[4px] font-[900] "
-        )}
-      >
-        {title}
-        <span className="absolute -left-2 top-[22px] bg-[--background] w-14 h-2 -rotate-45" />
-      </h1>
-      <div className="flex gap-4 items-center ml-1">
-        <span className={cn(hexagon, "size-3 bg-[--pure-text] block")} />
-        <p className="text-xl text-[--pure-text]">{description}</p>
-      </div>
-    </div>
+      <span className="absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 md:size-48 sm:size-32 size-24 bg-[--line-color] rounded-full z-[-1] opacity-35" />
+      {title}
+    </h1>
   );
 };
 

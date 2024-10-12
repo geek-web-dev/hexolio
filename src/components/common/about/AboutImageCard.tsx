@@ -23,13 +23,6 @@ const AboutImageCard = () => {
           />
         </div>
 
-        <div className="absolute left-2 top-2 bg-[--pure-background] p-2 z-10 rounded-lg text-[--pure-text]">
-          <span className="font-mono text-[--pure-text] text-lg font-semibold">
-            {years_experience}
-          </span>{" "}
-          Years Experience
-        </div>
-
         <div className="absolute right-2 bottom-2 bg-[--pure-background] p-2 z-10 rounded-t-lg">
           <HireAvailability isAvailable={is_available} />
         </div>
@@ -49,11 +42,11 @@ const AboutImageCard = () => {
           ) : null}
         </div>
       </div>
-      <div className="mt-4 space-y-1">
+      <div className="mt-4 space-y-1 capitalize">
         <h1 className="text-3xl first-letter:text-[--main] text-[--pure-text] font-[800]">
           {personal_data.name} <span>👋🏼</span>
         </h1>
-        <div className="flex gap-1 text-xl text-[--pure-text] flex-wrap opacity-75">
+        <div className="flex gap-1 text-xl text-[--sub-text] flex-wrap">
           <h2 className="font-[600]">{personal_data.job.part1}</h2>
           <h2 className="font-[600]">{personal_data.job.part2}</h2>
           <h2>{is_freelancer ? "- Freelancer" : ""}</h2>

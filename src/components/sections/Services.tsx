@@ -23,7 +23,7 @@ const Services = () => {
                 .map((item, i) => (
                   <Service
                     key={i}
-                    idx={i}
+                    idx={i + MAX}
                     projectIdx={i}
                     doShowAnimation={true}
                     {...item}

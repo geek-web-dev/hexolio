@@ -10,9 +10,7 @@ const HireAvailability = ({
   className?: string;
 }) => {
   return (
-    <div
-      className={cn("flex items-center gap-2 text-[--paragraph]", className)}
-    >
+    <div className={cn("flex items-center gap-2 text-[--sub-text]", className)}>
       <div
         className={cn(
           "size-2 relative rounded-full",

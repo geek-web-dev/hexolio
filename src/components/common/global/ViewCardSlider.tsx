@@ -1,6 +1,6 @@
 "use cilent";
 import { cn } from "@/lib/utils";
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import CloseButton from "../global/CloseButton";
 import Overlay from "../global/Overlay";
 import styles from "@/app/styles.module.css";

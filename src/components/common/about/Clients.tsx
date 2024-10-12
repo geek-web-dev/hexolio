@@ -20,10 +20,10 @@ const Clients = () => {
             {"”"}
           </p>
           <div className="flex items-center gap-4">
-            <h4 className="text-[--pure-text] capitalize font-[500]">
+            <h4 className="text-[--sub-text] capitalize font-[500]">
               {item.name}
             </h4>
-            <div className="h-px w-8 bg-[--paragraph] opacity-15" />
+            <div className="h-px w-8 bg-[--line-color]" />
             <StarRating averageRate={item.rate} />
             <Quote className="ml-auto text-[--line-color]" />
           </div>

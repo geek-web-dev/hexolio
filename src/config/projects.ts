@@ -8,6 +8,7 @@ export const projects = [
     image: "/images/projects/project1.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -19,6 +20,7 @@ export const projects = [
     image: "/images/projects/project2.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -30,6 +32,7 @@ export const projects = [
     image: "/images/projects/project3.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
   // 4
@@ -40,6 +43,7 @@ export const projects = [
     image: "/images/projects/project4.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -51,6 +55,7 @@ export const projects = [
     image: "/images/projects/project5.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -62,6 +67,7 @@ export const projects = [
     image: "/images/projects/project6.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -73,6 +79,7 @@ export const projects = [
     image: "/images/projects/project7.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 
@@ -84,6 +91,7 @@ export const projects = [
     image: "/images/projects/project8.jpg",
     genre: "eCommerce Website | front end",
     tools_used: ["React", "Laravel", "MySQL", "Tailwind Css"],
+    duration: "1 month and 5 days",
     link: "",
   },
 ] as const;

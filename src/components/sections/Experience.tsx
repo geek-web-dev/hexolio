@@ -5,9 +5,10 @@ import SectionTitle from "../common/global/SectionTitle";
 import { cn } from "@/lib/utils";
 import MaxWidthWrapper from "../common/global/MaxWidthWrapper";
 import { BriefcaseBusiness, GraduationCap, LucideIcon } from "lucide-react";
-import styles from "@/app/styles.module.css";
 import { useState } from "react";
 import ArrowLink from "../common/global/ArrowLink";
+
+import styles from "@/app/styles.module.css";
 const { hexagon, centeredAbsolute, showAnimation } = styles;
 
 const History = ({
@@ -33,7 +34,7 @@ const History = ({
               .map((item, i) => (
                 <TimelineCard
                   key={i}
-                  idx={i}
+                  idx={i + MAX}
                   resumePart={resumePart}
                   projectIdx={i}
                   {...item}
@@ -63,7 +64,7 @@ const Experience = () => {
           title="experience"
           description="My education & working history"
         />
-        <div className="mt-24 mb-32 grid lg:grid-cols-2 gap-4">
+        <div className="mt-36 mb-12 grid lg:grid-cols-2 gap-4">
           <div className="relative">
             <History resumePart="education" Icon={GraduationCap} />
           </div>
@@ -89,11 +90,7 @@ const Line = ({
   return (
     <>
       <div className="h-[0.5px] w-full bg-[--line-color] absolute left-0 -top-10 z-0" />
-      <div
-        className={cn(
-          "w-px bg-[--line-color] absolute -top-12 left-4 z-10 h-[calc(100%+96px)]"
-        )}
-      >
+      <div className="w-px bg-[--line-color] absolute -top-12 left-4 z-10 h-[calc(100%+96px)]">
         <div
           className={cn(
             "size-8 bg-[--paragraph] absolute -top-2 left-[50%] translate-x-[-50%] rounded-full"
@@ -104,7 +101,7 @@ const Line = ({
             size={20}
             strokeWidth={1.25}
           />
-          <div className="absolute top-[50%] translate-y-[-50%] left-16  z-10 px-4  bg-[--background]">
+          <div className="absolute top-[50%] translate-y-[-50%] left-16 z-10 px-4  bg-[--background]">
             <h1 className="font-[900] text-[--paragraph] opacity-75 uppercase text-2xl tracking-widest">
               {title}
             </h1>

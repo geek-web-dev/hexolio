@@ -4,10 +4,11 @@
 
 @layer base {
   :root {
-    --main: #d946ef;
+    --main: #14b8a6;
     --background: #f3f3f3;
     --pure-background: #fff;
     --pure-text: #000;
+    --sub-text: #222;
     --line-color: #dfdfdf;
     --paragraph: #666666;
     --destructive: 0 84.2% 60.2%;
@@ -17,8 +18,9 @@
 
   .dark {
     --background: #000;
-    --pure-background: #0e0e0e;
+    --pure-background: #0f0f0f;
     --pure-text: #fff;
+    --sub-text: #eee;
     --line-color: #1c1c1c;
     --paragraph: #aaa;
   }
@@ -51,7 +53,7 @@ section {
   position: relative;
   min-height: 100vh;
   background-color: var(--background);
-  padding-bottom: 180px;
+  padding-bottom: 192px;
   z-index: 20;
 }
 

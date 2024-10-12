@@ -53,7 +53,7 @@ const TimelineCard = ({
         )}
       />
 
-      <div className="relative bg-[--paragraph] w-fit px-2 py-0.5 text-sm text-white dark:text-black font-[500] flex items-center gap-2 rounded-sm">
+      <div className="relative bg-[--paragraph] w-fit px-2 py-0.5 text-sm text-white dark:text-black font-[500] flex items-center gap-2 rounded-t-lg">
         <span>{from}</span>
         <div className="w-4 bg-white/50 dark:bg-black/50 h-px relative" />
         <span>{to}</span>
@@ -62,7 +62,7 @@ const TimelineCard = ({
 
       <div
         className={cn(
-          "bg-[--pure-background] p-4 mt-2 shadow-sm hover:shadow-md rounded-lg",
+          "bg-[--pure-background] p-4 mt-1 shadow-sm hover:shadow-md rounded-b-lg",
           animate ? "translate-y-0" : "translate-y-4"
         )}
         style={{
@@ -71,7 +71,7 @@ const TimelineCard = ({
       >
         <div className=" space-y-2">
           <h1 className="text-[--pure-text] text-xl">
-            <span className="font-[500]">{event}</span> -{" "}
+            <span className="font-[500] text-[--sub-text]">{event}</span> -{" "}
             <span className="text-[--main] ">{at}</span>
           </h1>
           <p className="line-clamp-2">{description}</p>

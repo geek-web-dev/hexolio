@@ -27,7 +27,7 @@ import {
 */
 
 // ==================[ Default main color ]================== //
-export const main_color = "fuchsia";
+export const main_color = "teal";
 //
 
 // ==================[ true is dark theme by default and false is light theme by default ]================== //

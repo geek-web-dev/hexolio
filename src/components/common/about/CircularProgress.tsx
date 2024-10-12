@@ -33,8 +33,8 @@ const CircularProgress = ({
           }
         />
 
-        <p className="relative m-0 text-center font-semibold flex flex-col gap-1">
-          <span className="text-[--paragraph] text-sm">{title}</span>
+        <p className="relative m-0 text-center font-[500] flex flex-col gap-1">
+          <span className="text-[--sub-text] text-sm">{title}</span>
           <span className={cn("percentage text-md font-mono", colorMap[color])}>
             {value}%
           </span>

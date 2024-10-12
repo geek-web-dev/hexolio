@@ -43,7 +43,7 @@ const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
           />
         </div>
 
-        <h1 className="text-3xl font-bold uppercase text-[--pure-text]">
+        <h1 className="text-3xl font-bold uppercase text-[--sub-text]">
           {service.service}
         </h1>
 
@@ -51,7 +51,7 @@ const ServiceView = ({ serviceIdx }: { serviceIdx: number }) => {
 
         <span className={cn("block", colorMap[color])}>
           ${service.price} / hour
-          <span className="text-[--paragraph] ">
+          <span className="text-[--paragraph]">
             {" "}
             - for {service.service} service
           </span>

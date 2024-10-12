@@ -133,7 +133,7 @@ const Service = ({
         </div>
 
         <div className="p-4 space-y-2">
-          <h2 className="font-[500] text-lg text-[--pure-text] uppercase">
+          <h2 className="text-[--sub-text] font-[500] text-lg uppercase">
             {service}
           </h2>
           <p className="text line-clamp-1">{description}</p>
@@ -185,7 +185,7 @@ const ServicePrice = ({
   return (
     <div
       className={cn(
-        "font-[500] tracking-widest w-[90px] h-[32px] flex items-center justify-center text-sm rounded-lg",
+        "font-[500] tracking-widest w-[90px] h-[32px] flex items-center justify-center text-sm rounded-t-lg",
         isFrontFace ? "bg-[--background]" : pureBgMap[color],
         isFrontFace ? colorMap[color] : "text-white"
       )}

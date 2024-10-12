@@ -5,8 +5,8 @@ export const personal_data = {
   image: "/images/hero.png",
 
   job: {
-    part1: "full stack",
-    part2: "Developer",
+    part1: "software",
+    part2: "engineer",
   },
 } as const;
 //

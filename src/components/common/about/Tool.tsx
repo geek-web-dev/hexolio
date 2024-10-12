@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import { useInView } from "react-intersection-observer";
 const Tool = ({
@@ -14,7 +15,7 @@ const Tool = ({
   });
   return (
     <div className="flex flex-col items-center justify-center" ref={toolRef}>
-      <div className="bg-[#f3f3f3]/75 dark:bg-black/25 w-full py-4 flex justify-center items-center rounded-lg">
+      <div className="bg-[#f3f3f3]/75 dark:bg-black/50 w-full py-4 flex justify-center items-center rounded-t-lg">
         <Image
           src={image}
           width={38}
@@ -25,7 +26,14 @@ const Tool = ({
           className={animate ? "opacity-100" : "opacity-0"}
         />
       </div>
-      <span className="text-[--pure-text] text-[11px] uppercase mt-2 tracking-widest font-[600] opacity-75 px-2 text-center">
+      <span
+        className={cn(
+          "transition-transform",
+          animate ? "translate-y-0" : "-translate-y-1",
+          "bg-[#f3f3f3]/60 dark:bg-black/35 text-[--sub-text] font-[500] text-[12px] uppercase mt-1 tracking-widest px-2 text-center w-full py-1 rounded-b-lg"
+        )}
+        style={{ transitionDuration: `${duration}ms` }}
+      >
         {name}
       </span>
     </div>

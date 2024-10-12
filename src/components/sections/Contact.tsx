@@ -89,24 +89,24 @@ const Contact = () => {
     <section id="contact">
       <MaxWidthWrapper>
         <SectionTitle
-          title="contact"
+          title="Let's Talk!"
           description="Contact me now & get in touch !"
         />
 
         <div
           className={cn(
-            "grid lg:grid-cols-2 gap-4 duration-1000 transition-opacity",
+            "grid lg:grid-cols-12 gap-4 duration-1000 transition-opacity",
             animate ? "opacity-100" : "opacity-0"
           )}
           ref={contactFormRef}
         >
-          <div className="grid sm:grid-cols-2 gap-4 lg:mt-0 mt-8 lg:order-1 order-2">
+          <div className="lg:col-span-5 flex flex-col gap-12 lg:mt-0 mt-8 lg:order-1 order-2">
             {contact_info.map((item, i) => (
               <ContactInfo key={i} {...item} />
             ))}
           </div>
 
-          <div className="lg:order-2 order-1">
+          <div className="lg:col-span-7 lg:order-2 order-1">
             <Form {...form}>
               <form
                 className="space-y-4"
@@ -128,7 +128,7 @@ const Contact = () => {
                             type="text"
                             disabled={isPending}
                             autoComplete="on"
-                            className="bg-[--pure-background] h-12 text-[--pure-text]"
+                            className="bg-[--pure-background] h-14 text-[--pure-text] rounded-b-lg"
                             onMouseEnter={cursorFocus}
                             onMouseLeave={cursorDefault}
                           />
@@ -145,7 +145,7 @@ const Contact = () => {
                       <FormItem className="relative md:col-span-1 col-span-2">
                         {isGetService ? (
                           <CircleX
-                            className="absolute  right-4 top-11 z-10 text-red-500 hover:opacity-50 duration-300"
+                            className="absolute  right-4 top-12 z-10 text-red-500 hover:opacity-50 duration-300"
                             onClick={() => setIsGetService(false)}
                             onMouseEnter={cursorFocus}
                             onMouseLeave={cursorDefault}
@@ -162,7 +162,7 @@ const Contact = () => {
                             type="text"
                             disabled={isPending || isGetService}
                             autoComplete="on"
-                            className="bg-[--pure-background] h-12 text-[--pure-text]"
+                            className="bg-[--pure-background] h-14 text-[--pure-text] rounded-lg"
                             onMouseEnter={cursorFocus}
                             onMouseLeave={cursorDefault}
                             value={
@@ -192,7 +192,7 @@ const Contact = () => {
                             placeholder="Your Message"
                             disabled={isPending}
                             autoComplete="on"
-                            className="bg-[--pure-background] min-h-[184px] text-[--pure-text]"
+                            className="bg-[--pure-background] min-h-48 text-[--pure-text]"
                             onMouseEnter={cursorFocus}
                             onMouseLeave={cursorDefault}
                           />
@@ -207,7 +207,7 @@ const Contact = () => {
 
                 <Button
                   type="submit"
-                  className="min-w-40 h-12 group bg-[--main]"
+                  className="w-40 h-14 group bg-[--main] rounded-t-lg"
                   disabled={isPending}
                   onMouseEnter={cursorFocus}
                   onMouseLeave={cursorDefault}

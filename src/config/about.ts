@@ -11,10 +11,6 @@ import {
 export const about_image = "/images/about.png";
 //
 
-// ==================[ Years Experience ]================== //
-export const years_experience = 9;
-//
-
 // ==================[ Are you Freelancer? ]================== //
 export const is_freelancer = true; // true if you are, otherwise false
 //
@@ -221,7 +217,7 @@ export const languages = [
 export const funfacts = [
   // 1
   {
-    title: "Years of experience",
+    title: "Years Experience",
     Icon: experience,
     count: 9,
     color: "green",

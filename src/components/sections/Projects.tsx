@@ -24,7 +24,9 @@ const Projects = () => {
           {showAll
             ? projects
                 .slice(MAX)
-                .map((item, i) => <Project key={i} projectIdx={i} {...item} />)
+                .map((item, i) => (
+                  <Project key={i} projectIdx={i + MAX} {...item} />
+                ))
             : ""}
         </div>
         {projects.length > MAX && !showAll ? (
